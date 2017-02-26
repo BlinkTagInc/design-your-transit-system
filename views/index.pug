@@ -1,0 +1,133 @@
+extends layout
+
+block content
+  .row
+    .col-md-7.col-float-bottom
+      .panel.panel-transparent
+        .panel-body!= settings.text[language].introText
+
+      .panel.panel-dark
+        .panel-body
+          h3= settings.text[language].howItWorksTitle
+          .how-it-works!= settings.text[language].howItWorksContent
+
+    .col-md-5.col-float-bottom
+      .panel.panel-transparent
+        .panel-body!= settings.text[language].translationContent
+      .panel.panel-light
+        .panel-body
+          h3= settings.text[language].benefitCategoriesSectionTitle
+          dl
+            each benefitCategory in settings.benefitCategories
+              dt= benefitCategory.text[language].title
+              dd= benefitCategory.text[language].description
+
+  .row
+    #dashboard.dashboard
+      .col-md-5.col-md-offset-7
+        .dashboard-title= settings.text[language].dashboardTitle
+
+        .dashboard-meters
+          each benefitCategory in settings.benefitCategories
+            .dashboard-container(id=`${benefitCategory.key}`)
+              .dashboard-meter
+                .dashboard-meter-bar
+              .dashboard-meter-title= benefitCategory.text[language].title
+
+          #cost.dashboard-container
+            .dashboard-meter
+              .dashboard-meter-bar
+              .dashboard-meter-value
+            .dashboard-meter-title= settings.text[language].totalCostTitle
+
+  form
+    - var categoryTitle;
+    each strategy in strategies
+      if strategy.text[language].category !== categoryTitle
+        .row.section-title
+          .col-md-12
+            h3= strategy.text[language].category
+        - categoryTitle = strategy.text[language].category
+      .row.strategy
+        .col-md-7
+          label.strategy-info
+            input.strategy-input(type="checkbox" name=`${strategy.key}`)
+            img(src=`dest/images/icons/${language}/${strategy.key}.png`).strategy-image
+            img(src=`dest/images/icons/${language}/${strategy.key}_inverse.png`).strategy-image-selected
+            .strategy-title= strategy.text[language].title
+            .strategy-description= strategy.text[language].description
+
+        .col-md-5
+          .strategy-benefits
+            each benefit in strategy.benefits
+              .benefit
+                .benefit-title= benefit.text[language].title
+                .benefit-bars-container
+                  .benefit-bars
+                    - var i = 0;
+                    while i < benefit.weight
+                      .bar
+                      - i++;
+            .cost
+              .cost-title= settings.text[language].costTitle
+              .cost-signs
+                if settings.costStyle === 'numeric' || strategy.cost === 0
+                  span= `$${strategy.cost}`
+                else
+                  span= new Array(strategy.cost + 1).join('$')
+
+    .row.bottom-buttons
+      .col-md-12
+        button#reset.btn-bottom.btn-light= settings.text[language].resetTitle
+        input(type="submit" value=`${settings.text[language].submitTitle}`)#submit.btn-bottom.btn-dark
+
+  #modal-exceeded.modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type="button" data-dismiss="modal" aria-label=`${settings.text[language].modalCloseButton}`)
+            span(aria-hidden="true") &times;
+          h4.modal-title= settings.text[language].modalExceededTitle
+        .modal-body
+          p= settings.text[language].modalExceededContent
+        .modal-footer
+          button.btn.btn-default(type="button" data-dismiss="modal")= settings.text[language].modalCloseButton
+
+  #modal-none.modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type="button" data-dismiss="modal" aria-label=`${settings.text[language].modalCloseButton}`)
+            span(aria-hidden="true") &times;
+          h4.modal-title= settings.text[language].modalNoneTitle
+        .modal-body
+          p= settings.text[language].modalNoneContent
+        .modal-footer
+          button.btn.btn-default(type="button" data-dismiss="modal")= settings.text[language].modalCloseButton
+
+
+  #modal-leftover.modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type="button" data-dismiss="modal" aria-label=`${settings.text[language].modalCloseButton}`)
+            span(aria-hidden="true") &times;
+          h4.modal-title= settings.text[language].modalLeftoverTitle
+        .modal-body
+          p= settings.text[language].modalLeftoverContent
+        .modal-footer
+          button.btn.btn-default(type="button" data-dismiss="modal")= settings.text[language].modalGoBackButton
+          button#continueSubmit.btn.btn-primary= settings.text[language].modalContinueButton
+
+  #modal-submit.modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type="button" data-dismiss="modal" aria-label=`${settings.text[language].modalCloseButton}`)
+            span(aria-hidden="true") &times;
+          h4.modal-title= settings.text[language].modalSubmitTitle
+        .modal-body
+          p= settings.text[language].modalSubmitContent
+        .modal-footer
+          button.btn.btn-default(type="button" data-dismiss="modal")= settings.text[language].modalGoBackButton
+          button.btn.btn-primary= settings.text[language].modalSubmitButton

@@ -1,0 +1,31 @@
+.bottom-buttons {
+  margin-top: 20px;
+}
+
+.btn-bottom {
+  text-align: center;
+  width: 50%;
+  height: 53px;
+  font-size: 14px;
+  line-height: 53px;
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+}
+
+.btn-light {
+  background: $light-grey;
+
+  &:hover {
+    background: darken($light-grey, 10%);
+  }
+}
+
+.btn-dark {
+  background: $green;
+  color: $white;
+
+  &:hover {
+    background: darken($green, 10%);
+  }
+}

@@ -1,0 +1,25 @@
+footer {
+  padding: 10px;
+  color: $white;
+  background-color: $dark-red;
+  margin-top: 25px;
+
+  a {
+    color: $white;
+  }
+
+  .copyright {
+    padding-top: 12px;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  footer {
+    padding: 20px;
+
+    .copyright {
+      padding-top: 0;
+      text-align: right;
+    }
+  }
+}
