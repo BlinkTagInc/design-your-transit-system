@@ -131,3 +131,14 @@ block content
         .modal-footer
           button.btn.btn-default(type="button" data-dismiss="modal")= settings.text[language].modalGoBackButton
           button.btn.btn-primary= settings.text[language].modalSubmitButton
+
+  #modal-post-submit.modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type="button" data-dismiss="modal" aria-label=`${settings.text[language].modalCloseButton}`)
+            span(aria-hidden="true") &times;
+          h4.modal-title= settings.text[language].modalPostSubmitTitle
+        .modal-body
+          p!= settings.text[language].modalPostSubmitContent
+        .modal-footer!= settings.text[language].modalPostSubmitButtons

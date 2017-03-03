@@ -146,6 +146,11 @@ $('#modal-submit .btn-primary').click(function () {
       return false;
     }
 
-    window.location = `${settings.postSurveyURL[language]}?c=${body.id}`;
+    if (settings.postSurveyURL) {
+      window.location = `${settings.postSurveyURL[language]}?c=${body.id}`;
+    } else {
+      $('#modal-submit').modal('hide');
+      $('#modal-post-submit').modal('show');
+    }
   });
 });

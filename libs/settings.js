@@ -45,10 +45,6 @@ module.exports = {
   costStyle: 'dollar',
   maxCost: 15,
   maxBenefitLevel: 4,
-  postSurveyURL: {
-    en: 'https://www.blinktag.com',
-    es: 'https://www.blinktag.com'
-  },
   text: {
     en: {
       siteTitle: 'San Francisco Municipal Railway Design Your Transit System',
@@ -73,6 +69,9 @@ module.exports = {
       modalLeftoverContent: 'You still have some budget remaining! Is there anything else you would like to select?',
       modalSubmitTitle: 'Last Chance',
       modalSubmitContent: 'Answers cannot be changed after you submit them.  Are you sure you are ready to submit?',
+      modalPostSubmitTitle: 'Thanks for your responses',
+      modalPostSubmitContent: 'We\'ve run this survey system with over 20 transit agencies, from Ohio to the San Francisco Bay. <a href="mailto:info@blinktag.com">Get in touch</a> to set this up in your community.',
+      modalPostSubmitButtons: '<a href="http://blinktag.com" class="btn btn-default">Read More</a> <a href="mailto:info@blinktag.com" class="btn btn-primary">Contact</a>',
       modalCloseButton: 'Close',
       modalGoBackButton: 'Go Back',
       modalContinueButton: 'Continue',
@@ -101,6 +100,9 @@ module.exports = {
       modalLeftoverContent: '¡Todavía tienes un presupuesto pendiente! ¿Hay algo más que le gustaría seleccionar?',
       modalSubmitTitle: 'Última oportunidad',
       modalSubmitContent: 'Las respuestas no se pueden cambiar después de enviarlas. ¿Está seguro de que está listo para enviar?',
+      modalPostSubmitTitle: 'Thanks for your responses',
+      modalPostSubmitContent: 'We\'ve run this survey system with over 20 transit agencies, from Ohio to the San Francisco Bay. <a href="info@blinktag.com">Get in touch</a> to set this up in your community.',
+      modalPostSubmitButtons: '<a href="http://blinktag.com" class="btn btn-primary">Read More</a> <a href="mailto:info@blinktag.com" class="btn btn-default">Contact</a>',
       modalCloseButton: 'Cerrar',
       modalGoBackButton: 'Regresa',
       modalContinueButton: 'Continuar',
