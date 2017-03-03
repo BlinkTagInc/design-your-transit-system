@@ -47,12 +47,12 @@ module.exports = {
   maxBenefitLevel: 4,
   text: {
     en: {
-      siteTitle: 'San Francisco Municipal Railway Design Your Transit System',
-      logoAlt: 'San Francisco Municipal Railway',
-      introText: '<h2>How would you improve MUNI?</h2><p>BlinkTag wants your suggestions for improving the MUNI system.</p><p>This survey allows you to select potential improvements that you think will help improve SF MUNI.</p>',
+      siteTitle: 'Black Rock Transit Design Your Transit System',
+      logoAlt: 'Black Rock Transit',
+      introText: '<h2>How would you improve Black Rock Transit?</h2><p>BlinkTag wants your suggestions for improving the Black Rock Transit system.</p><p>This survey allows you to select potential improvements that you think will help improve Black Rock Transit.</p>',
       benefitCategoriesSectionTitle: 'Benefit Categories',
       howItWorksTitle: 'Here\'s how to Participate',
-      howItWorksContent: '<ul><li>Scroll down to see the strategies that could improve transit in San Francisco.</li><li>You have 15 dollar signs ($) to spend. Mix and  match potential improvements to see how the costs and benefits change by clicking the check boxes below.</li><li>Spend your budget by selecting your preferred strategies.</li></ul>',
+      howItWorksContent: '<ul><li>Scroll down to see the strategies that could improve transit in Black Rock City.</li><li>You have 15 dollar signs ($) to spend. Mix and  match potential improvements to see how the costs and benefits change by clicking the check boxes below.</li><li>Spend your budget by selecting your preferred strategies.</li></ul>',
       translationContent: '<p>Haga <a href="/es">clic aquí</a> para completar la encuesta en español.</p>',
       dashboardTitle: 'Your Overall Benefits',
       totalCostTitle: 'Total Cost (Max $15)',
@@ -60,7 +60,7 @@ module.exports = {
       resetTitle: 'Reset',
       submitTitle: 'Submit',
       footerCopyright: '&copy; 2017 <a href="http://blinktag.com">BlinkTag Inc</a>',
-      footerAbout: 'This was created by BlinkTag Inc as an example "Design Your Transit System" survey.',
+      footerAbout: 'This was created by BlinkTag Inc as an example "Design Your Transit System" survey for <a href="http://playapillar.com">Black Rock Transit</a>.',
       modalExceededTitle: 'Budget Exhausted',
       modalExceededContent: 'You\'ve exceeded your budget. Please change your selections to reallocate your funds before submitting. Click the screen to continue.',
       modalNoneTitle: 'No Budget Created',
@@ -78,8 +78,8 @@ module.exports = {
       modalSubmitButton: 'Submit'
     },
     es: {
-      siteTitle: 'San Francisco Municipal Railway',
-      logoAlt: 'San Francisco Municipal Railway',
+      siteTitle: 'Black Rock Transit',
+      logoAlt: 'Black Rock Transit',
       introText: '<h3></h3><p></p>',
       benefitCategoriesSectionTitle: 'Categorías de Beneficios',
       howItWorksTitle: 'Así es cómo Funciona:',
