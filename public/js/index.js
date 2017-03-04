@@ -105,6 +105,17 @@ function clearAll() {
   $('.strategy-input').prop('checked', false).trigger('change');
 }
 
+function submitValues(cb) {
+  const form = {
+    language
+  };
+  $('.strategy-input').each((idx, item) => {
+    form[item.name] = $(item).is(':checked');
+  });
+
+  $.post('/api/response', form, cb);
+}
+
 $('#reset').click(() => {
   clearAll();
   validateBudget();
@@ -133,14 +144,8 @@ $('#continueSubmit').click(() => {
 
 $('#modal-submit .btn-primary').click(function () {
   $(this).attr('disabled', 'disabled');
-  const form = {
-    language
-  };
-  $('.strategy-input').each((idx, item) => {
-    form[item.name] = $(item).is(':checked');
-  });
 
-  $.post('/api/response', form, body => {
+  submitValues(body => {
     if (body.status === 'error') {
       console.error('error');
       return false;

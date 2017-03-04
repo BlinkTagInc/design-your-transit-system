@@ -70,7 +70,7 @@ module.exports = {
       modalLeftoverContent: 'You still have some budget remaining! Is there anything else you would like to select?',
       modalSubmitTitle: 'Last Chance',
       modalSubmitContent: 'Answers cannot be changed after you submit them.  Are you sure you are ready to submit?',
-      modalPostSubmitTitle: 'Thanks for your responses',
+      modalPostSubmitTitle: 'Get Started Today',
       modalPostSubmitContent: 'We\'ve run this survey system with over 20 transit agencies, from Ohio to the San Francisco Bay. <a href="mailto:info@blinktag.com">Get in touch</a> to set this up in your community.',
       modalPostSubmitButtons: '<a href="http://blinktag.com" class="btn btn-default">Read More</a> <a href="mailto:info@blinktag.com" class="btn btn-primary">Contact</a>',
       modalCloseButton: 'Close',
