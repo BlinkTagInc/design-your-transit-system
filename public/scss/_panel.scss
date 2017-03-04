@@ -17,8 +17,16 @@
 }
 
 .panel-light {
-  background: $light-grey;
-  border-color: darken($light-grey, 5%);
+  background: $orange;
+  border-color: darken($orange, 5%);
+  color: $white;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $white;
+  }
 }
 
 .panel-dark {

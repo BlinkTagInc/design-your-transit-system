@@ -22,11 +22,10 @@
 }
 
 .btn-dark {
-  background: $green;
-  color: $white;
+  background: $light-orange;
+  color: $black;
 
   &:hover {
-    background: darken($green, 10%);
-    color: $white;
+    background: darken($light-orange, 10%);
   }
 }

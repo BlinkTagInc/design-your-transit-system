@@ -1,6 +1,6 @@
 .dashboard {
   color: $white;
-  background: $black;
+  background: $orange;
   overflow: hidden;
   padding: 8px 5px;
 
@@ -29,7 +29,7 @@
         margin: 5px 0;
 
         .dashboard-meter-bar {
-          background: $light-blue;
+          background: $orange;
           width: 60px;
           height: 0;
           position: absolute;
