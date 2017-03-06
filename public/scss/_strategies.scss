@@ -13,7 +13,8 @@
     font-weight: normal;
     cursor: pointer;
     display: block;
-    min-height: 75px;
+    min-height: 85px;
+    padding: 5px 0;
 
     .strategy-input {
       float: left;
@@ -44,8 +45,9 @@
   }
 
   .strategy-benefits {
-    height: 75px;
-    padding: 0 5px;
+    background: $light-grey;
+    height: 85px;
+    padding: 5px;
 
     .benefit,
     .cost {
@@ -68,13 +70,13 @@
 
         .benefit-bars {
           position: absolute;
-          bottom: 0;
+          bottom: 5px;
           width: 60px;
 
           .bar {
             width: 100%;
             height: 8px;
-            background: $orange;
+            background: $yellow;
             margin-bottom: 2px;
           }
         }
@@ -104,7 +106,12 @@
     }
 
     .strategy-benefits {
-      background: $light-grey;
+      background: $dark-red;
+      color: $white;
+
+      .cost-signs {
+        color: $white;
+      }
     }
   }
 }

@@ -9,16 +9,18 @@
 
 .panel-transparent {
   box-shadow: none;
+  background: none;
   margin-bottom: 5px;
 
   .panel-body {
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
 .panel-light {
-  background: $orange;
-  border-color: darken($orange, 5%);
+  background: $yellow;
+  border-color: transparent;
   color: $white;
 
   h1,

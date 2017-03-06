@@ -11,6 +11,8 @@
   }
 
   .dashboard-meters {
+    margin-left: 1px;
+
     .dashboard-container {
       width: 60px;
       float: left;
@@ -29,7 +31,7 @@
         margin: 5px 0;
 
         .dashboard-meter-bar {
-          background: $orange;
+          background: $yellow;
           width: 60px;
           height: 0;
           position: absolute;

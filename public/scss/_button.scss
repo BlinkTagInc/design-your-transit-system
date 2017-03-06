@@ -7,7 +7,7 @@
   width: 50%;
   height: 53px;
   font-size: 14px;
-  line-height: 53px;
+  line-height: 48px;
   cursor: pointer;
   border: none;
   border-radius: 0;
@@ -22,10 +22,10 @@
 }
 
 .btn-dark {
-  background: $light-orange;
+  background: $orange;
   color: $black;
 
   &:hover {
-    background: darken($light-orange, 10%);
+    background: lighten($orange, 5%);
   }
 }
