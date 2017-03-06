@@ -10,8 +10,8 @@ module.exports = {
           description: 'Increase transit ridership'
         },
         es: {
-          title: '',
-          description: ''
+          title: 'Pasajero',
+          description: 'Aumentar el número de viajeros en tránsito'
         }
       }
     },
@@ -23,8 +23,8 @@ module.exports = {
           description: 'Increase the number of people who can easily access transit'
         },
         es: {
-          title: '',
-          description: ''
+          title: 'Acceso al tránsito',
+          description: 'Aumentar el número de personas que pueden acceder fácilmente al tránsito'
         }
       }
     },
@@ -36,8 +36,8 @@ module.exports = {
           description: 'Improve the experience of riding transit'
         },
         es: {
-          title: '',
-          description: ''
+          title: 'Experiencia del pasajero',
+          description: 'Mejorar la experiencia de viajar en tránsito'
         }
       }
     }
@@ -71,7 +71,7 @@ module.exports = {
       modalSubmitTitle: 'Last Chance',
       modalSubmitContent: 'Answers cannot be changed after you submit them.  Are you sure you are ready to submit?',
       modalPostSubmitTitle: 'Get Started Today',
-      modalPostSubmitContent: 'We\'ve run this survey system with over 20 transit agencies, from Ohio to the San Francisco Bay. <a href="mailto:info@blinktag.com">Get in touch</a> to set this up in your community.',
+      modalPostSubmitContent: 'BlinkTag has run this survey system with over 20 transit agencies, from Ohio to the San Francisco Bay. <a href="mailto:info@blinktag.com">Get in touch</a> to set this up in your community.',
       modalPostSubmitButtons: '<a href="http://blinktag.com" class="btn btn-default">Read More</a> <a href="mailto:info@blinktag.com" class="btn btn-primary">Contact</a>',
       modalCloseButton: 'Close',
       modalGoBackButton: 'Go Back',
@@ -79,12 +79,12 @@ module.exports = {
       modalSubmitButton: 'Submit'
     },
     es: {
-      siteTitle: 'Black Rock Transit',
+      siteTitle: 'Diseñe su sistema de tránsito',
       logoAlt: 'Black Rock Transit',
-      introText: '<h3></h3><p></p>',
+      introText: '<h2>¿Cómo mejorarías Black Rock Transit?</h2><p>BlinkTag quiere sus sugerencias para mejorar el sistema Black Rock Transit.</p><p>Esta encuesta le permite seleccionar mejoras potenciales que usted piensa que ayudarán a mejorar el tránsito de Black Rock.</p>',
       benefitCategoriesSectionTitle: 'Categorías de Beneficios',
       howItWorksTitle: 'Así es cómo Funciona:',
-      howItWorksContent: '<ul><li></li></ul>',
+      howItWorksContent: '<ul><li>Desplácese hacia abajo para ver las estrategias que podrían mejorar el tránsito en Black Rock City.</li><li>Tienes 15 signos de dólar ($) para gastar. Combine y mejore posibles mejoras para ver cómo cambian los costos y beneficios al hacer clic en las casillas de verificación a continuación.</li><li>Pase su presupuesto seleccionando sus estrategias preferidas.</li></ul>',
       translationContent: 'Take the survey in English',
       translationUrl: '/',
       dashboardTitle: 'Sus Beneficios Generales',
@@ -93,7 +93,7 @@ module.exports = {
       resetTitle: 'Reiniciar',
       submitTitle: 'Enviar',
       footerCopyright: '&copy; 2017 <a href="http://blinktag.com">BlinkTag Inc<a>',
-      footerAbout: '',
+      footerAbout: 'Esto fue creado por Blink Tag Inc como un ejemplo de "Diseño de su sistema de tránsito" encuesta de <a href="http://playapillar.com">Black Rock Transit</a>.',
       modalExceededTitle: 'Presupuesto agotado',
       modalExceededContent: 'Has superado tu presupuesto. Cambie sus selecciones para reasignar sus fondos antes de enviarlos. Haga clic en la pantalla para continuar.',
       modalNoneTitle: 'No hay presupuesto creado',
@@ -102,8 +102,8 @@ module.exports = {
       modalLeftoverContent: '¡Todavía tienes un presupuesto pendiente! ¿Hay algo más que le gustaría seleccionar?',
       modalSubmitTitle: 'Última oportunidad',
       modalSubmitContent: 'Las respuestas no se pueden cambiar después de enviarlas. ¿Está seguro de que está listo para enviar?',
-      modalPostSubmitTitle: 'Thanks for your responses',
-      modalPostSubmitContent: 'We\'ve run this survey system with over 20 transit agencies, from Ohio to the San Francisco Bay. <a href="info@blinktag.com">Get in touch</a> to set this up in your community.',
+      modalPostSubmitTitle: 'Get Started Today',
+      modalPostSubmitContent: 'BlinkTag has run this survey system with over 20 transit agencies, from Ohio to the San Francisco Bay. <a href="info@blinktag.com">Get in touch</a> to set this up in your community.',
       modalPostSubmitButtons: '<a href="http://blinktag.com" class="btn btn-primary">Read More</a> <a href="mailto:info@blinktag.com" class="btn btn-default">Contact</a>',
       modalCloseButton: 'Cerrar',
       modalGoBackButton: 'Regresa',

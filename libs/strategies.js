@@ -10,9 +10,9 @@ module.exports = [
         category: 'Transit Service'
       },
       es: {
-        title: '',
-        description: '',
-        category: ''
+        title: 'Servicio de lunes a viernes',
+        description: 'Invertir en las rutas existentes para que los autobuses vienen con más frecuencia durante la semana.',
+        category: 'Servicio de tránsito'
       }
     },
     benefits: {
@@ -31,9 +31,9 @@ module.exports = [
         category: 'Transit Service'
       },
       es: {
-        title: '',
-        description: '',
-        category: ''
+        title: 'Servicio de fin de semana',
+        description: 'Invertir en las rutas existentes para que los autobuses vienen con más frecuencia los fines de semana.',
+        category: 'Servicio de tránsito'
       }
     },
     benefits: {
@@ -52,9 +52,9 @@ module.exports = [
         category: 'Transit Service'
       },
       es: {
-        title: '',
-        description: '',
-        category: ''
+        title: 'Rutas locales',
+        description: 'Aumentar el número de autobuses que hacen paradas frecuentes durante las horas de conmutar entre semana.',
+        category: 'Servicio de tránsito'
       }
     },
     benefits: {
@@ -73,9 +73,9 @@ module.exports = [
         category: 'Transit Service'
       },
       es: {
-        title: '',
-        description: '',
-        category: ''
+        title: 'Rutas expresas',
+        description: 'Aumentar el número de autobuses en las rutas expresas durante las horas de viaje los fines de semana.',
+        category: 'Servicio de tránsito'
       }
     },
     benefits: {
@@ -94,9 +94,9 @@ module.exports = [
         category: 'Transit Service'
       },
       es: {
-        title: '',
-        description: '',
-        category: ''
+        title: 'Tecnología en todas las rutas',
+        description: 'Invertir en mejoras de capital como la prioridad de la señal de tránsito, lo que hará que todos los buses sean más rápidos.',
+        category: 'Servicio de tránsito'
       }
     },
     benefits: {
@@ -115,9 +115,9 @@ module.exports = [
         category: 'Customer Amenities'
       },
       es: {
-        title: '',
-        description: '',
-        category: ''
+        title: 'Más refugios en paradas de autobús',
+        description: 'Ampliar los refugios de autobuses a más paradas, mejorando la experiencia de esperar a que llegue un autobús .',
+        category: 'Servicios al Cliente'
       }
     },
     benefits: {
@@ -136,9 +136,9 @@ module.exports = [
         category: 'Customer Amenities'
       },
       es: {
-        title: '',
-        description: '',
-        category: ''
+        title: 'Mejorar la iluminación en las paradas de autobús',
+        description: 'Las paradas de autobús iluminadas proporcionan seguridad mejorada al cliente y seguridad operacional',
+        category: 'Servicios al Cliente'
       }
     },
     benefits: {
@@ -157,9 +157,9 @@ module.exports = [
         category: 'Customer Amenities'
       },
       es: {
-        title: '',
-        description: '',
-        category: ''
+        title: 'Mejorar la información en línea',
+        description: 'Rediseño del sitio web para facilitar el acceso a los horarios ya las alertas de servicio desde un dispositivo de escritorio o móvil.',
+        category: 'Servicios al Cliente'
       }
     },
 
@@ -179,9 +179,9 @@ module.exports = [
         category: 'Customer Amenities'
       },
       es: {
-        title: '',
-        description: '',
-        category: ''
+        title: 'Proporcionar información en tiempo real en paradas de autobús',
+        description: 'Señales de información de llegada de autobús en tiempo real permitirán a los pasajeros ver cuándo viene el próximo autobús',
+        category: 'Servicios al Cliente'
       }
     },
     benefits: {
@@ -200,9 +200,9 @@ module.exports = [
         category: 'Customer Amenities'
       },
       es: {
-        title: '',
-        description: '',
-        category: ''
+        title: 'Crear aplicación para smartphone',
+        description: 'Desarrollar una aplicación móvil fácil de usar que proporcione información sobre horarios e información de llegada',
+        category: 'Servicios al Cliente'
       }
     },
     benefits: {
