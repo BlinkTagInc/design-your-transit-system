@@ -13,7 +13,8 @@ block content
 
     .col-md-5.col-float-bottom
       .translation-content
-        a.btn.btn-medium.btn-lg(href=`${settings.text[language].translationUrl}`)!= settings.text[language].translationContent
+        h3
+          a(href=`${settings.text[language].translationUrl}`)!= settings.text[language].translationContent
       .panel.panel-light
         .panel-body
           h3= settings.text[language].benefitCategoriesSectionTitle
