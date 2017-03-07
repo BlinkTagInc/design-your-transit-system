@@ -2,7 +2,7 @@
   color: $white;
   background: $orange;
   overflow: hidden;
-  padding: 8px 5px;
+  padding: 8px 4px;
 
   .dashboard-title {
     font-weight: bold;
@@ -76,7 +76,6 @@
 
 @media (min-width: 325px) {
   .dashboard {
-    padding: 8px 5px;
 
     .dashboard-meters {
       .dashboard-container {
