@@ -18,7 +18,7 @@ block content
       .panel.panel-light
         .panel-body
           h3= settings.text[language].benefitCategoriesSectionTitle
-          dl
+          dl.benefits-list
             each benefitCategory in settings.benefitCategories
               dt= benefitCategory.text[language].title
               dd= benefitCategory.text[language].description
