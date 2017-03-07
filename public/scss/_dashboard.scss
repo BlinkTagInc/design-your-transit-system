@@ -7,7 +7,13 @@
   .dashboard-title {
     font-weight: bold;
     font-size: 14px;
-    margin: 0 0 0 8px;
+    margin: 0;
+    display: inline-block;
+
+    &.dashboard-title-cost {
+      margin-left: 3px;
+      width: 179px;
+    }
   }
 
   .dashboard-meters {
@@ -76,6 +82,12 @@
 
 @media (min-width: 325px) {
   .dashboard {
+    .dashboard-title {
+      &.dashboard-title-cost {
+        margin-left: 8px;
+        width: 220px;
+      }
+    }
 
     .dashboard-meters {
       .dashboard-container {
