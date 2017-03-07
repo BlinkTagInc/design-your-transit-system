@@ -56,7 +56,7 @@ block content
             input.strategy-input(type="checkbox" name=`${strategy.key}`)
             img(src=`dest/images/icons/${language}/${strategy.key}.png`).strategy-image
             img(src=`dest/images/icons/${language}/${strategy.key}_inverse.png`).strategy-image-selected
-            .strategy-title= strategy.text[language].title
+            h4.strategy-title= strategy.text[language].title
             .strategy-description= strategy.text[language].description
 
         .col-md-5
