@@ -6,18 +6,23 @@
 
   .dashboard-title {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
     margin: 0;
-    display: inline-block;
+
+    &.dashboard-title-benefit {
+      margin-left: 3px;
+      float: left;
+    }
 
     &.dashboard-title-cost {
-      margin-left: 3px;
-      width: 179px;
+      margin-right: 62px;
+      float: right;
     }
   }
 
   .dashboard-meters {
     margin-left: 1px;
+    clear: both;
 
     .dashboard-container {
       width: 60px;
@@ -83,9 +88,12 @@
 @media (min-width: 325px) {
   .dashboard {
     .dashboard-title {
-      &.dashboard-title-cost {
+      &.dashboard-title-benefit {
         margin-left: 8px;
-        width: 220px;
+      }
+
+      &.dashboard-title-cost {
+        margin-right: 75px;
       }
     }
 
