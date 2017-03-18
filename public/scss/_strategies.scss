@@ -115,7 +115,19 @@
   }
 }
 
-@media (min-width: 325px) {
+
+@media (min-width: 345px) {
+  .strategy {
+    .strategy-benefits {
+      .benefit,
+      .cost {
+        margin: 5px 4px;
+      }
+    }
+  }
+}
+
+@media (min-width: 375px) {
   .strategy {
     .strategy-benefits {
       .benefit,

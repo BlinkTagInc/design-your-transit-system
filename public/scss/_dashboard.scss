@@ -85,7 +85,17 @@
   }
 }
 
-@media (min-width: 325px) {
+@media (min-width: 345px) {
+  .dashboard {
+    .dashboard-meters {
+      .dashboard-container {
+        margin: 0 4px;
+      }
+    }
+  }
+}
+
+@media (min-width: 375px) {
   .dashboard {
     .dashboard-title {
       &.dashboard-title-benefit {
