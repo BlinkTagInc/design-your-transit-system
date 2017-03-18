@@ -25,12 +25,13 @@ function getBenefitByKey(key) {
 }
 
 exports.formatStrategy = strategy => {
-  strategy.benefits = _.map(strategy.benefits, (weight, key) => {
+  strategy.benefits = settings.benefitCategories.map(benefitCategory => {
+    const weight = strategy.benefits[benefitCategory.key];
     return {
-      key,
+      key: benefitCategory.key,
       weight,
       weightClass: getWeightClass(weight),
-      text: getBenefitByKey(key).text
+      text: getBenefitByKey(benefitCategory.key).text
     };
   });
   return strategy;
