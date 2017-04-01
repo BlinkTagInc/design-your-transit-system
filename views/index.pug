@@ -26,8 +26,9 @@ block content
   .row
     #dashboard.dashboard
       .col-md-5.col-md-offset-7
-        .dashboard-title.dashboard-title-benefit= settings.text[language].dashboardTitleBenefits
-        .dashboard-title.dashboard-title-cost= settings.text[language].dashboardTitleCosts
+        .dashboard-titles
+          .dashboard-title.dashboard-title-benefit= settings.text[language].dashboardTitleBenefits
+          .dashboard-title.dashboard-title-cost= settings.text[language].dashboardTitleCosts
 
         .dashboard-meters
           each benefitCategory in settings.benefitCategories

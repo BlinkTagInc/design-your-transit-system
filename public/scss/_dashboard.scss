@@ -4,19 +4,22 @@
   overflow: hidden;
   padding: 8px 4px;
 
-  .dashboard-title {
-    font-weight: bold;
-    font-size: 13px;
-    margin: 0;
+  .dashboard-titles {
+    width: 246px;
 
-    &.dashboard-title-benefit {
-      margin-left: 3px;
-      float: left;
-    }
+    .dashboard-title {
+      font-weight: bold;
+      font-size: 13px;
+      margin: 0;
 
-    &.dashboard-title-cost {
-      margin-right: 62px;
-      float: right;
+      &.dashboard-title-benefit {
+        margin-left: 3px;
+        float: left;
+      }
+
+      &.dashboard-title-cost {
+        float: right;
+      }
     }
   }
 
@@ -87,6 +90,9 @@
 
 @media (min-width: 345px) {
   .dashboard {
+    .dashboard-titles {
+      width: 268px;
+    }
     .dashboard-meters {
       .dashboard-container {
         margin: 0 4px;
@@ -97,13 +103,11 @@
 
 @media (min-width: 375px) {
   .dashboard {
-    .dashboard-title {
-      &.dashboard-title-benefit {
-        margin-left: 8px;
-      }
+    .dashboard-titles {
+      width: 290px;
 
-      &.dashboard-title-cost {
-        margin-right: 75px;
+      .dashboard-title.dashboard-title-benefit {
+        margin-left: 8px;
       }
     }
 
