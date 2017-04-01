@@ -26,8 +26,8 @@ block content
   .row
     #dashboard.dashboard
       .col-md-5.col-md-offset-7
-        h3.dashboard-title.dashboard-title-benefit= settings.text[language].dashboardTitleBenefits
-        h3.dashboard-title.dashboard-title-cost= settings.text[language].dashboardTitleCosts
+        .dashboard-title.dashboard-title-benefit= settings.text[language].dashboardTitleBenefits
+        .dashboard-title.dashboard-title-cost= settings.text[language].dashboardTitleCosts
 
         .dashboard-meters
           each benefitCategory in settings.benefitCategories
@@ -53,9 +53,9 @@ block content
       .row.strategy
         .col-md-7
           label.strategy-info
-            input.strategy-input(type="checkbox" name=`${strategy.key}`)
-            img(src=`dest/images/icons/${language}/${strategy.key}.png`).strategy-image
-            img(src=`dest/images/icons/${language}/${strategy.key}_inverse.png`).strategy-image-selected
+            input.strategy-input(type="checkbox" name=`${strategy.key}` title=`${strategy.text[language].title}`)
+            img(src=`dest/images/icons/${language}/${strategy.key}.png` alt="").strategy-image
+            img(src=`dest/images/icons/${language}/${strategy.key}_inverse.png` alt="").strategy-image-selected
             h4.strategy-title= strategy.text[language].title
             .strategy-description= strategy.text[language].description
 
