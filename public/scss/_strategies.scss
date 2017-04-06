@@ -7,6 +7,8 @@
 }
 
 .strategy {
+  margin-bottom: 5px;
+
   .strategy-info {
     background: $light-grey;
     margin-bottom: 0;
@@ -47,13 +49,15 @@
     background: $light-grey;
     height: 85px;
     padding: 5px;
+    text-align: center;
 
     .benefit,
     .cost {
       width: 60px;
       margin: 5px 1px;
-      float: left;
       height: 65px;
+      display: inline-block;
+      vertical-align: top;
 
       .benefit-title,
       .cost-title {
@@ -147,12 +151,19 @@
   }
 
   .strategy {
-    margin-bottom: 5px;
+    background: $light-grey;
+
+    &.selected {
+      background: $dark-red;
+    }
+
+    .strategy-info {
+      .strategy-input {
+        margin: 31px 10px 31px 5px;
+      }
+    }
 
     .strategy-benefits {
-      margin-left: -30px;
-      padding-left: 30px;
-      padding-right: 0;
 
       .benefit,
       .cost {

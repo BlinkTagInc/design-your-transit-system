@@ -4,9 +4,11 @@
   overflow: hidden;
   padding: 8px 4px;
   transform: translateZ(0);
+  text-align: center;
 
   .dashboard-titles {
     width: 246px;
+    display: inline-block;
 
     .dashboard-title {
       font-weight: bold;
@@ -25,17 +27,12 @@
   }
 
   .dashboard-meters {
-    margin-left: 1px;
-    clear: both;
 
     .dashboard-container {
       width: 60px;
-      float: left;
       margin: 0 1px;
-
-      &:last-child {
-        margin-right: 0;
-      }
+      display: inline-block;
+      vertical-align: top;
 
       .dashboard-meter {
         position: relative;
