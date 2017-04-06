@@ -9,7 +9,8 @@ header {
   }
 
   .title {
-    margin: 5px 0 0 60px;
+    margin: 0;
+    padding: 5px 0 0 60px;
     font-size: 22px;
   }
 }
@@ -38,13 +39,27 @@ header {
   }
 }
 
+@media (min-width: 550px) {
+  header {
+    .title {
+      padding: 19px 0 0 69px;
+    }
+  }
+}
+
 @media (min-width: $screen-md-min) {
   header {
     padding: 0;
 
+    .logo {
+      width: 90px;
+      height: 90px;
+    }
+
     .title {
-      margin: 15px 0 0 60px;
-      font-size: 24px;
+      padding: 29px 0 0 120px;
+      font-size: 36px;
+      float: none;
     }
   }
 
