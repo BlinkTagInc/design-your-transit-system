@@ -2,7 +2,7 @@ extends layout
 
 block content
   .row
-    .col-md-7.col-float-bottom
+    .col-md-7
       .panel.panel-transparent
         .panel-body!= settings.text[language].introText
 
@@ -11,17 +11,16 @@ block content
           h3= settings.text[language].howItWorksTitle
           .how-it-works!= settings.text[language].howItWorksContent
 
-    .col-md-5.col-float-bottom
-      .translation-content
-        h3
-          a(href=`${settings.text[language].translationUrl}`)!= settings.text[language].translationContent
-      .panel.panel-light
+    .col-md-5
+      .panel.panel-transparent
         .panel-body
           h3= settings.text[language].benefitCategoriesSectionTitle
           dl.benefits-list
             each benefitCategory in settings.benefitCategories
               dt= benefitCategory.text[language].title
               dd= benefitCategory.text[language].description
+      .panel.panel-light.translation-content
+        a(href=`${settings.text[language].translationUrl}`)!= settings.text[language].translationContent
 
   .row
     #dashboard.dashboard

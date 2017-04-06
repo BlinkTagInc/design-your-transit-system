@@ -48,7 +48,7 @@ module.exports = {
   text: {
     en: {
       siteTitle: 'Black Rock Transit: Design Your Transit System',
-      headerTitle: 'Black Rock Transit: Design Your Transit System',
+      headerTitle: 'Black Rock Transit: <span class="subtitle">Design Your Transit System</span>',
       logoAlt: 'Black Rock Transit',
       introText: '<h2>How would you improve Black Rock Transit?</h2><p>BlinkTag wants your suggestions for improving the Black Rock Transit system.</p><p>This survey allows you to select potential improvements that you think will help improve Black Rock Transit.</p>',
       benefitCategoriesSectionTitle: 'Benefit Categories',
@@ -82,7 +82,7 @@ module.exports = {
     },
     es: {
       siteTitle: 'Black Rock Transit: Diseñe su sistema de tránsito',
-      headerTitle: 'Black Rock Transit: Diseñe su sistema de tránsito',
+      headerTitle: 'Black Rock Transit: <span class="subtitle">Diseñe su sistema de tránsito</span>',
       logoAlt: 'Black Rock Transit',
       introText: '<h2>¿Cómo mejorarías Black Rock Transit?</h2><p>BlinkTag quiere sus sugerencias para mejorar el sistema Black Rock Transit.</p><p>Esta encuesta le permite seleccionar mejoras potenciales que usted piensa que ayudarán a mejorar el tránsito de Black Rock.</p>',
       benefitCategoriesSectionTitle: 'Categorías de Beneficios',

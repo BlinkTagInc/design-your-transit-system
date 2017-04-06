@@ -24,7 +24,7 @@ html(lang="en")
         header
           .col-md-12
             img.logo(src="dest/images/logo.png" srcset="dest/images/logo.png 1x, dest/images/logo@2x.png 2x" alt=`${settings.text[language].logoAlt}`)
-            h1.title= settings.text[language].headerTitle
+            h1.title!= settings.text[language].headerTitle
       .stripes
         .stripe
         .stripe

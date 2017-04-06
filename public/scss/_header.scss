@@ -10,8 +10,13 @@ header {
 
   .title {
     margin: 0;
-    padding: 5px 0 0 60px;
+    padding: 8px 0 0 60px;
     font-size: 22px;
+
+    .subtitle {
+      font-size: 17px;
+      display: block;
+    }
   }
 }
 
@@ -36,6 +41,16 @@ header {
 
   .stripe:nth-child(3) {
     background: $dark-red;
+  }
+}
+
+@media (min-width: 375px) {
+  header .title {
+    padding-top: 5px;
+    .subtitle {
+      font-size: inherit;
+      display: inline;
+    }
   }
 }
 
