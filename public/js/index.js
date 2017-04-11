@@ -17,14 +17,6 @@ $('#dashboard').sticky({zIndex: 1});
 // Enable modals
 $('.modal').modal({show: false});
 
-// resize strategy height to fit all text
-if ($(window).width() >= 992) {
-  $('.strategy').each((idx, strategy) => {
-    const rowHeight = $('.strategy-info', strategy).height();
-    $('.strategy-benefits', strategy).height(rowHeight);
-  });
-}
-
 // Calculate max benefit totals
 const maxBenefits = getMaxBenefits();
 
