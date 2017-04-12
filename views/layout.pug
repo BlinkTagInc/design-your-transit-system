@@ -12,7 +12,7 @@ html(lang="en")
     link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
 
     link(href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css")
-    link(rel="stylesheet" href="dest/css/style.css")
+    link(rel="stylesheet" href="/dest/css/style.css")
 
   body
     <!--[if lt IE 10]>
@@ -23,7 +23,7 @@ html(lang="en")
       .row
         header
           .col-md-12
-            img.logo(src="dest/images/logo.png" srcset="dest/images/logo.png 1x, dest/images/logo@2x.png 2x" alt=`${settings.text[language].logoAlt}`)
+            img.logo(src="/dest/images/logo.png" srcset="/dest/images/logo.png 1x, /dest/images/logo@2x.png 2x" alt=`${settings.text[language].logoAlt}`)
             h1.title!= settings.text[language].headerTitle
       .stripes
         .stripe
@@ -37,4 +37,4 @@ html(lang="en")
         .copyright.col-md-3!= settings.text[language].footerCopyright
 
     script!= `var language='${language}';`
-    script(src="dest/index.js")
+    script(src="/dest/index.js")
