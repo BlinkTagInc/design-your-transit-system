@@ -69,7 +69,7 @@ module.exports = [
     text: {
       en: {
         title: 'Express Routes',
-        description: 'Increase the number of buses on express routes during commute hours on weekedays.',
+        description: 'Increase the number of buses on express routes during commute hours on weekdays.',
         category: 'Transit Service'
       },
       es: {
