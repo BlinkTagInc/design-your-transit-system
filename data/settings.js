@@ -65,7 +65,7 @@ module.exports = {
       footerCopyright: '&copy; 2017 <a href="http://blinktag.com">BlinkTag Inc</a>',
       footerAbout: 'This was created by BlinkTag Inc as an example "Design Your Transit System" survey for <a href="http://playapillar.com">Black Rock Transit</a>.',
       modalExceededTitle: 'Budget Exhausted',
-      modalExceededContent: 'You\'ve exceeded your budget. Please change your selections to reallocate your funds before submitting. Click the screen to continue.',
+      modalExceededContent: 'You\'ve exceeded your budget. Please change your selections to reallocate your funds before submitting.',
       modalNoneTitle: 'No Budget Created',
       modalNoneContent: 'You haven\'t selected any strategies. Choose at least one strategy and then try submitting again.',
       modalLeftoverTitle: 'Budget Remaining',
@@ -99,7 +99,7 @@ module.exports = {
       footerCopyright: '&copy; 2017 <a href="http://blinktag.com">BlinkTag Inc<a>',
       footerAbout: 'Esto fue creado por Blink Tag Inc como un ejemplo de "Diseño de su sistema de tránsito" encuesta de <a href="http://playapillar.com">Black Rock Transit</a>.',
       modalExceededTitle: 'Presupuesto agotado',
-      modalExceededContent: 'Has superado tu presupuesto. Cambie sus selecciones para reasignar sus fondos antes de enviarlos. Haga clic en la pantalla para continuar.',
+      modalExceededContent: 'Has superado tu presupuesto. Cambie sus selecciones para reasignar sus fondos antes de enviarlos.',
       modalNoneTitle: 'No hay presupuesto creado',
       modalNoneContent: 'No has seleccionado ninguna estrategia. Elija al menos una estrategia y luego intente volver a enviarla.',
       modalLeftoverTitle: 'Presupuesto restante',
@@ -115,4 +115,4 @@ module.exports = {
       modalSubmitButton: 'Enviar'
     }
   }
-};
+}

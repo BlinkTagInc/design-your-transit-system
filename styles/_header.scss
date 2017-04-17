@@ -5,7 +5,7 @@ header {
     float: left;
     width: 50px;
     height: 50px;
-    margin: 5px 0 0;
+    margin: 5px 0;
   }
 
   .title {
@@ -18,28 +18,10 @@ header {
       display: block;
     }
   }
-}
-
-.stripes {
-  height: 10px;
-  overflow: hidden;
-  margin-bottom: 10px;
 
   .stripe {
-    height: 10px;
-    width: 33.33%;
-    display: inline-block;
-  }
-
-  .stripe:nth-child(1) {
-    background: $dark-red;
-  }
-
-  .stripe:nth-child(2) {
-    background: $dark-red;
-  }
-
-  .stripe:nth-child(3) {
+    height: 7px;
+    clear: both;
     background: $dark-red;
   }
 }
@@ -64,7 +46,7 @@ header {
 
 @media (min-width: $screen-md-min) {
   header {
-    padding: 0;
+    padding: 0 0 15px;
 
     .logo {
       width: 90px;
@@ -76,9 +58,5 @@ header {
       font-size: 36px;
       float: none;
     }
-  }
-
-  .stripes {
-    margin-bottom: 15px;
   }
 }

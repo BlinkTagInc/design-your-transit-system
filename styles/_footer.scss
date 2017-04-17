@@ -11,19 +11,10 @@ footer {
       color: darken($white, 10%);
     }
   }
-
-  .copyright {
-    padding-top: 12px;
-  }
 }
 
 @media (min-width: $screen-md-min) {
   footer {
     padding: 20px;
-
-    .copyright {
-      padding-top: 0;
-      text-align: right;
-    }
   }
 }

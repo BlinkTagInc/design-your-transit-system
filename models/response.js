@@ -1,18 +1,17 @@
-const mongoose = require('mongoose');
-const _ = require('lodash');
-const strategies = require('../libs/strategies');
+const mongoose = require('mongoose')
+const strategies = require('../data/strategies')
 
 const strategyModels = strategies.reduce((memo, strategy) => {
-  memo[strategy.key] = Boolean;
-  return memo;
-}, {});
+  memo[strategy.key] = Boolean
+  return memo
+}, {})
 
-const Response = mongoose.model('response', new mongoose.Schema(_.extend({
+const Response = mongoose.model('response', new mongoose.Schema(Object.assign({
   id: String,
   timestamp: String,
   ip: String,
   userAgent: String,
   language: String
-}, strategyModels)));
+}, strategyModels)))
 
-module.exports = Response;
+module.exports = Response

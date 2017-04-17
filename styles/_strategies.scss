@@ -22,16 +22,11 @@
       margin: 31px 10px;
     }
 
-    .strategy-image,
-    .strategy-image-selected {
+    .strategy-image {
       width: 75px;
       height: 75px;
       float: left;
       margin-right: 10px;
-    }
-
-    .strategy-image-selected {
-      display: none;
     }
 
     .strategy-title {
@@ -97,14 +92,6 @@
     .strategy-info {
       background: $dark-red;
       color: $white;
-
-      .strategy-image {
-        display: none;
-      }
-
-      .strategy-image-selected {
-        display: block;
-      }
     }
 
     .strategy-benefits {

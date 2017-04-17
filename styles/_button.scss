@@ -29,4 +29,8 @@
   &:hover {
     background: lighten($orange, 5%);
   }
+
+  &:disabled {
+    color: lighten($orange, 50%);
+  }
 }
