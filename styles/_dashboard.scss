@@ -6,11 +6,10 @@
   color: $white;
   background: $orange;
   overflow: hidden;
-  padding: 8px 4px;
-  transform: translateZ(0);
   text-align: center;
 
   .dashboard-titles {
+    padding-top: 8px;
     width: 246px;
     display: inline-block;
 
@@ -31,6 +30,7 @@
   }
 
   .dashboard-meters {
+    padding-bottom: 8px;
 
     .dashboard-container {
       width: 60px;

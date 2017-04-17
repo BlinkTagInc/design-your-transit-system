@@ -55,7 +55,7 @@ export default class Dashboard extends React.Component {
   render() {
     const language = this.props.language
     return (
-      <div id="dashboard" className="dashboard">
+      <div className="dashboard">
         <div className="col-md-5 col-md-offset-7">
           <div className="dashboard-titles">
             <div className="dashboard-title dashboard-title-benefit">{ settings.text[language].dashboardTitleBenefits }</div>
