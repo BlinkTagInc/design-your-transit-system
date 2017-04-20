@@ -135,6 +135,7 @@ export default class Strategies extends React.Component {
         method: 'post',
         body: JSON.stringify(form)
       })
+      .then(response => response.json())
       .then(this.handleResponse)
       .catch(this.handleError)
     }
