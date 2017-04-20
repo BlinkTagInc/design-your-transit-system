@@ -41,7 +41,7 @@ The `ADMIN_USERNAME` and `ADMIN_PASSWORD` are used for bulk .csv export of surve
 
 ### In a new tab, run the app
 
-    gulp develop
+    npm run dev
 
 ### Open your browser and visit:
 
