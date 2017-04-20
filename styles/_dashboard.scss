@@ -4,7 +4,7 @@
 
 .dashboard {
   color: $white;
-  background: $orange;
+  background: $total-bar;
   overflow: hidden;
   text-align: center;
 
@@ -55,7 +55,7 @@
         }
 
         .dashboard-meter-bar {
-          background: $yellow;
+          background: $value-bars;
           width: 60px;
           height: 0;
           position: absolute;

@@ -9,7 +9,7 @@
   margin-bottom: 5px;
 
   .strategy-info {
-    background: $light-grey;
+    background: $inactive-selection;
     margin-bottom: 0;
     font-weight: normal;
     cursor: pointer;
@@ -40,7 +40,7 @@
   }
 
   .strategy-benefits {
-    background: $light-grey;
+    background: $inactive-selection;
     height: 85px;
     padding: 5px 0;
     text-align: center;
@@ -73,7 +73,7 @@
           .bar {
             width: 100%;
             height: 8px;
-            background: $yellow;
+            background: $value-bars;
             margin-bottom: 2px;
           }
         }
@@ -90,12 +90,12 @@
 
   &.selected {
     .strategy-info {
-      background: $dark-red;
+      background: $active-selection;
       color: $white;
     }
 
     .strategy-benefits {
-      background: $dark-red;
+      background: $active-selection;
       color: $white;
 
       .cost-signs {
@@ -137,10 +137,10 @@
   }
 
   .strategy {
-    background: $light-grey;
+    background: $inactive-selection;
 
     &.selected {
-      background: $dark-red;
+      background: $active-selection;
     }
 
     .strategy-info {

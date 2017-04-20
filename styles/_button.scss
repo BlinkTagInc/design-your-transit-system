@@ -15,22 +15,22 @@
 }
 
 .btn-light {
-  background: $light-grey;
+  background: $inactive-selection;
 
   &:hover {
-    background: darken($light-grey, 10%);
+    background: darken($inactive-selection, 10%);
   }
 }
 
 .btn-dark {
-  background: $orange;
+  background: $total-bar;
   color: $black;
 
   &:hover {
-    background: lighten($orange, 5%);
+    background: lighten($total-bar, 5%);
   }
 
   &:disabled {
-    color: lighten($orange, 50%);
+    color: lighten($total-bar, 50%);
   }
 }
