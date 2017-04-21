@@ -1,14 +1,21 @@
 const Response = require('../models/response')
 const strategies = require('../data/strategies')
 
+function extractClientIp(request) {
+  const xFF = request.headers['x-forwarded-for']
+  const ip = xFF ? xFF.split(',').slice(-1)[0] : request.info.remoteAddress
+  return ip
+}
+
 module.exports = (request, reply) => {
   const date = new Date()
-  const id = `${request.info.remoteAddress}-${Date.now()}`
+  const ip = extractClientIp(request)
+  const id = `${ip}-${Date.now()}`
   const body = JSON.parse(request.payload)
   const responseData = {
     id,
     timestamp: date.toISOString(),
-    ip: request.info.remoteAddress,
+    ip,
     userAgent: request.headers['user-agent'],
     language: body.language
   }
