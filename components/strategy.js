@@ -35,9 +35,15 @@ export default class Strategy extends React.Component {
               onChange={this.toggleSelected}
                />
             <img
-              src={`static/images/icons/${language}/${strategy.key}${this.props.selected ? '_inverse' : ''}.png`}
+              src={`static/images/icons/${language}/${strategy.key}.png`}
               alt=""
-              className="strategy-image" />
+              className={classNames({hidden: Boolean(this.props.selected)}, 'strategy-image')}
+            />
+            <img
+              src={`static/images/icons/${language}/${strategy.key}_inverse.png`}
+              alt=""
+              className={classNames({hidden: !this.props.selected}, 'strategy-image')}
+            />
             <h4 className="strategy-title">{ strategy.text[language].title }</h4>
             <div className="strategy-description">{ strategy.text[language].description }</div>
           </label>
