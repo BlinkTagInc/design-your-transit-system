@@ -1,6 +1,7 @@
 const next = require('next')
 const Hapi = require('hapi')
 const HapiBasicAuth = require('hapi-auth-basic')
+const HapiRequireHttps = require('hapi-require-https')
 const Good = require('good')
 const mongoose = require('mongoose')
 const { pathWrapper, defaultHandlerWrapper } = require('./next-wrapper')
@@ -45,6 +46,13 @@ app.prepare()
   server.register(HapiBasicAuth)
   .then(() => {
     server.auth.strategy('simple', 'basic', {validateFunc: validate})
+
+    // Uncomment to force SSL
+    // if (process.env.NODE_ENV === 'production') {
+    //   server.register({
+    //     register: HapiRequireHttps
+    //   })
+    // }
 
     server.route({
       method: 'POST',

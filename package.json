@@ -15,6 +15,7 @@
     "good-console": "6.4.0",
     "hapi": "16.1.1",
     "hapi-auth-basic": "4.2.0",
+    "hapi-require-https": "2.1.0",
     "json2csv": "3.7.3",
     "mongoose": "4.9.4",
     "next": "2.1.1",
