@@ -52,17 +52,22 @@ export default class Strategies extends React.Component {
     }
 
     this.handleResponse = response => {
-      this.setState({
-        submitting: false
-      })
-
       if (settings.postSurveyURL) {
+        this.setState({
+          submitting: false,
+          showModal: true,
+          modalTitle: settings.text[this.props.language].modalPostSubmitTitle,
+          modalContent: settings.text[this.props.language].modalPostSubmitContent,
+          modalButtons: []
+        })
+
         window.location.replace(`${settings.postSurveyURL[this.props.language]}?c=${response.id}`)
       } else {
         const modalButtons = (
           <div dangerouslySetInnerHTML={{__html: settings.text[this.props.language].modalPostSubmitButtons}} />
         )
         this.setState({
+          submitting: false,
           showModal: true,
           modalTitle: settings.text[this.props.language].modalPostSubmitTitle,
           modalContent: settings.text[this.props.language].modalPostSubmitContent,
