@@ -114,6 +114,14 @@
     .dashboard-meters {
       .dashboard-container {
         margin: 0 7px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
   }
