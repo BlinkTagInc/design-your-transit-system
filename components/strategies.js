@@ -225,12 +225,19 @@ export default class Strategies extends React.Component {
       <StickyContainer>
         <div className="row">
           <Sticky>
-            <Dashboard
-              language={language}
-              totalCost={this.state.totalCost}
-              totalBenefits={this.state.totalBenefits}
-              budgetIsValid={this.state.budgetIsValid}
-            />
+            {
+              (style) => {
+                return (
+                  <Dashboard
+                    style={style}
+                    language={language}
+                    totalCost={this.state.totalCost}
+                    totalBenefits={this.state.totalBenefits}
+                    budgetIsValid={this.state.budgetIsValid}
+                  />
+                )
+              }
+            }
           </Sticky>
         </div>
         <form onSubmit={this.submit}>
