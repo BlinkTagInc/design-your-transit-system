@@ -7,10 +7,16 @@ const mongoose = require('mongoose')
 const { pathWrapper, defaultHandlerWrapper } = require('./next-wrapper')
 
 const dev = process.env.NODE_ENV !== 'production'
-require('dotenv').config();
+require('dotenv').config()
 
-const app = next({ dev })
-const server = new Hapi.Server()
+const app = next({dev})
+const server = new Hapi.Server({
+  connections: {
+    state: {
+      strictHeader: false
+    }
+  }
+})
 
 // Use native promises
 mongoose.Promise = global.Promise
@@ -19,7 +25,7 @@ mongoose.connect(process.env.MONGODB_URI)
 const responseHandler = require('./api/response')
 const exportResponses = require('./api/export')
 
-// add request logging (optional)
+// Add request logging (optional)
 const pluginOptions = [
   {
     register: Good,
