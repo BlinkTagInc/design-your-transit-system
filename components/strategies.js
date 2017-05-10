@@ -5,6 +5,9 @@ import {StickyContainer, Sticky} from 'react-sticky'
 import strategies from '../data/strategies'
 import Strategy from './strategy'
 
+require('es6-promise').polyfill()
+require('isomorphic-fetch')
+
 export default class Strategies extends React.Component {
   constructor(props) {
     super(props)
