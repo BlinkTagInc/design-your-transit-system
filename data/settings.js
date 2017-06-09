@@ -53,7 +53,7 @@ module.exports = {
       introText: '<h2>How would you improve Black Rock Transit?</h2><p>BlinkTag wants your suggestions for improving the Black Rock Transit system.</p><p>This survey allows you to select potential improvements that you think will help improve Black Rock Transit.</p>',
       benefitCategoriesSectionTitle: 'Benefit Categories',
       howItWorksTitle: 'Here\'s how to Participate',
-      howItWorksContent: '<ul><li>Scroll down to see the strategies that could improve transit in Black Rock City.</li><li>You have 15 dollar signs ($) to spend. Mix and  match potential improvements to see how the costs and benefits change by clicking the check boxes below.</li><li>Spend your budget by selecting your preferred strategies.</li></ul>',
+      howItWorksContent: '<ul><li>Scroll down to see the strategies that could improve transit in Black Rock City.</li><li>You have 15 dollar signs ($) to spend. Mix and match potential improvements to see how the costs and benefits change by clicking the check boxes below.</li><li>Spend your budget by selecting your preferred strategies.</li></ul>',
       translationContent: 'Completar la encuesta en español',
       translationUrl: '/es',
       dashboardTitleBenefits: 'Your Overall Benefits',

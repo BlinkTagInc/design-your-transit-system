@@ -64,8 +64,14 @@ export default ({children, language = 'en'}) => (
       <Strategies language={language} />
 
       <footer className="row">
-        <div className="about col-md-9" dangerouslySetInnerHTML={{__html: settings.text[language].footerAbout}} />
-        <div className="copyright col-md-3" dangerouslySetInnerHTML={{__html: settings.text[language].footerCopyright}} />
+        <div
+          className="col-md-9"
+          dangerouslySetInnerHTML={{__html: settings.text[language].footerAbout}}
+        />
+        <div
+          className="col-md-3 text-right"
+          dangerouslySetInnerHTML={{__html: settings.text[language].footerCopyright}}
+        />
       </footer>
     </div>
   </div>
