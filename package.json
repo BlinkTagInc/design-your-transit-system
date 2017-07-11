@@ -4,13 +4,13 @@
   "version": "0.1.0",
   "dependencies": {
     "@mars/heroku-nextjs-build": "2.0.0",
-    "autoprefixer": "7.1.1",
+    "autoprefixer": "7.1.2",
     "babel-plugin-module-resolver": "2.7.1",
     "babel-plugin-wrap-in-js": "1.1.1",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "dotenv": "4.0.0",
-    "es6-promise": "4.1.0",
+    "es6-promise": "4.1.1",
     "glob": "7.1.2",
     "good": "7.2.0",
     "good-console": "6.4.0",
@@ -18,25 +18,25 @@
     "hapi-auth-basic": "4.2.0",
     "hapi-require-https": "2.1.0",
     "isomorphic-fetch": "2.2.1",
-    "json2csv": "3.7.3",
-    "mongoose": "4.10.5",
-    "next": "2.4.3",
+    "json2csv": "3.9.0",
+    "mongoose": "4.11.1",
+    "next": "2.4.7",
     "node-sass": "4.5.3",
     "normalize.css": "7.0.0",
     "postcss-easy-import": "2.1.0",
-    "postcss-loader": "2.0.5",
+    "postcss-loader": "2.0.6",
     "raw-loader": "0.5.1",
-    "react": "15.5.4",
-    "react-dom": "15.5.4",
-    "react-modal": "1.7.11",
+    "react": "15.6.1",
+    "react-dom": "15.6.1",
+    "react-modal": "2.2.2",
     "react-sticky": "6.0.1",
-    "sass-loader": "6.0.5"
+    "sass-loader": "6.0.6"
   },
   "devDependencies": {
     "xo": "0.18.2"
   },
   "engines": {
-    "node": "8.1.0"
+    "node": "8.1.4"
   },
   "private": true,
   "scripts": {
