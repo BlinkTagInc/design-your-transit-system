@@ -1,4 +1,5 @@
 const Response = require('../models/response')
+const settings = require('../data/settings')
 const strategies = require('../data/strategies')
 
 function extractClientIp(request) {
@@ -25,6 +26,10 @@ module.exports = (request, reply) => {
   })
 
   console.log(responseData)
+
+  if (settings.saveResponses === false) {
+    return reply({status: 'success', id})
+  }
 
   const response = new Response(responseData)
 

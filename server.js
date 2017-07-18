@@ -4,7 +4,9 @@ const HapiBasicAuth = require('hapi-auth-basic')
 const HapiRequireHttps = require('hapi-require-https')
 const Good = require('good')
 const mongoose = require('mongoose')
-const { pathWrapper, defaultHandlerWrapper } = require('./next-wrapper')
+const {defaultHandlerWrapper} = require('./next-wrapper')
+
+const settings = require('./data/settings')
 
 const dev = process.env.NODE_ENV !== 'production'
 require('dotenv').config()
@@ -18,9 +20,11 @@ const server = new Hapi.Server({
   }
 })
 
-// Use native promises
-mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGODB_URI)
+if (settings.saveResponses !== false) {
+  // Use native promises
+  mongoose.Promise = global.Promise
+  mongoose.connect(process.env.MONGODB_URI)
+}
 
 const responseHandler = require('./api/response')
 const exportResponses = require('./api/export')

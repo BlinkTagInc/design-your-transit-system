@@ -42,6 +42,7 @@ module.exports = {
       }
     }
   ],
+  saveResponses: false,
   costStyle: 'dollar',
   maxCost: 15,
   maxBenefitLevel: 4,
