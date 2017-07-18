@@ -1,9 +1,8 @@
 {
   "name": "design-your-transit-system",
   "author": "Brendan Nee <brendan@blinktag.com>",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
-    "@mars/heroku-nextjs-build": "2.0.0",
     "autoprefixer": "7.1.2",
     "babel-plugin-module-resolver": "2.7.1",
     "babel-plugin-wrap-in-js": "1.1.1",
@@ -18,8 +17,8 @@
     "hapi-auth-basic": "4.2.0",
     "hapi-require-https": "2.1.0",
     "isomorphic-fetch": "2.2.1",
-    "json2csv": "3.9.0",
-    "mongoose": "4.11.1",
+    "json2csv": "3.9.1",
+    "mongoose": "4.11.3",
     "next": "2.4.7",
     "node-sass": "4.5.3",
     "normalize.css": "7.0.0",
@@ -41,9 +40,8 @@
   "private": true,
   "scripts": {
     "dev": "node server.js",
-    "build": "next build",
-    "start": "node server.js",
-    "heroku-postbuild": "heroku-nextjs-build"
+    "build": "NODE_ENV=production next build",
+    "start": "NODE_ENV=production node server.js"
   },
   "xo": {
     "esnext": true,
