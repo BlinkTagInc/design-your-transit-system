@@ -3,7 +3,7 @@
   "author": "Brendan Nee <brendan@blinktag.com>",
   "version": "0.2.0",
   "dependencies": {
-    "autoprefixer": "7.1.2",
+    "autoprefixer": "7.1.3",
     "babel-plugin-module-resolver": "2.7.1",
     "babel-plugin-wrap-in-js": "1.1.1",
     "bootstrap-sass": "3.3.7",
@@ -11,15 +11,15 @@
     "dotenv": "4.0.0",
     "es6-promise": "4.1.1",
     "glob": "7.1.2",
-    "good": "7.2.0",
+    "good": "7.3.0",
     "good-console": "6.4.0",
-    "hapi": "16.4.3",
+    "hapi": "16.5.2",
     "hapi-auth-basic": "4.2.0",
     "hapi-require-https": "2.1.0",
     "isomorphic-fetch": "2.2.1",
-    "json2csv": "3.9.1",
-    "mongoose": "4.11.3",
-    "next": "2.4.7",
+    "json2csv": "3.11.1",
+    "mongoose": "4.11.10",
+    "next": "3.2.1",
     "node-sass": "4.5.3",
     "normalize.css": "7.0.0",
     "postcss-easy-import": "2.1.0",
@@ -27,9 +27,10 @@
     "raw-loader": "0.5.1",
     "react": "15.6.1",
     "react-dom": "15.6.1",
-    "react-modal": "2.2.2",
+    "react-modal": "2.3.2",
     "react-sticky": "6.0.1",
-    "sass-loader": "6.0.6"
+    "sass-loader": "6.0.6",
+    "webpack": "3.5.6"
   },
   "devDependencies": {
     "xo": "0.18.2"
