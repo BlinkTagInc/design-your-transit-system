@@ -3,6 +3,7 @@
   "author": "Brendan Nee <brendan@blinktag.com>",
   "version": "0.2.0",
   "dependencies": {
+    "@mars/heroku-nextjs-build": "2.0.0",
     "autoprefixer": "7.1.4",
     "babel-plugin-module-resolver": "2.7.1",
     "babel-plugin-wrap-in-js": "1.1.1",
@@ -41,8 +42,8 @@
   "private": true,
   "scripts": {
     "dev": "node server.js",
-    "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production node server.js",
+    "build": "next build",
+    "start": "node server.js",
     "heroku-postbuild": "next build"
   },
   "xo": {
