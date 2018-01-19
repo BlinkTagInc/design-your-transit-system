@@ -8,7 +8,7 @@ function extractClientIp(request) {
   return ip
 }
 
-module.exports = (request, reply) => {
+module.exports = async (request, h) => {
   const date = new Date()
   const ip = extractClientIp(request)
   const id = `${ip}-${Date.now()}`
@@ -28,16 +28,11 @@ module.exports = (request, reply) => {
   console.log(responseData)
 
   if (settings.saveResponses === false) {
-    return reply({status: 'success', id})
+    return {status: 'success', id}
   }
 
   const response = new Response(responseData)
 
-  response.save(err => {
-    if (err) {
-      return reply(err)
-    }
-
-    return reply({status: 'success', id})
-  })
+  await response.save()
+  return {status: 'success', id}
 }
