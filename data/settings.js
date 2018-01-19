@@ -109,7 +109,7 @@ module.exports = {
       modalSubmitContent: 'Las respuestas no se pueden cambiar después de enviarlas. ¿Está seguro de que está listo para enviar?',
       modalPostSubmitTitle: 'Get Started Today',
       modalPostSubmitContent: 'BlinkTag has run this survey system with over 20 transit agencies, from Ohio to the San Francisco Bay. <a href="info@blinktag.com">Get in touch</a> to set this up in your community.',
-      modalPostSubmitButtons: '<a href="http://blinktag.com" class="btn btn-primary">Read More</a> <a href="mailto:info@blinktag.com" class="btn btn-default">Contact</a>',
+      modalPostSubmitButtons: '<a href="http://blinktag.com" class="btn btn-secondary">Read More</a> <a href="mailto:info@blinktag.com" class="btn btn-primary">Contact</a>',
       modalCloseButton: 'Cerrar',
       modalGoBackButton: 'Regresa',
       modalContinueButton: 'Continuar',

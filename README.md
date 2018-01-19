@@ -10,7 +10,9 @@ Users are given a "budget" and asked to spend it on a set of investments and imp
 
 The results of the survey can be exported by an admin as a CSV file for use in comparing how different groups of transit users prioritize various improvements and investments.
 
-An exmple
+The system supports multiple languages, see the `data/settings.js` and `data/strategies.js` for an example of how to set up more than one language.
+
+An example can be seen at http://design-your-transit-system.blinktag.com/
 
 ## Local setup
 
@@ -51,12 +53,12 @@ The `ADMIN_USERNAME` and `ADMIN_PASSWORD` are used for bulk .csv export of surve
 
 While running the app, visit:
 
-    http://localhost:3000/responses.csv
+    http://localhost:3000/export
 
 The username and password are defined in the `.env` file.
 
 ## Current Use
-A version of this survey system has been used by over 20 transportation agencies, including Long Beach Transit, Boulder Transit, BART, Santa Monica Big Blue Bus, Lincoln Transit, Chapel Hill Transit, Foothill Transit, Ohio DOT, Salt Lake City and Fort Worth Transportation Authority and The Kauaʻi Bus.
+A version of this survey system has been used by over 30 transportation agencies, including Long Beach Transit, Boulder Transit, BART, Santa Monica Big Blue Bus, Lincoln Transit, Chapel Hill Transit, Foothill Transit, Ohio DOT, Salt Lake City and Fort Worth Transportation Authority and The Kauaʻi Bus.
 
 ## License
 This project is licensed under GNU General Public License v3.0.
