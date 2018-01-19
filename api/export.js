@@ -3,29 +3,26 @@ const json2csv = require('json2csv')
 const Response = require('../models/response')
 const strategies = require('../data/strategies')
 
-module.exports = (request, reply) => {
-  Response.find((err, responses) => {
-    if (err) {
-      return reply(err)
-    }
+module.exports = async (request, h) => {
+  const responses = await Response.find()
 
-    const fieldNames = [
-      'id',
-      'timestamp',
-      'ip',
-      'userAgent',
-      'language'
-    ].concat(strategies.map(strategy => strategy.key))
+  const fieldNames = [
+    'id',
+    'timestamp',
+    'ip',
+    'userAgent',
+    'language'
+  ].concat(strategies.map(strategy => strategy.key))
 
-    return json2csv({
-      data: responses,
-      fields: fieldNames
-    }, (err, csv) => {
-      if (err) {
-        return reply(err)
-      }
+  const csv = await json2csv({
+    data: responses,
+    fields: fieldNames
+  })
 
-      return reply(csv).header('content-type', 'text/csv').header('content-disposition', 'attachment; filename=responses.csv')
-    });
-  });
+  const response = h.response(csv)
+
+  response.header('content-type', 'text/csv')
+  response.header('content-disposition', 'attachment; filename=responses.csv')
+
+  return response
 }

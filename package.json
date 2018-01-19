@@ -1,43 +1,33 @@
 {
   "name": "design-your-transit-system",
   "author": "Brendan Nee <brendan@blinktag.com>",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "dependencies": {
-    "@mars/heroku-nextjs-build": "2.0.0",
-    "autoprefixer": "7.1.5",
-    "babel-plugin-module-resolver": "2.7.1",
-    "babel-plugin-wrap-in-js": "1.1.1",
-    "bootstrap-sass": "3.3.7",
-    "classnames": "2.2.5",
-    "dotenv": "4.0.0",
-    "es6-promise": "4.1.1",
-    "glob": "7.1.2",
-    "good": "7.3.0",
-    "good-console": "6.4.0",
-    "hapi": "16.6.2",
-    "hapi-auth-basic": "4.2.0",
-    "hapi-require-https": "2.1.0",
-    "isomorphic-fetch": "2.2.1",
-    "json2csv": "3.11.4",
-    "mongoose": "4.12.1",
-    "next": "4.0.3",
-    "node-sass": "4.5.3",
-    "normalize.css": "7.0.0",
-    "postcss-easy-import": "3.0.0",
-    "postcss-loader": "2.0.7",
-    "raw-loader": "0.5.1",
-    "react": "16.0.0",
-    "react-dom": "16.0.0",
-    "react-modal": "3.0.0",
-    "react-sticky": "6.0.1",
-    "sass-loader": "6.0.6",
-    "webpack": "3.6.0"
+    "@mars/heroku-nextjs-build": "^2.0.0",
+    "autoprefixer": "^7.2.5",
+    "classnames": "^2.2.5",
+    "color": "^2.0.1",
+    "dotenv": "^4.0.0",
+    "es6-promise": "^4.2.2",
+    "hapi": "^17.2.0",
+    "hapi-auth-basic": "^5.0.0",
+    "hapi-require-https": "^3.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "json2csv": "^3.11.5",
+    "mongoose": "^5.0.0",
+    "next": "^4.2.3",
+    "node-sass": "^4.7.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-modal": "^3.1.11",
+    "react-sticky": "^6.0.1",
+    "styled-jsx-plugin-sass": "^0.2.2"
   },
   "devDependencies": {
-    "xo": "0.18.2"
+    "xo": "^0.18.2"
   },
   "engines": {
-    "node": "8.5.0"
+    "node": "8.9.4"
   },
   "private": true,
   "scripts": {
@@ -53,5 +43,6 @@
   },
   "cacheDirectories": [
     "nextjs/node_modules"
-  ]
+  ],
+  "license": "MIT"
 }

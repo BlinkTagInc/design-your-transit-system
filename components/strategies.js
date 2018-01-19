@@ -4,6 +4,7 @@ import settings from '../data/settings'
 import {StickyContainer, Sticky} from 'react-sticky'
 import strategies from '../data/strategies'
 import Strategy from './strategy'
+import {breakpoints} from './theme'
 
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
@@ -183,10 +184,23 @@ export default class Strategies extends React.Component {
     this.state.categoryTitle = strategy.text[language].category
 
     return (
-      <div className="row section-title">
+      <div className="row">
         <div className="col-md-12">
-          <h3>{ strategy.text[language].category }</h3>
+          <h3 className="section-title">{ strategy.text[language].category }</h3>
         </div>
+        <style jsx>{`
+          h3.section-title {
+            font-size: 20px;
+            margin: 10px 15px;
+          }
+
+          @media (min-width: ${breakpoints.medium}) {
+            h3.section-title {
+              margin-left: 0;
+              margin-right: 0;
+            }
+          }
+        `}</style>
       </div>
     )
   }
@@ -194,12 +208,12 @@ export default class Strategies extends React.Component {
   getModalButtons(buttonKeys) {
     const modalButtons = {
       close: (
-        <button className="btn btn-default" type="button" onClick={ this.closeModal } key="close">
+        <button className="btn btn-secondary" type="button" onClick={ this.closeModal } key="close">
           { settings.text[this.props.language].modalCloseButton }
         </button>
       ),
       goback: (
-        <button className="btn btn-default" type="button" onClick={ this.closeModal } key="goback">
+        <button className="btn btn-secondary" type="button" onClick={ this.closeModal } key="goback">
           { settings.text[this.props.language].modalGoBackButton }
         </button>
       ),
@@ -223,23 +237,21 @@ export default class Strategies extends React.Component {
 
     return (
       <StickyContainer>
-        <div className="row">
-          <Sticky>
-            {
-              (style) => {
-                return (
-                  <Dashboard
-                    style={style}
-                    language={language}
-                    totalCost={this.state.totalCost}
-                    totalBenefits={this.state.totalBenefits}
-                    budgetIsValid={this.state.budgetIsValid}
-                  />
-                )
-              }
+        <Sticky>
+          {
+            (style) => {
+              return (
+                <Dashboard
+                  style={style}
+                  language={language}
+                  totalCost={this.state.totalCost}
+                  totalBenefits={this.state.totalBenefits}
+                  budgetIsValid={this.state.budgetIsValid}
+                />
+              )
             }
-          </Sticky>
-        </div>
+          }
+        </Sticky>
         <form onSubmit={this.submit}>
           {strategies.map(strategy => (
             <div key={strategy.key}>
@@ -277,6 +289,7 @@ export default class Strategies extends React.Component {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
+                <h5 className="modal-title">{ this.state.modalTitle }</h5>
                 <button
                   className="close"
                   type="button"
@@ -285,7 +298,6 @@ export default class Strategies extends React.Component {
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 className="modal-title">{ this.state.modalTitle }</h4>
               </div>
               <div className="modal-body">
                 <p dangerouslySetInnerHTML={{__html: this.state.modalContent}} />
@@ -296,7 +308,7 @@ export default class Strategies extends React.Component {
             </div>
           </div>
         </Modal>
-        </StickyContainer>
+      </StickyContainer>
     )
   }
 }

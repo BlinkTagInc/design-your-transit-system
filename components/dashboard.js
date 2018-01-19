@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import settings from '../data/settings'
 import strategies from '../data/strategies'
+import {colors, breakpoints} from './theme'
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -56,7 +57,7 @@ export default class Dashboard extends React.Component {
     const language = this.props.language
     return (
       <div className="dashboard" style={this.props.style.style}>
-        <div className="col-md-5 col-md-offset-7">
+        <div className="col-md-5 offset-md-7">
           <div className="dashboard-titles">
             <div className="dashboard-title dashboard-title-benefit">{ settings.text[language].dashboardTitleBenefits }</div>
             <div className="dashboard-title dashboard-title-cost">{ settings.text[language].dashboardTitleCosts }</div>
@@ -86,6 +87,138 @@ export default class Dashboard extends React.Component {
             </div>
           </div>
         </div>
+
+        <style jsx>{`
+          .sticky {
+            z-index: 1;
+          }
+
+          .dashboard {
+            color: ${colors.dashboardText};
+            background: ${colors.dashboard};
+            overflow: hidden;
+            text-align: center;
+            z-index: 1;
+
+            .dashboard-titles {
+              padding-top: 8px;
+              width: 246px;
+              display: inline-block;
+
+              .dashboard-title {
+                font-weight: bold;
+                font-size: 13px;
+                margin: 0;
+
+                &.dashboard-title-benefit {
+                  margin-left: 3px;
+                  float: left;
+                }
+
+                &.dashboard-title-cost {
+                  float: right;
+                }
+              }
+            }
+
+            .dashboard-meters {
+              padding-bottom: 8px;
+
+              .dashboard-container {
+                width: 60px;
+                margin: 0 1px;
+                display: inline-block;
+                vertical-align: top;
+
+                .dashboard-meter {
+                  position: relative;
+                  background: ${colors.dashboardMeterBackground};
+                  border-radius: 2px;
+                  width: 60px;
+                  height: 50px;
+                  margin: 5px 0;
+
+                  &.cost .dashboard-meter-bar {
+                    background: ${colors.dashboardMeterCost};
+                  }
+
+                  &.over-budget .dashboard-meter-bar {
+                    background: ${colors.dashboardMeterCostOver};
+                  }
+
+                  .dashboard-meter-bar {
+                    background: ${colors.dashboardMeter};
+                    width: 60px;
+                    height: 0;
+                    position: absolute;
+                    bottom: 0;
+                    -webkit-transition: height 500ms ease;
+                    -moz-transition: height 500ms ease;
+                    -ms-transition: height 500ms ease;
+                    transition: height 500ms ease;
+                  }
+
+                  .dashboard-meter-value {
+                    color: ${colors.dashboardMeterTextDark};
+                    text-align: center;
+                    padding-top: 17px;
+                    position: relative;
+                    font-weight: bold;
+                  }
+
+                  &.half-full .dashboard-meter-value {
+                    color: ${colors.dashboardMeterTextLight};
+                    text-shadow: 0px 0px 2px ${colors.dashboardMeterTextLightShadow};
+                  }
+                }
+
+                .dashboard-meter-title {
+                  font-size: 10px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+
+          @media (min-width: 345px) {
+            .dashboard {
+              .dashboard-titles {
+                width: 268px;
+              }
+              .dashboard-meters {
+                .dashboard-container {
+                  margin: 0 4px;
+                }
+              }
+            }
+          }
+
+          @media (min-width: 375px) {
+            .dashboard {
+              .dashboard-titles {
+                width: 290px;
+
+                .dashboard-title.dashboard-title-benefit {
+                  margin-left: 8px;
+                }
+              }
+
+              .dashboard-meters {
+                .dashboard-container {
+                  margin: 0 7px;
+
+                  &:first-child {
+                    margin-left: 0;
+                  }
+
+                  &:last-child {
+                    margin-right: 0;
+                  }
+                }
+              }
+            }
+          }
+        `}</style>
       </div>
     )
   }
