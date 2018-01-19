@@ -29,7 +29,7 @@ export default ({language = 'en'}) => (
         }
       }
 
-      @media (min-width: ${breakpoints.medium}) {
+      @media (min-width: ${breakpoints.large}) {
         footer {
           padding: 20px;
         }

@@ -102,7 +102,7 @@ export default ({language = 'en'}) => (
         }
       }
 
-      @media (min-width: ${breakpoints.medium}) {
+      @media (min-width: ${breakpoints.large}) {
         header {
           padding: 0;
 

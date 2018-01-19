@@ -24,7 +24,7 @@ export default class Strategy extends React.Component {
     const language = this.props.language
 
     return (
-      <div className={classNames('row', 'strategy', {selected: this.props.selected})}>
+      <div className={classNames('row', 'strategy', 'mb-1', {selected: this.props.selected})}>
         <div className="col-md-7">
           <label className="strategy-info">
             <input
@@ -74,8 +74,6 @@ export default class Strategy extends React.Component {
         </div>
         <style jsx>{`
           .strategy {
-            margin-bottom: 5px;
-
             .strategy-info {
               background: ${colors.strategy};
               margin-bottom: 0;
@@ -174,7 +172,6 @@ export default class Strategy extends React.Component {
               }
             }
           }
-
 
           @media (min-width: 345px) {
             .strategy {

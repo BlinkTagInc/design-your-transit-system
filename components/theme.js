@@ -45,5 +45,6 @@ exports.colors = {
 }
 
 exports.breakpoints = {
-  medium: '992px'
+  medium: '768px',
+  large: '992px'
 }

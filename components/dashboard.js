@@ -58,7 +58,7 @@ export default class Dashboard extends React.Component {
     return (
       <div className="dashboard" style={this.props.style.style}>
         <div className="col-md-5 offset-md-7">
-          <div className="dashboard-titles">
+          <div className="dashboard-titles pt-2">
             <div className="dashboard-title dashboard-title-benefit">{ settings.text[language].dashboardTitleBenefits }</div>
             <div className="dashboard-title dashboard-title-cost">{ settings.text[language].dashboardTitleCosts }</div>
           </div>
@@ -101,7 +101,6 @@ export default class Dashboard extends React.Component {
             z-index: 1;
 
             .dashboard-titles {
-              padding-top: 8px;
               width: 246px;
               display: inline-block;
 
@@ -152,9 +151,6 @@ export default class Dashboard extends React.Component {
                     height: 0;
                     position: absolute;
                     bottom: 0;
-                    -webkit-transition: height 500ms ease;
-                    -moz-transition: height 500ms ease;
-                    -ms-transition: height 500ms ease;
                     transition: height 500ms ease;
                   }
 
@@ -199,7 +195,7 @@ export default class Dashboard extends React.Component {
                 width: 290px;
 
                 .dashboard-title.dashboard-title-benefit {
-                  margin-left: 8px;
+                  margin-left: 6px;
                 }
               }
 

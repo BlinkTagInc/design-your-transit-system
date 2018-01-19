@@ -194,7 +194,7 @@ export default class Strategies extends React.Component {
             margin: 10px 15px;
           }
 
-          @media (min-width: ${breakpoints.medium}) {
+          @media (min-width: ${breakpoints.large}) {
             h3.section-title {
               margin-left: 0;
               margin-right: 0;
@@ -236,79 +236,81 @@ export default class Strategies extends React.Component {
     const language = this.props.language
 
     return (
-      <StickyContainer>
-        <Sticky>
-          {
-            (style) => {
-              return (
-                <Dashboard
-                  style={style}
-                  language={language}
-                  totalCost={this.state.totalCost}
-                  totalBenefits={this.state.totalBenefits}
-                  budgetIsValid={this.state.budgetIsValid}
-                />
-              )
+      <div class="row">
+        <StickyContainer>
+          <Sticky>
+            {
+              (style) => {
+                return (
+                  <Dashboard
+                    style={style}
+                    language={language}
+                    totalCost={this.state.totalCost}
+                    totalBenefits={this.state.totalBenefits}
+                    budgetIsValid={this.state.budgetIsValid}
+                  />
+                )
+              }
             }
-          }
-        </Sticky>
-        <form onSubmit={this.submit}>
-          {strategies.map(strategy => (
-            <div key={strategy.key}>
-              {this.getCategoryTitle(strategy, language)}
-              <Strategy
-                strategy={strategy}
-                language={language}
-                selected={Boolean(this.state.selectedStrategies[strategy.key])}
-                toggleSelected={this.toggleSelected}
-              />
-            </div>
-          ))}
+          </Sticky>
+          <form onSubmit={this.submit} className="container-fluid">
+            {strategies.map(strategy => (
+              <div key={strategy.key}>
+                {this.getCategoryTitle(strategy, language)}
+                <Strategy
+                  strategy={strategy}
+                  language={language}
+                  selected={Boolean(this.state.selectedStrategies[strategy.key])}
+                  toggleSelected={this.toggleSelected}
+                />
+              </div>
+            ))}
 
-          <div className="row bottom-buttons">
-            <div className="col-md-12">
-              <button
-                className="btn-bottom btn-light"
-                onClick={this.reset}
-              >{ settings.text[language].resetTitle }</button>
-              <input
-                className="btn-bottom btn-dark"
-                type="submit"
-                value={`${settings.text[language].submitTitle}`}
-                disabled={this.state.submitting}
-              />
-            </div>
-          </div>
-        </form>
-        <Modal
-          isOpen={this.state.showModal}
-          contentLabel="Modal"
-          className="modal-container"
-          style={{overlay: {zIndex: 2}}}
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">{ this.state.modalTitle }</h5>
+            <div className="row bottom-buttons">
+              <div className="col-md-12">
                 <button
-                  className="close"
-                  type="button"
-                  onClick={ this.closeModal }
-                  aria-label={settings.text[language].modalCloseButton}
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <p dangerouslySetInnerHTML={{__html: this.state.modalContent}} />
-              </div>
-              <div className="modal-footer">
-                { this.state.modalButtons }
+                  className="btn-bottom btn-light"
+                  onClick={this.reset}
+                >{ settings.text[language].resetTitle }</button>
+                <input
+                  className="btn-bottom btn-dark"
+                  type="submit"
+                  value={`${settings.text[language].submitTitle}`}
+                  disabled={this.state.submitting}
+                />
               </div>
             </div>
-          </div>
-        </Modal>
-      </StickyContainer>
+          </form>
+          <Modal
+            isOpen={this.state.showModal}
+            contentLabel="Modal"
+            className="modal-container"
+            style={{overlay: {zIndex: 2}}}
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">{ this.state.modalTitle }</h5>
+                  <button
+                    className="close"
+                    type="button"
+                    onClick={ this.closeModal }
+                    aria-label={settings.text[language].modalCloseButton}
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <p dangerouslySetInnerHTML={{__html: this.state.modalContent}} />
+                </div>
+                <div className="modal-footer">
+                  { this.state.modalButtons }
+                </div>
+              </div>
+            </div>
+          </Modal>
+        </StickyContainer>
+      </div>
     )
   }
 }

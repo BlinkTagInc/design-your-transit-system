@@ -108,25 +108,6 @@ export default ({children, language = 'en'}) => (
       .main-container {
         max-width: 960px;
       }
-
-      @media (max-width: ${breakpoints.medium}) {
-        .main-container {
-          padding-right: 0;
-          padding-left: 0;
-
-          > .row {
-            margin-right: 0;
-            margin-left: 0;
-
-            > .col,
-            > [class*="col-"] {
-              padding-right: 0;
-              padding-left: 0;
-            }
-          }
-        }
-      }
-
     `}</style>
   </div>
 )
