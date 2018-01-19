@@ -38,7 +38,8 @@ app.prepare()
   // Uncomment to force SSL
   // if (process.env.NODE_ENV === 'production') {
   //   await server.register({
-  //     register: HapiRequireHttps
+  //     plugin: HapiRequireHttps,
+  //     options: {}
   //   })
   // }
 
