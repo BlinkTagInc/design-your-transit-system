@@ -236,7 +236,7 @@ export default class Strategies extends React.Component {
     const language = this.props.language
 
     return (
-      <div class="row">
+      <div className="row">
         <StickyContainer>
           <Sticky>
             {
