@@ -18,7 +18,7 @@ An example can be seen at http://design-your-transit-system.blinktag.com/
 
 ### Install node.js and mongodb
 
-On OS X, if you have brew installed:
+On OS X, if you have [brew](https://brew.sh/) installed:
 
     brew install node
     brew install mongodb
@@ -31,9 +31,9 @@ On OS X, if you have brew installed:
 
 Create a file in the project root called `.env`. Setup values for `MONGODB_URI`, `ADMIN_USERNAME`, and `ADMIN_PASSWORD`.
 
-MONGODB_URI=mongodb://127.0.0.1:27017/yoursurveydatabase
-ADMIN_USERNAME=username
-ADMIN_PASSWORD=securepassword
+    MONGODB_URI=mongodb://127.0.0.1:27017/yoursurveydatabase
+    ADMIN_USERNAME=username
+    ADMIN_PASSWORD=securepassword
 
 The `ADMIN_USERNAME` and `ADMIN_PASSWORD` are used for bulk .csv export of survey responses.
 
@@ -55,7 +55,7 @@ While running the app, visit:
 
     http://localhost:3000/export
 
-The username and password are defined in the `.env` file.
+The username and password are defined in the `.env` file in the root of the project.
 
 ## Current Use
 A version of this survey system has been used by over 30 transportation agencies, including Long Beach Transit, Boulder Transit, BART, Santa Monica Big Blue Bus, Lincoln Transit, Chapel Hill Transit, Foothill Transit, Ohio DOT, Salt Lake City and Fort Worth Transportation Authority and The Kauaʻi Bus.

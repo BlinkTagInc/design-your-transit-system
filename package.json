@@ -1,12 +1,12 @@
 {
   "name": "design-your-transit-system",
   "author": "Brendan Nee <brendan@blinktag.com>",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "dependencies": {
     "@mars/heroku-nextjs-build": "^2.0.0",
     "autoprefixer": "^7.2.5",
     "classnames": "^2.2.5",
-    "color": "^2.0.1",
+    "color": "^3.0.0",
     "dotenv": "^4.0.0",
     "es6-promise": "^4.2.2",
     "hapi": "^17.2.0",
