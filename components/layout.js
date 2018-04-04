@@ -4,7 +4,7 @@ import settings from '../data/settings'
 import Strategies from './strategies'
 import Header from './header'
 import Footer from './footer'
-import {colors, breakpoints} from './theme'
+import {colors} from './theme'
 
 export default ({children, language = 'en'}) => (
   <div>

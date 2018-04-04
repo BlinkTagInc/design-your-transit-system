@@ -1,4 +1,4 @@
-import Color from 'color';
+import Color from 'color'
 
 const background = '#ffd674'
 const offWhite = '#F5F5F5'
@@ -9,7 +9,7 @@ const red = '#BF1E00'
 const black = '#1F2D39'
 const white = '#ffffff'
 
-exports.colors = {
+export const colors = {
   background,
   black,
   white,
@@ -44,7 +44,7 @@ exports.colors = {
   strategyCostSigns: green
 }
 
-exports.breakpoints = {
+export const breakpoints = {
   medium: '768px',
   large: '992px'
 }
