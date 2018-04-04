@@ -1,33 +1,33 @@
 {
   "name": "design-your-transit-system",
   "author": "Brendan Nee <brendan@blinktag.com>",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "dependencies": {
     "@mars/heroku-nextjs-build": "^2.0.0",
-    "autoprefixer": "^7.2.5",
+    "autoprefixer": "^8.2.0",
     "classnames": "^2.2.5",
     "color": "^3.0.0",
-    "dotenv": "^4.0.0",
-    "es6-promise": "^4.2.2",
-    "hapi": "^17.2.0",
+    "dotenv": "^5.0.1",
+    "es6-promise": "^4.2.4",
+    "hapi": "^17.3.1",
     "hapi-auth-basic": "^5.0.0",
     "hapi-require-https": "^3.0.0",
     "isomorphic-fetch": "^2.2.1",
-    "json2csv": "^3.11.5",
-    "mongoose": "^5.0.0",
-    "next": "^4.2.3",
-    "node-sass": "^4.7.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-modal": "^3.1.11",
-    "react-sticky": "^6.0.1",
-    "styled-jsx-plugin-sass": "^0.2.2"
+    "json2csv": "^4.0.2",
+    "mongoose": "^5.0.12",
+    "next": "^5.1.0",
+    "node-sass": "^4.8.3",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-modal": "^3.3.2",
+    "react-sticky": "^6.0.2",
+    "styled-jsx-plugin-sass": "^0.2.4"
   },
   "devDependencies": {
-    "xo": "^0.18.2"
+    "xo": "^0.20.3"
   },
   "engines": {
-    "node": "8.9.4"
+    "node": "8.11.1"
   },
   "private": true,
   "scripts": {
