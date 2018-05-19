@@ -142,7 +142,7 @@ export default class Dashboard extends React.Component {
                   }
 
                   &.over-budget .dashboard-meter-bar {
-                    background: ${colors.dashboardMeterCostOver};
+                    background: ${colors.dashboardMeterOverCost};
                   }
 
                   .dashboard-meter-bar {

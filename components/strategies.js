@@ -232,6 +232,12 @@ export default class Strategies extends React.Component {
     return buttonKeys.map(key => modalButtons[key])
   }
 
+  componentDidMount() {
+    if (typeof(window) !== 'undefined') {
+      Modal.setAppElement('body')
+    }
+  }
+
   render() {
     const language = this.props.language
 
