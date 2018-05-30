@@ -242,24 +242,26 @@ export default class Strategies extends React.Component {
     const language = this.props.language
 
     return (
-      <div className="row">
+      <div>
         <StickyContainer>
-          <Sticky>
-            {
-              (style) => {
-                return (
-                  <Dashboard
-                    style={style}
-                    language={language}
-                    totalCost={this.state.totalCost}
-                    totalBenefits={this.state.totalBenefits}
-                    budgetIsValid={this.state.budgetIsValid}
-                  />
-                )
+          <div className="sticky-container">
+            <Sticky>
+              {
+                (style) => {
+                  return (
+                    <Dashboard
+                      style={style}
+                      language={language}
+                      totalCost={this.state.totalCost}
+                      totalBenefits={this.state.totalBenefits}
+                      budgetIsValid={this.state.budgetIsValid}
+                    />
+                  )
+                }
               }
-            }
-          </Sticky>
-          <form onSubmit={this.submit} className="container-fluid">
+            </Sticky>
+          </div>
+          <form onSubmit={this.submit}>
             {strategies.map(strategy => (
               <div key={strategy.key}>
                 {this.getCategoryTitle(strategy, language)}
@@ -316,6 +318,13 @@ export default class Strategies extends React.Component {
             </div>
           </Modal>
         </StickyContainer>
+
+        <style jsx>{`
+          .sticky-container {
+            margin-right: -15px;
+            margin-left: -15px;
+          }
+        `}</style>
       </div>
     )
   }

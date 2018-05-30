@@ -57,33 +57,35 @@ export default class Dashboard extends React.Component {
     const language = this.props.language
     return (
       <div className="dashboard" style={this.props.style.style}>
-        <div className="col-md-5 offset-md-7">
-          <div className="dashboard-titles pt-2">
-            <div className="dashboard-title dashboard-title-benefit">{ settings.text[language].dashboardTitleBenefits }</div>
-            <div className="dashboard-title dashboard-title-cost">{ settings.text[language].dashboardTitleCosts }</div>
-          </div>
-          <div className="dashboard-meters">
-            {settings.benefitCategories.map(benefitCategory => (
-              <div className="dashboard-container" id={benefitCategory.key} key={benefitCategory.key}>
-                <div className="dashboard-meter">
+        <div className="row" style={{margin: 0}}>
+          <div className="col-md-5 offset-md-7">
+            <div className="dashboard-titles pt-2">
+              <div className="dashboard-title dashboard-title-benefit">{ settings.text[language].dashboardTitleBenefits }</div>
+              <div className="dashboard-title dashboard-title-cost">{ settings.text[language].dashboardTitleCosts }</div>
+            </div>
+            <div className="dashboard-meters">
+              {settings.benefitCategories.map(benefitCategory => (
+                <div className="dashboard-container" id={benefitCategory.key} key={benefitCategory.key}>
+                  <div className="dashboard-meter">
+                    <div
+                      className="dashboard-meter-bar"
+                      style={{height: `${this.state.benefitMeterHeights[benefitCategory.key]}px`}}></div>
+                  </div>
+                  <div className="dashboard-meter-title">{ benefitCategory.text[language].title }</div>
+                </div>
+              ))}
+
+              <div className="dashboard-container">
+                <div
+                  className={classNames('dashboard-meter cost', {'over-budget': !this.props.budgetIsValid}, this.getMeterHeightClass())}
+                  ref="costMeter">
                   <div
                     className="dashboard-meter-bar"
-                    style={{height: `${this.state.benefitMeterHeights[benefitCategory.key]}px`}}></div>
+                    style={{height: `${this.state.costMeterHeight}px`}}></div>
+                  <div className="dashboard-meter-value">{ this.props.totalCost > 0 ? `$${this.props.totalCost}` : '' }</div>
                 </div>
-                <div className="dashboard-meter-title">{ benefitCategory.text[language].title }</div>
+                <div className="dashboard-meter-title">{ settings.text[language].totalCostTitle }</div>
               </div>
-            ))}
-
-            <div className="dashboard-container">
-              <div
-                className={classNames('dashboard-meter cost', {'over-budget': !this.props.budgetIsValid}, this.getMeterHeightClass())}
-                ref="costMeter">
-                <div
-                  className="dashboard-meter-bar"
-                  style={{height: `${this.state.costMeterHeight}px`}}></div>
-                <div className="dashboard-meter-value">{ this.props.totalCost > 0 ? `$${this.props.totalCost}` : '' }</div>
-              </div>
-              <div className="dashboard-meter-title">{ settings.text[language].totalCostTitle }</div>
             </div>
           </div>
         </div>
