@@ -1,13 +1,13 @@
 {
   "name": "design-your-transit-system",
   "author": "Brendan Nee <brendan@blinktag.com>",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "dependencies": {
     "@mars/heroku-nextjs-build": "^2.0.0",
     "autoprefixer": "^8.5.0",
     "classnames": "^2.2.5",
     "color": "^3.0.0",
-    "dotenv": "^5.0.1",
+    "dotenv": "^6.0.0",
     "es6-promise": "^4.2.4",
     "hapi": "^17.4.0",
     "hapi-auth-basic": "^5.0.0",
@@ -27,7 +27,7 @@
     "xo": "^0.21.1"
   },
   "engines": {
-    "node": "8.11.1"
+    "node": "8.11.3"
   },
   "private": true,
   "scripts": {
