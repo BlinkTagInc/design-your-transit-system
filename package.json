@@ -33,8 +33,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "node server.js",
-    "heroku-postbuild": "next build"
+    "start": "node server.js"
   },
   "xo": {
     "esnext": true,
@@ -44,5 +43,6 @@
   "cacheDirectories": [
     "nextjs/node_modules"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "heroku-run-build-script": true
 }
