@@ -1,4 +1,4 @@
-const json2csv = require('json2csv')
+const json2csv = require('json2csv').parse
 
 const Response = require('../models/response')
 const strategies = require('../data/strategies')
@@ -14,10 +14,7 @@ module.exports = async (request, h) => {
     'language'
   ].concat(strategies.map(strategy => strategy.key))
 
-  const csv = await json2csv({
-    data: responses,
-    fields: fieldNames
-  })
+  const csv = json2csv(responses, { fields: fieldNames })
 
   const response = h.response(csv)
 
