@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import settings from '../data/settings'
 import {colors, breakpoints} from './theme'
 
@@ -30,10 +31,10 @@ export default ({language = 'en'}) => (
             <h3>{ settings.text[language].benefitCategoriesSectionTitle} </h3>
             <dl className="benefits-list">
               {settings.benefitCategories.map((benefitCategory, idx) => (
-                <span key={idx}>
+                <Fragment key={idx}>
                   <dt>{ benefitCategory.text[language].title }</dt>
                   <dd>{ benefitCategory.text[language].description }</dd>
-                </span>
+                </Fragment>
               ))}
             </dl>
           </div>
