@@ -2,7 +2,7 @@ import settings from '../data/settings'
 import {colors, breakpoints} from './theme'
 
 export default ({language = 'en'}) => (
-  <div>
+  <>
     <footer className="row mt-3">
       <div
         className="col-md-9"
@@ -35,5 +35,5 @@ export default ({language = 'en'}) => (
         }
       }
     `}</style>
-  </div>
+  </>
 )

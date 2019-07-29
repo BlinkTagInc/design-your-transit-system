@@ -242,7 +242,7 @@ export default class Strategies extends React.Component {
     const language = this.props.language
 
     return (
-      <div>
+      <div role="main">
         <StickyContainer>
           <div className="sticky-container">
             <Sticky>
