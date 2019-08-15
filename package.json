@@ -9,16 +9,16 @@
     "color": "^3.1.2",
     "dotenv": "^8.0.0",
     "es6-promise": "^4.2.8",
-    "@hapi/hapi": "^18.3.1",
-    "@hapi/basic": "^5.1.0",
+    "@hapi/hapi": "^18.3.2",
+    "@hapi/basic": "^5.1.1",
     "hapi-require-https": "^3.0.1",
     "isomorphic-fetch": "^2.2.1",
     "json2csv": "^4.5.2",
-    "mongoose": "^5.6.5",
-    "next": "^9.0.2",
+    "mongoose": "^5.6.9",
+    "next": "^9.0.3",
     "node-sass": "^4.12.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-modal": "^3.9.1",
     "react-sticky": "^6.0.3",
     "styled-jsx-plugin-sass": "^1.0.0"
@@ -27,7 +27,7 @@
     "xo": "^0.24.0"
   },
   "engines": {
-    "node": "10.15.2"
+    "node": "10.16.3"
   },
   "private": true,
   "scripts": {
