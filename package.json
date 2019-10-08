@@ -4,27 +4,27 @@
   "version": "0.3.6",
   "dependencies": {
     "@mars/heroku-nextjs-build": "^2.0.0",
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.6.4",
     "classnames": "^2.2.6",
     "color": "^3.1.2",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.1.0",
     "es6-promise": "^4.2.8",
-    "@hapi/hapi": "^18.3.2",
+    "@hapi/hapi": "^18.4.0",
     "@hapi/basic": "^5.1.1",
-    "hapi-require-https": "^3.0.1",
+    "hapi-require-https": "^4.0.0",
     "isomorphic-fetch": "^2.2.1",
-    "json2csv": "^4.5.2",
-    "mongoose": "^5.6.9",
-    "next": "^9.0.3",
+    "json2csv": "^4.5.3",
+    "mongoose": "^5.7.3",
+    "next": "^9.1.0",
     "node-sass": "^4.12.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-modal": "^3.9.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-modal": "^3.10.1",
     "react-sticky": "^6.0.3",
     "styled-jsx-plugin-sass": "^1.0.0"
   },
   "devDependencies": {
-    "xo": "^0.24.0"
+    "xo": "^0.25.3"
   },
   "engines": {
     "node": "10.16.3"
