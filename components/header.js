@@ -6,7 +6,7 @@ export default ({language = 'en'}) => (
   <div role="header">
     <div className="header row">
       <div className="col-md-12">
-        <img className="logo" src="/static/images/logo.png" srcSet="/static/images/logo.png 1x, /static/images/logo@2x.png 2x" alt={ settings.text[language].logoAlt } />
+        <img className="logo" src="/images/logo.png" srcSet="/images/logo.png 1x, /images/logo@2x.png 2x" alt={ settings.text[language].logoAlt } />
         <h1 className="title" dangerouslySetInnerHTML={{__html: settings.text[language].headerTitle}} />
       </div>
     </div>

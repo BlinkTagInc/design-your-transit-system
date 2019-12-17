@@ -12,10 +12,10 @@ export default ({children, language = 'en'}) => (
       <title>{ settings.text[language].siteTitle }</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link rel="icon" type="image/png" sizes="192x192" href="/static/favicon-192x192.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon-96x96.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
+      <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossOrigin="anonymous" />
       <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css" />
