@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import settings from '../data/settings'
 import strategies from '../data/strategies'
-import {colors, breakpoints} from './theme'
+import { colors, breakpoints } from './theme'
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -23,6 +23,7 @@ export default class Dashboard extends React.Component {
         if (!benefits.hasOwnProperty(benefitCategory.key)) {
           benefits[benefitCategory.key] = 0
         }
+
         benefits[benefitCategory.key] += strategy.benefits[benefitCategory.key]
       })
       return benefits
@@ -54,10 +55,10 @@ export default class Dashboard extends React.Component {
   }
 
   render() {
-    const language = this.props.language
+    const { language } = this.props
     return (
       <div className="dashboard" style={this.props.style.style}>
-        <div className="row" style={{margin: 0}}>
+        <div className="row" style={{ margin: 0 }}>
           <div className="col-md-5 offset-md-7">
             <div className="dashboard-titles pt-2">
               <div className="dashboard-title dashboard-title-benefit">{ settings.text[language].dashboardTitleBenefits }</div>
@@ -69,7 +70,7 @@ export default class Dashboard extends React.Component {
                   <div className="dashboard-meter">
                     <div
                       className="dashboard-meter-bar"
-                      style={{height: `${this.state.benefitMeterHeights[benefitCategory.key]}px`}}></div>
+                      style={{ height: `${this.state.benefitMeterHeights[benefitCategory.key]}px` }}></div>
                   </div>
                   <div className="dashboard-meter-title">{ benefitCategory.text[language].title }</div>
                 </div>
@@ -77,11 +78,11 @@ export default class Dashboard extends React.Component {
 
               <div className="dashboard-container">
                 <div
-                  className={classNames('dashboard-meter cost', {'over-budget': !this.props.budgetIsValid}, this.getMeterHeightClass())}
+                  className={classNames('dashboard-meter cost', { 'over-budget': !this.props.budgetIsValid }, this.getMeterHeightClass())}
                   ref="costMeter">
                   <div
                     className="dashboard-meter-bar"
-                    style={{height: `${this.state.costMeterHeight}px`}}></div>
+                    style={{ height: `${this.state.costMeterHeight}px` }}></div>
                   <div className="dashboard-meter-value">{ this.props.totalCost > 0 ? `$${this.props.totalCost}` : '' }</div>
                 </div>
                 <div className="dashboard-meter-title">{ settings.text[language].totalCostTitle }</div>

@@ -1,16 +1,16 @@
 import settings from '../data/settings'
-import {colors, breakpoints} from './theme'
+import { colors, breakpoints } from './theme'
 
-export default ({language = 'en'}) => (
+export default ({ language = 'en' }) => (
   <>
     <footer className="row mt-3">
       <div
         className="col-md-9"
-        dangerouslySetInnerHTML={{__html: settings.text[language].footerAbout}}
+        dangerouslySetInnerHTML={{ __html: settings.text[language].footerAbout }}
       />
       <div
         className="col-md-3 text-right"
-        dangerouslySetInnerHTML={{__html: settings.text[language].footerCopyright}}
+        dangerouslySetInnerHTML={{ __html: settings.text[language].footerCopyright }}
       />
     </footer>
 

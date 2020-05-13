@@ -7,14 +7,10 @@
     "@hapi/hapi": "^19.1.1",
     "@mars/heroku-nextjs-build": "^2.0.0",
     "autoprefixer": "^9.7.6",
-    "babel-eslint": "^10.1.0",
     "classnames": "^2.2.6",
     "color": "^3.1.2",
     "dotenv": "^8.2.0",
     "es6-promise": "^4.2.8",
-    "eslint-config-xo-nextjs": "^1.6.0",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.1",
     "hapi-require-https": "^5.0.0",
     "isomorphic-fetch": "^2.2.1",
     "json2csv": "^5.0.1",
@@ -28,6 +24,10 @@
     "styled-jsx-plugin-sass": "^1.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint-config-xo-nextjs": "^1.6.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.1",
     "xo": "^0.30.0"
   },
   "engines": {
@@ -37,7 +37,8 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "xo"
   },
   "cacheDirectories": [
     "nextjs/node_modules"

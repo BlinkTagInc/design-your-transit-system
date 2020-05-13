@@ -1,6 +1,7 @@
+import React from 'react'
 import classNames from 'classnames'
 import settings from '../data/settings'
-import {colors, breakpoints} from './theme'
+import { colors, breakpoints } from './theme'
 
 export default class Strategy extends React.Component {
   constructor(props) {
@@ -14,17 +15,19 @@ export default class Strategy extends React.Component {
   getCostSign(strategy) {
     if (settings.costStyle === 'numeric' || strategy.cost === 0) {
       return `$${strategy.cost}`
-    } else if (settings.costStyle === 'dollar') {
+    }
+
+    if (settings.costStyle === 'dollar') {
       return new Array(strategy.cost + 1).join('$')
     }
   }
 
   render() {
-    const strategy = this.props.strategy
-    const language = this.props.language
+    const { strategy } = this.props
+    const { language } = this.props
 
     return (
-      <div className={classNames('row', 'strategy', 'mb-1', {selected: this.props.selected})}>
+      <div className={classNames('row', 'strategy', 'mb-1', { selected: this.props.selected })}>
         <div className="col-md-7">
           <label className="strategy-info">
             <input
@@ -34,7 +37,7 @@ export default class Strategy extends React.Component {
               title={strategy.text[language].title}
               checked={this.props.selected}
               onChange={this.toggleSelected}
-               />
+            />
             <img
               src={`images/icons/${language}/${strategy.key}.png`}
               alt=""
@@ -58,7 +61,7 @@ export default class Strategy extends React.Component {
                 <div className="benefit-title">{ benefitCategory.text[language].title }</div>
                 <div className="benefit-bars-container">
                   <div className="benefit-bars">
-                    {[...Array(strategy.benefits[benefitCategory.key])].map((empty, idx) => (
+                    {[...new Array(strategy.benefits[benefitCategory.key])].map((empty, idx) => (
                       <div className="bar" key={idx} />
                     ))}
                   </div>

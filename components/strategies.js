@@ -1,13 +1,14 @@
+/* global window */
+import React from 'react'
 import Dashboard from './dashboard'
 import Modal from 'react-modal'
 import settings from '../data/settings'
-import {StickyContainer, Sticky} from 'react-sticky'
+import { StickyContainer, Sticky } from 'react-sticky'
 import strategies from '../data/strategies'
 import Strategy from './strategy'
-import {breakpoints} from './theme'
+import { breakpoints } from './theme'
 
 require('es6-promise').polyfill()
-require('isomorphic-fetch')
 
 export default class Strategies extends React.Component {
   constructor(props) {
@@ -65,7 +66,7 @@ export default class Strategies extends React.Component {
         window.location.assign(`${settings.postSurveyURL[this.props.language]}?c=${response.id}`)
       } else {
         const modalButtons = (
-          <div dangerouslySetInnerHTML={{__html: settings.text[this.props.language].modalPostSubmitButtons}} />
+          <div dangerouslySetInnerHTML={{ __html: settings.text[this.props.language].modalPostSubmitButtons }} />
         )
         this.setState({
           submitting: false,
@@ -133,17 +134,15 @@ export default class Strategies extends React.Component {
         submitting: true
       })
 
-      const form = Object.assign({
-        language: this.props.language
-      }, this.state.selectedStrategies)
+      const form = { language: this.props.language, ...this.state.selectedStrategies }
 
       fetch('/api/response', {
         method: 'post',
         body: JSON.stringify(form)
       })
-      .then(response => response.json())
-      .then(this.handleResponse)
-      .catch(this.handleError)
+        .then(response => response.json())
+        .then(this.handleResponse)
+        .catch(this.handleError)
     }
   }
 
@@ -152,6 +151,7 @@ export default class Strategies extends React.Component {
       if (selectedStrategies[strategy.key]) {
         cost += strategy.cost
       }
+
       return cost
     }, 0)
   }
@@ -168,6 +168,7 @@ export default class Strategies extends React.Component {
           benefits[benefitCategory.key] += strategy.benefits[benefitCategory.key]
         })
       }
+
       return benefits
     }, {})
   }
@@ -233,13 +234,13 @@ export default class Strategies extends React.Component {
   }
 
   componentDidMount() {
-    if (typeof(window) !== 'undefined') {
+    if (typeof (window) !== 'undefined') {
       Modal.setAppElement('body')
     }
   }
 
   render() {
-    const language = this.props.language
+    const { language } = this.props
 
     return (
       <div role="main">
@@ -247,7 +248,7 @@ export default class Strategies extends React.Component {
           <div className="sticky-container">
             <Sticky>
               {
-                (style) => {
+                style => {
                   return (
                     <Dashboard
                       style={style}
@@ -293,7 +294,7 @@ export default class Strategies extends React.Component {
             isOpen={this.state.showModal}
             contentLabel="Modal"
             className="modal-container"
-            style={{overlay: {zIndex: 2}}}
+            style={{ overlay: { zIndex: 2 } }}
           >
             <div className="modal-dialog">
               <div className="modal-content">
@@ -309,7 +310,7 @@ export default class Strategies extends React.Component {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <p dangerouslySetInnerHTML={{__html: this.state.modalContent}} />
+                  <p dangerouslySetInnerHTML={{ __html: this.state.modalContent }} />
                 </div>
                 <div className="modal-footer">
                   { this.state.modalButtons }

@@ -212,4 +212,4 @@ module.exports = [
     },
     cost: 2
   }
-];
+]

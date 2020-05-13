@@ -1,13 +1,13 @@
-import { Fragment } from 'react';
+import { Fragment } from 'react'
 import settings from '../data/settings'
-import {colors, breakpoints} from './theme'
+import { colors, breakpoints } from './theme'
 
-export default ({language = 'en'}) => (
+export default ({ language = 'en' }) => (
   <div role="header">
     <div className="header row">
       <div className="col-md-12">
         <img className="logo" src="/images/logo.png" srcSet="/images/logo.png 1x, /images/logo@2x.png 2x" alt={ settings.text[language].logoAlt } />
-        <h1 className="title" dangerouslySetInnerHTML={{__html: settings.text[language].headerTitle}} />
+        <h1 className="title" dangerouslySetInnerHTML={{ __html: settings.text[language].headerTitle }} />
       </div>
     </div>
 
@@ -16,12 +16,12 @@ export default ({language = 'en'}) => (
     <div className="row mb-3">
       <div className="col-md-7">
         <div className="card bg-transparent border-0">
-          <div className="card-body" dangerouslySetInnerHTML={{__html: settings.text[language].introText}} />
+          <div className="card-body" dangerouslySetInnerHTML={{ __html: settings.text[language].introText }} />
         </div>
         <div className="card bg-dark text-white">
           <div className="card-body">
             <h3>{ settings.text[language].howItWorksTitle }</h3>
-            <div className="pl-0" dangerouslySetInnerHTML={{__html: settings.text[language].howItWorksContent}} />
+            <div className="pl-0" dangerouslySetInnerHTML={{ __html: settings.text[language].howItWorksContent }} />
           </div>
         </div>
       </div>
