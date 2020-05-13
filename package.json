@@ -39,14 +39,35 @@
     "build": "next build",
     "start": "node server.js"
   },
-  "xo": {
-    "esnext": true,
-    "semicolon": false,
-    "space": true
-  },
   "cacheDirectories": [
     "nextjs/node_modules"
   ],
   "license": "MIT",
-  "heroku-run-build-script": true
+  "heroku-run-build-script": true,
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "camelcase": [
+        "error",
+        {
+          "properties": "never"
+        }
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "no-unused-vars": [
+        "error",
+        {
+          "varsIgnorePattern": "^[A-Z]"
+        }
+      ],
+      "semi": [
+        "error",
+        "never"
+      ]
+    }
+  }
 }
