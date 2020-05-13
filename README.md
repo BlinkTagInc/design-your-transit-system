@@ -21,11 +21,12 @@ An example can be seen at http://design-your-transit-system.blinktag.com/
 On OS X, if you have [brew](https://brew.sh/) installed:
 
     brew install node
+    brew install yarn
     brew install mongodb
 
 ### Install dependencies
 
-    npm install
+    yarn
 
 ### Create a .env file
 
@@ -43,7 +44,7 @@ The `ADMIN_USERNAME` and `ADMIN_PASSWORD` are used for bulk .csv export of surve
 
 ### In a new tab, run the app
 
-    npm run dev
+    yarn dev
 
 ### Open your browser and visit:
 
