@@ -17,7 +17,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-modal": "^3.11.2",
-    "react-sticky": "^6.0.3",
+    "react-sticky-el": "^2.0.5",
     "styled-jsx-plugin-sass": "^1.0.0"
   },
   "devDependencies": {

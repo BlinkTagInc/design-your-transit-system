@@ -57,7 +57,7 @@ export default class Dashboard extends React.Component {
   render() {
     const { language } = this.props
     return (
-      <div className="dashboard" style={this.props.style.style}>
+      <div className="dashboard">
         <div className="row" style={{ margin: 0 }}>
           <div className="col-md-5 offset-md-7">
             <div className="dashboard-titles pt-2">
@@ -92,16 +92,13 @@ export default class Dashboard extends React.Component {
         </div>
 
         <style jsx>{`
-          .sticky {
-            z-index: 1;
-          }
-
           .dashboard {
             color: ${colors.dashboardText};
             background: ${colors.dashboard};
             overflow: hidden;
             text-align: center;
-            z-index: 1;
+            margin-right: -15px;
+            margin-left: -15px;
 
             .dashboard-titles {
               width: 246px;
