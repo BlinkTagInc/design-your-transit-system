@@ -9,7 +9,6 @@ const settings = require('./data/settings')
 
 const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 3000
-require('dotenv').config()
 
 const app = next({ dev })
 const server = new Hapi.Server({
