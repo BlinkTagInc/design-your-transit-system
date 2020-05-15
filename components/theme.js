@@ -1,4 +1,4 @@
-import Color from 'color'
+import color from 'color'
 
 const background = '#ffd674'
 const offWhite = '#F5F5F5'
@@ -15,18 +15,18 @@ export const colors = {
   white,
   green,
   link: red,
-  linkHover: Color(red).darken(0.1),
+  linkHover: color(red).darken(0.1),
   btnLight: offWhite,
   btnLightText: black,
-  btnLightHover: Color(offWhite).darken(0.1),
+  btnLightHover: color(offWhite).darken(0.1),
   btnDark: orange,
   btnDarkText: black,
-  btnDarkHover: Color(orange).darken(0.1),
-  btnDarkDisabled: Color(orange).lighten(0.5),
+  btnDarkHover: color(orange).darken(0.1),
+  btnDarkDisabled: color(orange).lighten(0.5),
   headerStripe: red,
   footerBackground: red,
   footerText: white,
-  footerTextHover: Color(white).darken(0.1),
+  footerTextHover: color(white).darken(0.1),
   cardDark: `${red}!important`,
   dashboard: orange,
   dashboardText: white,

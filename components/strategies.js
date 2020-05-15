@@ -1,9 +1,9 @@
-/* global window */
+/* global window, fetch */
 import React from 'react'
 import Dashboard from './dashboard'
 import Modal from 'react-modal'
 import settings from '../data/settings'
-import Sticky from 'react-sticky-el';
+import Sticky from 'react-sticky-el'
 import strategies from '../data/strategies'
 import Strategy from './strategy'
 import { breakpoints } from './theme'
@@ -45,8 +45,8 @@ export default class Strategies extends React.Component {
       }
     }
 
-    this.reset = e => {
-      e.preventDefault()
+    this.reset = event => {
+      event.preventDefault()
 
       this.setState({
         selectedStrategies: {},
@@ -91,8 +91,8 @@ export default class Strategies extends React.Component {
       })
     }
 
-    this.submit = e => {
-      e.preventDefault()
+    this.submit = event => {
+      event.preventDefault()
 
       if (this.state.totalCost === 0) {
         this.setState({
@@ -136,9 +136,12 @@ export default class Strategies extends React.Component {
 
       const form = { language: this.props.language, ...this.state.selectedStrategies }
 
-      fetch('/api/response', {
+      fetch('/api/save-survey', {
         method: 'post',
-        body: JSON.stringify(form)
+        body: JSON.stringify(form),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
         .then(response => response.json())
         .then(this.handleResponse)
@@ -159,7 +162,7 @@ export default class Strategies extends React.Component {
   getTotalBenefits(selectedStrategies) {
     return strategies.reduce((benefits, strategy) => {
       settings.benefitCategories.forEach(benefitCategory => {
-        if (!benefits.hasOwnProperty(benefitCategory.key)) {
+        if (!Object.prototype.hasOwnProperty.call(benefits, benefitCategory.key)) {
           benefits[benefitCategory.key] = 0
         }
       })

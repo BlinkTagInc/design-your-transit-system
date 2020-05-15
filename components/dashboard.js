@@ -1,7 +1,8 @@
+import React from 'react'
 import classNames from 'classnames'
 import settings from '../data/settings'
 import strategies from '../data/strategies'
-import { colors, breakpoints } from './theme'
+import { colors } from './theme'
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export default class Dashboard extends React.Component {
   getBenefitMeterHeights(totalBenefits, meterHeight) {
     const maxBenefits = strategies.reduce((benefits, strategy) => {
       settings.benefitCategories.forEach(benefitCategory => {
-        if (!benefits.hasOwnProperty(benefitCategory.key)) {
+        if (!Object.prototype.hasOwnProperty.call(benefits, benefitCategory.key)) {
           benefits[benefitCategory.key] = 0
         }
 
