@@ -136,16 +136,22 @@ export default class Strategies extends React.Component {
 
       const form = { language: this.props.language, ...this.state.selectedStrategies }
 
-      fetch('/api/save-survey', {
-        method: 'post',
-        body: JSON.stringify(form),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(response => response.json())
-        .then(this.handleResponse)
-        .catch(this.handleError)
+      if (settings.saveResponses !== false) {
+        fetch('/api/save-survey', {
+          method: 'post',
+          body: JSON.stringify(form),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(response => response.json())
+          .then(this.handleResponse)
+          .catch(this.handleError)
+      } else {
+        this.handleResponse({
+          id: Date.now()
+        })
+      }
     }
   }
 

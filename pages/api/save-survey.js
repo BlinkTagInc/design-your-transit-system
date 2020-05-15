@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const Survey = require('../../models/survey')
-const settings = require('../../data/settings')
 const strategies = require('../../data/strategies')
 
 export default async (request, response) => {
@@ -25,12 +24,10 @@ export default async (request, response) => {
 
     console.log(request.body)
 
-    if (settings.saveResponses !== false) {
-      const result = new Survey(survey)
-      await result.save()
+    const result = new Survey(survey)
+    await result.save()
 
-      console.log(result)
-    }
+    console.log(result)
 
     response.status(200).json({ status: 'success', id })
   } else {
