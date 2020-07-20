@@ -16,11 +16,11 @@
     "color": "^3.1.2",
     "es6-promise": "^4.2.8",
     "json2csv": "^5.0.1",
-    "mongoose": "^5.9.17",
+    "mongoose": "^5.9.25",
     "next": "latest",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
-    "react-bootstrap": "^1.0.1",
+    "react-bootstrap": "^1.2.2",
     "react-dom": "^16.13.1",
     "react-modal": "^3.11.2",
     "react-sticky-el": "^2.0.5",
@@ -29,12 +29,12 @@
   },
   "devDependencies": {
     "eslint-config-xo-nextjs": "^1.6.0",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.4",
-    "xo": "^0.30.0"
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "xo": "^0.32.1"
   },
   "engines": {
-    "node": "12.18.0"
+    "node": "12.18.2"
   },
   "xo": {
     "esnext": true,
