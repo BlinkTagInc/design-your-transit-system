@@ -1,7 +1,7 @@
 /* global window, fetch */
 import React from 'react'
 import Dashboard from './dashboard'
-import Modal from 'react-modal'
+import { Modal } from 'react-bootstrap'
 import settings from '../data/settings'
 import Sticky from 'react-sticky-el'
 import strategies from '../data/strategies'
@@ -242,12 +242,6 @@ export default class Strategies extends React.Component {
     return buttonKeys.map(key => modalButtons[key])
   }
 
-  componentDidMount() {
-    if (typeof (window) !== 'undefined') {
-      Modal.setAppElement('body')
-    }
-  }
-
   render() {
     const { language } = this.props
 
@@ -289,33 +283,17 @@ export default class Strategies extends React.Component {
             </div>
           </div>
         </form>
-        <Modal
-          isOpen={this.state.showModal}
-          contentLabel="Modal"
-          className="modal-container"
-          style={{ overlay: { zIndex: 2 } }}
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">{ this.state.modalTitle }</h5>
-                <button
-                  className="close"
-                  type="button"
-                  onClick={ this.closeModal }
-                  aria-label={settings.text[language].modalCloseButton}
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <p dangerouslySetInnerHTML={{ __html: this.state.modalContent }} />
-              </div>
-              <div className="modal-footer">
-                { this.state.modalButtons }
-              </div>
-            </div>
-          </div>
+
+        <Modal show={this.state.showModal} onHide={this.closeModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>{ this.state.modalTitle }</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p dangerouslySetInnerHTML={{ __html: this.state.modalContent }} />
+          </Modal.Body>
+          <Modal.Footer>
+            { this.state.modalButtons }
+          </Modal.Footer>
         </Modal>
       </div>
     )
