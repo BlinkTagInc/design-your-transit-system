@@ -9,16 +9,23 @@ export default class Dashboard extends React.Component {
     super(props)
     this.state = {
       meterHeight: 0,
-      costMeterHeight: this.getCostMeterHeight(this.props.totalCost, 0),
-      benefitMeterHeights: this.getBenefitMeterHeights(this.props.totalBenefits, 0)
+      costMeterHeight: 0,
+      benefitMeterHeights: settings.benefitCategories.reduce((totals, category) => {
+        totals[category.key] = 0
+        return totals
+      }, {})
     }
   }
 
-  getCostMeterHeight(totalCost, meterHeight) {
+  getCostMeterHeight() {
+    const { totalCost } = this.props;
+    const { meterHeight } = this.state;
     return Math.min(1, totalCost / settings.maxCost) * meterHeight
   }
 
-  getBenefitMeterHeights(totalBenefits, meterHeight) {
+  getBenefitMeterHeights() {
+    const { totalBenefits } = this.props;
+    const { meterHeight } = this.state;
     const maxBenefits = strategies.reduce((benefits, strategy) => {
       settings.benefitCategories.forEach(benefitCategory => {
         if (!Object.prototype.hasOwnProperty.call(benefits, benefitCategory.key)) {
@@ -48,15 +55,11 @@ export default class Dashboard extends React.Component {
     })
   }
 
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      costMeterHeight: this.getCostMeterHeight(newProps.totalCost, this.state.meterHeight),
-      benefitMeterHeights: this.getBenefitMeterHeights(newProps.totalBenefits, this.state.meterHeight)
-    })
-  }
-
   render() {
-    const { language } = this.props
+    const { language } = this.props;
+    const costMeterHeight = this.getCostMeterHeight();
+    const benefitMeterHeights = this.getBenefitMeterHeights();
+
     return (
       <div className="dashboard">
         <div className="row" style={{ margin: 0 }}>
@@ -71,7 +74,7 @@ export default class Dashboard extends React.Component {
                   <div className="dashboard-meter">
                     <div
                       className="dashboard-meter-bar"
-                      style={{ height: `${this.state.benefitMeterHeights[benefitCategory.key]}px` }}></div>
+                      style={{ height: `${benefitMeterHeights[benefitCategory.key]}px` }}></div>
                   </div>
                   <div className="dashboard-meter-title">{ benefitCategory.text[language].title }</div>
                 </div>
@@ -83,7 +86,7 @@ export default class Dashboard extends React.Component {
                   ref="costMeter">
                   <div
                     className="dashboard-meter-bar"
-                    style={{ height: `${this.state.costMeterHeight}px` }}></div>
+                    style={{ height: `${costMeterHeight}px` }}></div>
                   <div className="dashboard-meter-value">{ this.props.totalCost > 0 ? `$${this.props.totalCost}` : '' }</div>
                 </div>
                 <div className="dashboard-meter-title">{ settings.text[language].totalCostTitle }</div>
