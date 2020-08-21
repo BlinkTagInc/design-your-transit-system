@@ -1,7 +1,7 @@
 import settings from '../data/settings'
 import { colors, breakpoints } from './theme'
 
-export default ({ language = 'en' }) => (
+const Footer =({ language = 'en' }) => (
   <>
     <footer className="row mt-3">
       <div
@@ -37,3 +37,5 @@ export default ({ language = 'en' }) => (
     `}</style>
   </>
 )
+
+export default Footer;

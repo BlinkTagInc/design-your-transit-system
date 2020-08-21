@@ -1,5 +1,7 @@
 import Layout from '../components/layout'
 
-export default () => (
+const Es = () => (
   <Layout language="es"></Layout>
 )
+
+export default Es;

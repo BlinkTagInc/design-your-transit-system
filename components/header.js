@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import settings from '../data/settings'
 import { colors, breakpoints } from './theme'
 
-export default ({ language = 'en' }) => (
+const Header = ({ language = 'en' }) => (
   <div role="header">
     <div className="header row">
       <div className="col-md-12">
@@ -122,3 +122,5 @@ export default ({ language = 'en' }) => (
     `}</style>
   </div>
 )
+
+export default Header;

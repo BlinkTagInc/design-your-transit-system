@@ -6,7 +6,7 @@ import Header from './header'
 import Footer from './footer'
 import { colors } from './theme'
 
-export default ({ children, language = 'en' }) => (
+const Layout = ({ children, language = 'en' }) => (
   <div>
     <Head>
       <title>{ settings.text[language].siteTitle }</title>
@@ -110,3 +110,5 @@ export default ({ children, language = 'en' }) => (
     `}</style>
   </div>
 )
+
+export default Layout;
