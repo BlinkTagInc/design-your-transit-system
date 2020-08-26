@@ -82,7 +82,9 @@ export default class Strategies extends React.Component {
       this.setState({
         submitting: false
       })
+
       console.error(error)
+      alert(error)
     }
 
     this.closeModal = () => {
@@ -144,7 +146,13 @@ export default class Strategies extends React.Component {
             'Content-Type': 'application/json'
           }
         })
-          .then(response => response.json())
+          .then(response => {
+            if (response.ok) {
+              return response.json()
+            }
+      
+            throw new Error('Unable to save response')
+          })
           .then(this.handleResponse)
           .catch(this.handleError)
       } else {
