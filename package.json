@@ -16,7 +16,7 @@
     "color": "^3.1.2",
     "es6-promise": "^4.2.8",
     "json2csv": "^5.0.1",
-    "mongoose": "^5.10.0",
+    "mongoose": "^5.10.3",
     "next": "latest",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -30,7 +30,7 @@
     "eslint-config-xo-nextjs": "^1.6.0",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
-    "xo": "^0.33.0"
+    "xo": "^0.33.1"
   },
   "engines": {
     "node": "12.x"
