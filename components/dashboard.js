@@ -140,6 +140,7 @@ export default class Dashboard extends React.Component {
                   width: 60px;
                   height: 50px;
                   margin: 5px 0;
+                  overflow: hidden;
 
                   &.cost .dashboard-meter-bar {
                     background: ${colors.dashboardMeterCost};
