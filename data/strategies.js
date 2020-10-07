@@ -116,7 +116,7 @@ export default [
       },
       es: {
         title: 'Más refugios en paradas de autobús',
-        description: 'Ampliar los refugios de autobuses a más paradas, mejorando la experiencia de esperar a que llegue un autobús .',
+        description: 'Ampliar los refugios de autobuses a más paradas, mejorando la experiencia de esperar a que llegue un autobús.',
         category: 'Servicios al Cliente'
       }
     },
@@ -132,12 +132,12 @@ export default [
     text: {
       en: {
         title: 'Improve lighting at bus stops',
-        description: 'Illuminated bus stops provide improved customer security and operational safety',
+        description: 'Illuminated bus stops provide improved customer security and operational safety.',
         category: 'Customer Amenities'
       },
       es: {
         title: 'Mejorar la iluminación en las paradas de autobús',
-        description: 'Las paradas de autobús iluminadas proporcionan seguridad mejorada al cliente y seguridad operacional',
+        description: 'Las paradas de autobús iluminadas proporcionan seguridad mejorada al cliente y seguridad operacional.',
         category: 'Servicios al Cliente'
       }
     },
@@ -175,12 +175,12 @@ export default [
     text: {
       en: {
         title: 'Provide real-time information at bus stops',
-        description: 'Real-time bus arrival information signs would allow riders to see when the next bus is coming',
+        description: 'Real-time bus arrival information signs would allow riders to see when the next bus is coming.',
         category: 'Customer Amenities'
       },
       es: {
         title: 'Proporcionar información en tiempo real en paradas de autobús',
-        description: 'Señales de información de llegada de autobús en tiempo real permitirán a los pasajeros ver cuándo viene el próximo autobús',
+        description: 'Señales de información de llegada de autobús en tiempo real permitirán a los pasajeros ver cuándo viene el próximo autobús.',
         category: 'Servicios al Cliente'
       }
     },
@@ -196,12 +196,12 @@ export default [
     text: {
       en: {
         title: 'Create smartphone app',
-        description: 'Develop a user-friendly mobile app that provides schedules and arrival information',
+        description: 'Develop a user-friendly mobile app that provides schedules and arrival information.',
         category: 'Customer Amenities'
       },
       es: {
         title: 'Crear aplicación para smartphone',
-        description: 'Desarrollar una aplicación móvil fácil de usar que proporcione información sobre horarios e información de llegada',
+        description: 'Desarrollar una aplicación móvil fácil de usar que proporcione información sobre horarios e información de llegada.',
         category: 'Servicios al Cliente'
       }
     },
