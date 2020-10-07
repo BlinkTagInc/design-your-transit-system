@@ -15,4 +15,4 @@ const surveySchema = new mongoose.Schema({
   ...strategyModels
 })
 
-module.exports = mongoose.models.survey || mongoose.model('survey', surveySchema)
+export default mongoose.models.survey || mongoose.model('survey', surveySchema)

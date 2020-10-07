@@ -1,6 +1,6 @@
 // Everything in here is publicly accessible
 
-module.exports = [
+export default [
   {
     key: 'weekdayService',
     text: {
