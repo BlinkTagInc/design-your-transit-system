@@ -15,8 +15,8 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
   }
 
   return (
-    <div className={classNames('flex', 'justify-between', 'strategy', 'mb-1', { selected: selected })}>
-      <label className="strategy-info flex-shrink flex my-2">
+    <div className={classNames('md:flex', 'justify-between', 'strategy', 'mb-1', { selected: selected })}>
+      <label className="strategy-info flex-shrink flex pt-2 md:py-2">
         <input
           className="self-center mx-4 flex-shrink-0"
           type="checkbox"
@@ -45,7 +45,7 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
         </div>
       </label>
       <div className="flex-shrink-0">
-        <div className="strategy-benefits mr-3">
+        <div className="strategy-benefits flex justify-center md:justify-end md:mr-3">
           {settings.benefitCategories.map(benefitCategory => (
             <div className="benefit" key={benefitCategory.key}>
               <div className="benefit-title">{ benefitCategory.text[language].title }</div>
@@ -66,8 +66,16 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
         </div>
       </div>
       <style jsx>{`
-        .strategy-info {
+        .strategy {
           background: ${colors.strategy};
+          cursor: pointer;
+        }
+
+        .strategy.selected {
+          background: ${colors.strategySelected};
+        }
+
+        .strategy-info {
           cursor: pointer;
         }
 
@@ -81,10 +89,8 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
         }
 
         .strategy-benefits {
-          background: ${colors.strategy};
           height: 85px;
           padding: 5px 0;
-          text-align: center;
         }
 
         .strategy-benefits .benefit,
@@ -130,12 +136,10 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
         }
 
         .strategy.selected .strategy-info {
-          background: ${colors.strategySelected};
           color: ${colors.strategySelectedText};
         }
 
         .strategy.selected .strategy-benefits {
-          background: ${colors.strategySelected};
           color: ${colors.strategySelectedText};
         }
         
@@ -158,14 +162,6 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
         }
 
         @media (min-width: ${breakpoints.medium}) {
-          .strategy {
-            background: ${colors.strategy};
-          }
-
-          .strategy.selected {
-            background: ${colors.strategySelected};
-          }
-
           .strategy-benefits .benefit,
           .strategy-benefits .cost {
             margin: 5px 7px;

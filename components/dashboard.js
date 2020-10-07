@@ -45,8 +45,8 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
 
   return (
     <div className="dashboard">
-      <div className="flex justify-end">
-        <div className="mr-3 pt-2">
+      <div className="flex justify-center md:justify-end">
+        <div className="md:mr-3 pt-2">
           <div className="dashboard-titles flex justify-between">
             <div className="dashboard-title dashboard-title-benefit">{ settings.text[language].dashboardTitleBenefits }</div>
             <div className="dashboard-title dashboard-title-cost">{ settings.text[language].dashboardTitleCosts }</div>

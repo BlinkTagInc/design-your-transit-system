@@ -192,7 +192,7 @@ const Strategies = ({ language }) => {
     previousCategoryTitle = strategy.text[language].category
 
     return (
-      <h3 className="text-xl mt-3 mb-2 mx-3">{ strategy.text[language].category }</h3>
+      <h3 className="text-xl mt-6 md:mt-3 mb-2 mx-3">{ strategy.text[language].category }</h3>
     )
   }
 
@@ -246,7 +246,7 @@ const Strategies = ({ language }) => {
           </div>
         ))}
 
-        <div className="my-5">
+        <div className="my-5 mx-4 md:mx-0">
           <button
             className="btn-bottom btn-light"
             onClick={reset}

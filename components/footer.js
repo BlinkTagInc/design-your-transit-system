@@ -3,12 +3,12 @@ import { colors } from './theme'
 
 const Footer =({ language = 'en' }) => (
   <>
-    <footer className="flex justify-between p-3 md:p-5">
+    <footer className="flex flex-col md:flex-row justify-between p-3 md:p-5">
       <div
         className="max-w-xl"
         dangerouslySetInnerHTML={{ __html: settings.text[language].footerAbout }}
       />
-      <div dangerouslySetInnerHTML={{ __html: settings.text[language].footerCopyright }} />
+      <div dangerouslySetInnerHTML={{ __html: settings.text[language].footerCopyright }} className="mt-3 md:mt-0 text-right" />
     </footer>
 
     <style jsx global>{`
