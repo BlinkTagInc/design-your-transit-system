@@ -47,24 +47,24 @@ const Header = ({ language = 'en' }) => (
     <style jsx>{`
       .header {
         padding: 0 15px 10px;
+      }
 
-        .logo {
-          float: left;
-          width: 50px;
-          height: 50px;
-          margin: 5px 0;
-        }
+      .logo {
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin: 5px 0;
+      }
 
-        .title {
-          margin: 0;
-          padding: 8px 0 0 60px;
-          font-size: 22px;
+      .title {
+        margin: 0;
+        padding: 8px 0 0 60px;
+        font-size: 22px;
+      }
 
-          .subtitle {
-            font-size: 17px;
-            display: block;
-          }
-        }
+      .subtitle {
+        font-size: 17px;
+        display: block;
       }
 
       .stripe {
@@ -73,50 +73,47 @@ const Header = ({ language = 'en' }) => (
         background: ${colors.headerStripe};
       }
 
-      .benefits-list {
-        dt {
-          font-size: 15px;
-          margin-top: 8px;
-        }
+      .benefits-list dt {
+        font-size: 15px;
+        margin-top: 8px;
+      }
 
-        dd {
-          font-size: 13px;
-          margin-left: 15px;
-        }
+      .benefits-list dd {
+        font-size: 13px;
+        margin-left: 15px;
       }
 
       @media (min-width: 375px) {
-        header .title {
+        .title {
           padding-top: 5px;
-          .subtitle {
-            font-size: inherit;
-            display: inline;
-          }
+        }
+
+        .subtitle {
+          font-size: inherit;
+          display: inline;
         }
       }
 
       @media (min-width: 550px) {
-        header {
-          .title {
-            padding: 19px 0 0 69px;
-          }
+        .title {
+          padding: 19px 0 0 69px;
         }
       }
 
       @media (min-width: ${breakpoints.large}) {
         .header {
           padding: 0;
+        }
 
-          .logo {
-            width: 90px;
-            height: 90px;
-          }
+        .logo {
+          width: 90px;
+          height: 90px;
+        }
 
-          .title {
-            padding: 29px 0 0 120px;
-            font-size: 36px;
-            float: none;
-          }
+        .title {
+          padding: 29px 0 0 120px;
+          font-size: 36px;
+          float: none;
         }
       }
     `}</style>

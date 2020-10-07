@@ -103,120 +103,113 @@ export default class Dashboard extends React.Component {
             text-align: center;
             margin-right: -15px;
             margin-left: -15px;
+          }
 
-            .dashboard-titles {
-              width: 246px;
-              display: inline-block;
+          .dashboard .dashboard-titles {
+            width: 246px;
+            display: inline-block;
+          }
 
-              .dashboard-title {
-                font-weight: bold;
-                font-size: 13px;
-                margin: 0;
+          .dashboard .dashboard-titles .dashboard-title {
+            font-weight: bold;
+            font-size: 13px;
+            margin: 0;
+          }
 
-                &.dashboard-title-benefit {
-                  margin-left: 3px;
-                  float: left;
-                }
+          .dashboard .dashboard-titles .dashboard-title.dashboard-title-benefit {
+            margin-left: 3px;
+            float: left;
+          }
 
-                &.dashboard-title-cost {
-                  float: right;
-                }
-              }
-            }
+          .dashboard .dashboard-titles .dashboard-title.dashboard-title-cost {
+            float: right;
+          }
 
-            .dashboard-meters {
-              padding-bottom: 8px;
+          .dashboard .dashboard-meters {
+            padding-bottom: 8px;
+          }
 
-              .dashboard-container {
-                width: 60px;
-                margin: 0 1px;
-                display: inline-block;
-                vertical-align: top;
+          .dashboard .dashboard-meters .dashboard-container {
+            width: 60px;
+            margin: 0 1px;
+            display: inline-block;
+            vertical-align: top;
+          }
 
-                .dashboard-meter {
-                  position: relative;
-                  background: ${colors.dashboardMeterBackground};
-                  border-radius: 2px;
-                  width: 60px;
-                  height: 50px;
-                  margin: 5px 0;
-                  overflow: hidden;
+          .dashboard .dashboard-meters .dashboard-meter {
+            position: relative;
+            background: ${colors.dashboardMeterBackground};
+            border-radius: 2px;
+            width: 60px;
+            height: 50px;
+            margin: 5px 0;
+            overflow: hidden;
+          }
 
-                  &.cost .dashboard-meter-bar {
-                    background: ${colors.dashboardMeterCost};
-                  }
+          .dashboard .dashboard-meters  .dashboard-meter.cost .dashboard-meter-bar {
+            background: ${colors.dashboardMeterCost};
+          }
 
-                  &.over-budget .dashboard-meter-bar {
-                    background: ${colors.dashboardMeterOverCost};
-                  }
+          .dashboard .dashboard-meters .dashboard-meter.over-budget .dashboard-meter-bar {
+            background: ${colors.dashboardMeterOverCost};
+          }
 
-                  .dashboard-meter-bar {
-                    background: ${colors.dashboardMeter};
-                    width: 60px;
-                    height: 0;
-                    position: absolute;
-                    bottom: 0;
-                    transition: height 500ms ease;
-                  }
+          .dashboard .dashboard-meters .dashboard-meter-bar {
+            background: ${colors.dashboardMeter};
+            width: 60px;
+            height: 0;
+            position: absolute;
+            bottom: 0;
+            transition: height 500ms ease;
+          }
 
-                  .dashboard-meter-value {
-                    color: ${colors.dashboardMeterTextDark};
-                    text-align: center;
-                    padding-top: 17px;
-                    position: relative;
-                    font-weight: bold;
-                  }
+          .dashboard .dashboard-meters .dashboard-meter-value {
+            color: ${colors.dashboardMeterTextDark};
+            text-align: center;
+            padding-top: 17px;
+            position: relative;
+            font-weight: bold;
+          }
 
-                  &.half-full .dashboard-meter-value {
-                    color: ${colors.dashboardMeterTextLight};
-                    text-shadow: 0px 0px 2px ${colors.dashboardMeterTextLightShadow};
-                  }
-                }
+          .dashboard .dashboard-meters .dashboard-meter.half-full .dashboard-meter-value {
+            color: ${colors.dashboardMeterTextLight};
+            text-shadow: 0px 0px 2px ${colors.dashboardMeterTextLightShadow};
+          }
 
-                .dashboard-meter-title {
-                  font-size: 10px;
-                  text-align: center;
-                }
-              }
-            }
+          .dashboard .dashboard-meters .dashboard-meter-title {
+            font-size: 10px;
+            text-align: center;
           }
 
           @media (min-width: 345px) {
-            .dashboard {
-              .dashboard-titles {
-                width: 268px;
-              }
-              .dashboard-meters {
-                .dashboard-container {
-                  margin: 0 4px;
-                }
-              }
+            .dashboard .dashboard-titles {
+              width: 268px;
+            }
+
+            .dashboard .dashboard-meters .dashboard-container {
+              margin: 0 4px;
             }
           }
 
           @media (min-width: 375px) {
-            .dashboard {
-              .dashboard-titles {
-                width: 290px;
+            .dashboard .dashboard-titles {
+              width: 290px;
+            }
 
-                .dashboard-title.dashboard-title-benefit {
-                  margin-left: 6px;
-                }
-              }
+            .dashboard .dashboard-titles .dashboard-title.dashboard-title-benefit {
+              margin-left: 6px;
+            }
 
-              .dashboard-meters {
-                .dashboard-container {
-                  margin: 0 7px;
+            .dashboard .dashboard-meters .dashboard-container {
+              margin: 0 7px;
+            }
 
-                  &:first-child {
-                    margin-left: 0;
-                  }
+            .dashboard .dashboard-meters .dashboard-container:first-child {
+              margin-left: 0;
+            }
 
-                  &:last-child {
-                    margin-right: 0;
-                  }
-                }
-              }
+            .dashboard .dashboard-meters .dashboard-container:last-child {
+              margin-right: 0;
             }
           }
         `}</style>

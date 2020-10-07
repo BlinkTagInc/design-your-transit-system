@@ -79,23 +79,23 @@ const Layout = ({ children, language = 'en' }) => (
       .btn-light {
         background: ${colors.btnLight};
         color: ${colors.btnLightText};
+      }
 
-        &:hover {
-          background: ${colors.btnLightHover};
-        }
+      .btn-light:hover {
+        background: ${colors.btnLightHover};
       }
 
       .btn-dark {
         background: ${colors.btnDark};
         color: ${colors.btnDarkText};
+      }
 
-        &:hover {
-          background: ${colors.btnDarkHover};
-        }
+      .btn-dark:hover {
+        background: ${colors.btnDarkHover};
+      }
 
-        &:disabled {
-          color: ${colors.btnDarkDisabled};
-        }
+      .btn-dark:disabled {
+        color: ${colors.btnDarkDisabled};
       }
 
       .bg-dark {
