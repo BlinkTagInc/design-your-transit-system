@@ -1,22 +1,18 @@
 import settings from '../data/settings'
-import { colors, breakpoints } from './theme'
+import { colors } from './theme'
 
 const Footer =({ language = 'en' }) => (
   <>
-    <footer className="row mt-3">
+    <footer className="flex justify-between p-3 md:p-5">
       <div
-        className="col-md-6"
+        className="max-w-xl"
         dangerouslySetInnerHTML={{ __html: settings.text[language].footerAbout }}
       />
-      <div
-        className="col-md-3 offset-md-3 text-right"
-        dangerouslySetInnerHTML={{ __html: settings.text[language].footerCopyright }}
-      />
+      <div dangerouslySetInnerHTML={{ __html: settings.text[language].footerCopyright }} />
     </footer>
 
     <style jsx global>{`
       footer {
-        padding: 10px;
         color: ${colors.footerText};
         background-color: ${colors.footerBackground};
       }
@@ -27,12 +23,6 @@ const Footer =({ language = 'en' }) => (
       
       footer a:hover {
         color: ${colors.footerTextHover};
-      }
-
-      @media (min-width: ${breakpoints.large}) {
-        footer {
-          padding: 20px;
-        }
       }
     `}</style>
   </>

@@ -19,7 +19,7 @@ const Layout = ({ children, language = 'en' }) => (
 
       <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css" />
     </Head>
-    <div className="container main-container">
+    <div className="container main-container mx-auto">
       <Header language={language} />
 
       { children }
@@ -42,6 +42,7 @@ const Layout = ({ children, language = 'en' }) => (
 
       h2 {
         font-size: 22px;
+        margin-bottom: 10px;
       }
 
       h3 {
@@ -56,24 +57,31 @@ const Layout = ({ children, language = 'en' }) => (
         color: ${colors.link};
       }
 
+      p {
+        margin-bottom: 10px;
+      }
+
       a:hover {
         color: ${colors.linkHover};
       }
 
-      .bottom-buttons {
-        margin-top: 20px;
+      .btn {
+        display: inline-block;
+        color: #212529;
+        text-align: center;
+        vertical-align: middle;
+        user-select: none;
+        background-color: transparent;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
       }
 
-      .btn-bottom {
-        text-align: center;
-        width: 50%;
-        height: 53px;
-        font-size: 16px;
-        font-weight: bold;
-        line-height: 48px;
-        cursor: pointer;
-        border: none;
-        border-radius: 0;
+      .btn-block {
+        display: block;
       }
 
       .btn-light {
@@ -82,6 +90,7 @@ const Layout = ({ children, language = 'en' }) => (
       }
 
       .btn-light:hover {
+        color: ${colors.btnLightText};
         background: ${colors.btnLightHover};
       }
 

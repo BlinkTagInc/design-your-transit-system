@@ -15,17 +15,17 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
   }
 
   return (
-    <div className={classNames('row', 'strategy', 'mb-1', { selected: selected })}>
-      <div className="col-md-7">
-        <label className="strategy-info">
-          <input
-            className="strategy-input"
-            type="checkbox"
-            name={strategy.key}
-            title={strategy.text[language].title}
-            checked={selected}
-            onChange={() => toggleSelected(strategy.key)}
-          />
+    <div className={classNames('flex', 'justify-between', 'strategy', 'mb-1', { selected: selected })}>
+      <label className="strategy-info flex-shrink flex my-2">
+        <input
+          className="self-center mx-4 flex-shrink-0"
+          type="checkbox"
+          name={strategy.key}
+          title={strategy.text[language].title}
+          checked={selected}
+          onChange={() => toggleSelected(strategy.key)}
+        />
+        <div className="flex-shrink-0 mr-4">
           <img
             src={`/images/icons/${language}/${strategy.key}.png`}
             alt=""
@@ -38,12 +38,14 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
             className="strategy-image"
             hidden={Boolean(!selected)}
           />
+        </div>
+        <div className="mr-4">
           <h4 className="strategy-title">{ strategy.text[language].title }</h4>
           <div className="strategy-description">{ strategy.text[language].description }</div>
-        </label>
-      </div>
-      <div className="col-md-5">
-        <div className="strategy-benefits">
+        </div>
+      </label>
+      <div className="flex-shrink-0">
+        <div className="strategy-benefits mr-3">
           {settings.benefitCategories.map(benefitCategory => (
             <div className="benefit" key={benefitCategory.key}>
               <div className="benefit-title">{ benefitCategory.text[language].title }</div>
@@ -66,32 +68,15 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
       <style jsx>{`
         .strategy-info {
           background: ${colors.strategy};
-          margin-bottom: 0;
-          font-weight: normal;
           cursor: pointer;
-          display: block;
-          min-height: 85px;
-          padding: 5px 0;
-        }
-
-        .strategy-input {
-          float: left;
-          margin: 31px 10px;
         }
 
         .strategy-image {
           width: 75px;
           height: 75px;
-          float: left;
-          margin-right: 10px;
-        }
-
-        .strategy-title {
-          margin: 5px 10px 4px;
         }
 
         .strategy-description {
-          padding: 0 10px 5px;
           font-size: 13px;
         }
 
@@ -181,10 +166,6 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
             background: ${colors.strategySelected};
           }
 
-          .strategy-input {
-            margin: 31px 10px 31px 5px;
-          }
-
           .strategy-benefits .benefit,
           .strategy-benefits .cost {
             margin: 5px 7px;
@@ -196,17 +177,8 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
           }
 
           .strategy-benefits .benefit:last-child,
-          .strategy-benefits .cost:last-child 
+          .strategy-benefits .cost:last-child {
             margin-right: 0;
-          }
-
-
-          .strategy-title {
-            margin-left: 107px;
-          }
-
-          .strategy-description {
-            margin-left: 107px;
           }
         }
       `}</style>

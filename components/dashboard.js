@@ -45,9 +45,9 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
 
   return (
     <div className="dashboard">
-      <div className="row" style={{ margin: 0 }}>
-        <div className="col-md-5 offset-md-7">
-          <div className="dashboard-titles pt-2">
+      <div className="flex justify-end">
+        <div className="mr-3 pt-2">
+          <div className="dashboard-titles flex justify-between">
             <div className="dashboard-title dashboard-title-benefit">{ settings.text[language].dashboardTitleBenefits }</div>
             <div className="dashboard-title dashboard-title-cost">{ settings.text[language].dashboardTitleCosts }</div>
           </div>
@@ -83,30 +83,12 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
         .dashboard {
           color: ${colors.dashboardText};
           background: ${colors.dashboard};
-          overflow: hidden;
-          text-align: center;
-          margin-right: -15px;
-          margin-left: -15px;
-        }
-
-        .dashboard .dashboard-titles {
-          width: 246px;
-          display: inline-block;
         }
 
         .dashboard .dashboard-titles .dashboard-title {
           font-weight: bold;
           font-size: 13px;
           margin: 0;
-        }
-
-        .dashboard .dashboard-titles .dashboard-title.dashboard-title-benefit {
-          margin-left: 3px;
-          float: left;
-        }
-
-        .dashboard .dashboard-titles .dashboard-title.dashboard-title-cost {
-          float: right;
         }
 
         .dashboard .dashboard-meters {
@@ -166,24 +148,12 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
         }
 
         @media (min-width: 345px) {
-          .dashboard .dashboard-titles {
-            width: 268px;
-          }
-
           .dashboard .dashboard-meters .dashboard-container {
             margin: 0 4px;
           }
         }
 
         @media (min-width: 375px) {
-          .dashboard .dashboard-titles {
-            width: 290px;
-          }
-
-          .dashboard .dashboard-titles .dashboard-title.dashboard-title-benefit {
-            margin-left: 6px;
-          }
-
           .dashboard .dashboard-meters .dashboard-container {
             margin: 0 7px;
           }

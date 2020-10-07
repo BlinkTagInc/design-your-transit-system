@@ -1,12 +1,14 @@
 /* global window, fetch */
 import React, { useState } from 'react'
 import Dashboard from './dashboard'
-import { Modal } from 'react-bootstrap'
+import Modal from 'react-modal'
 import settings from '../data/settings'
 import Sticky from 'react-sticky-el'
 import strategies from '../data/strategies'
 import Strategy from './strategy'
 import { breakpoints } from './theme'
+
+Modal.setAppElement('body')
 
 const Strategies = ({ language }) => {
   const getTotalBenefits = selectedStrategies => {
@@ -190,24 +192,7 @@ const Strategies = ({ language }) => {
     previousCategoryTitle = strategy.text[language].category
 
     return (
-      <div className="row">
-        <div className="col-md-12">
-          <h3 className="section-title">{ strategy.text[language].category }</h3>
-        </div>
-        <style jsx>{`
-          h3.section-title {
-            font-size: 20px;
-            margin: 10px 15px;
-          }
-
-          @media (min-width: ${breakpoints.large}) {
-            h3.section-title {
-              margin-left: 0;
-              margin-right: 0;
-            }
-          }
-        `}</style>
-      </div>
+      <h3 className="text-xl mt-3 mb-2 mx-3">{ strategy.text[language].category }</h3>
     )
   }
 
@@ -261,33 +246,45 @@ const Strategies = ({ language }) => {
           </div>
         ))}
 
-        <div className="row bottom-buttons">
-          <div className="col-md-12">
-            <button
-              className="btn-bottom btn-light"
-              onClick={reset}
-            >{ settings.text[language].resetTitle }</button>
-            <input
-              className="btn-bottom btn-dark"
-              type="submit"
-              value={`${settings.text[language].submitTitle}`}
-              disabled={submitting}
-            />
-          </div>
+        <div className="my-5">
+          <button
+            className="btn-bottom btn-light"
+            onClick={reset}
+          >{ settings.text[language].resetTitle }</button>
+          <input
+            className="btn-bottom btn-dark"
+            type="submit"
+            value={`${settings.text[language].submitTitle}`}
+            disabled={submitting}
+          />
         </div>
       </form>
 
-      <Modal show={modalSettings.show} onHide={closeModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>{ modalSettings.title }</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p dangerouslySetInnerHTML={{ __html: modalSettings.content }} />
-        </Modal.Body>
-        <Modal.Footer>
-          { modalSettings.buttons }
-        </Modal.Footer>
+      <Modal
+        isOpen={modalSettings.show}
+        onRequestClose={closeModal}
+        contentLabel={modalSettings.title}
+      >
+        <h3>{ modalSettings.title }</h3>
+        <button onClick={closeModal}>close</button>
+        <p dangerouslySetInnerHTML={{ __html: modalSettings.content }} />
+
+        { modalSettings.buttons }
       </Modal>
+
+      <style jsx>{`
+        .btn-bottom {
+          text-align: center;
+          width: 50%;
+          height: 53px;
+          font-size: 16px;
+          font-weight: bold;
+          line-height: 48px;
+          cursor: pointer;
+          border: none;
+          border-radius: 0;
+        }
+      `}</style>
     </div>
   )
 }
