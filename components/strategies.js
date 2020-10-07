@@ -1,5 +1,5 @@
 /* global window, fetch */
-import React from 'react'
+import React, { useState } from 'react'
 import Dashboard from './dashboard'
 import { Modal } from 'react-bootstrap'
 import settings from '../data/settings'
@@ -8,162 +8,166 @@ import strategies from '../data/strategies'
 import Strategy from './strategy'
 import { breakpoints } from './theme'
 
-require('es6-promise').polyfill()
-
-export default class Strategies extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      selectedStrategies: {},
-      showModal: false,
-      totalCost: 0,
-      totalBenefits: this.getTotalBenefits({}),
-      modalButtons: ''
-    }
-
-    this.toggleSelected = strategyKey => {
-      this.state.selectedStrategies[strategyKey] = !this.state.selectedStrategies[strategyKey]
-      const totalCost = this.getTotalCost(this.state.selectedStrategies)
-      const totalBenefits = this.getTotalBenefits(this.state.selectedStrategies)
-      const budgetIsValid = this.validateBudget(totalCost)
-
-      this.setState({
-        selectedStrategies: this.state.selectedStrategies,
-        totalCost,
-        totalBenefits,
-        budgetIsValid
-      })
-
-      if (!budgetIsValid) {
-        this.setState({
-          showModal: true,
-          modalTitle: settings.text[this.props.language].modalExceededTitle,
-          modalContent: settings.text[this.props.language].modalExceededContent,
-          modalButtons: this.getModalButtons(['close'])
-        })
-      }
-    }
-
-    this.reset = event => {
-      event.preventDefault()
-
-      this.setState({
-        selectedStrategies: {},
-        totalCost: 0,
-        totalBenefits: this.getTotalBenefits({}),
-        budgetIsValid: true
-      })
-    }
-
-    this.handleResponse = response => {
-      if (settings.postSurveyURL) {
-        this.setState({
-          submitting: false,
-          modalButtons: []
-        })
-
-        window.location.assign(`${settings.postSurveyURL[this.props.language]}?c=${response.id}`)
-      } else {
-        const modalButtons = (
-          <div dangerouslySetInnerHTML={{ __html: settings.text[this.props.language].modalPostSubmitButtons }} />
-        )
-        this.setState({
-          submitting: false,
-          showModal: true,
-          modalTitle: settings.text[this.props.language].modalPostSubmitTitle,
-          modalContent: settings.text[this.props.language].modalPostSubmitContent,
-          modalButtons
-        })
-      }
-    }
-
-    this.handleError = error => {
-      this.setState({
-        submitting: false
-      })
-
-      console.error(error)
-      alert(error)
-    }
-
-    this.closeModal = () => {
-      this.setState({
-        showModal: false
-      })
-    }
-
-    this.submit = event => {
-      event.preventDefault()
-
-      if (this.state.totalCost === 0) {
-        this.setState({
-          showModal: true,
-          modalTitle: settings.text[this.props.language].modalNoneTitle,
-          modalContent: settings.text[this.props.language].modalNoneContent,
-          modalButtons: this.getModalButtons(['close'])
-        })
-      } else if (this.state.totalCost < settings.maxCost) {
-        this.setState({
-          showModal: true,
-          modalTitle: settings.text[this.props.language].modalLeftoverTitle,
-          modalContent: settings.text[this.props.language].modalLeftoverContent,
-          modalButtons: this.getModalButtons(['goback', 'continue'])
-        })
-      } else if (this.state.totalCost > settings.maxCost) {
-        this.setState({
-          showModal: true,
-          modalTitle: settings.text[this.props.language].modalExceededTitle,
-          modalContent: settings.text[this.props.language].modalExceededContent,
-          modalButtons: this.getModalButtons(['close'])
-        })
-      } else if (this.state.totalCost === settings.maxCost) {
-        this.showSubmitModal()
-      }
-    }
-
-    this.showSubmitModal = () => {
-      this.setState({
-        showModal: true,
-        modalTitle: settings.text[this.props.language].modalSubmitTitle,
-        modalContent: settings.text[this.props.language].modalSubmitContent,
-        modalButtons: this.getModalButtons(['goback', 'submit'])
-      })
-    }
-
-    this.postData = () => {
-      this.setState({
-        submitting: true
-      })
-
-      const form = { language: this.props.language, ...this.state.selectedStrategies }
-
-      if (settings.saveResponses !== false) {
-        fetch('/api/save-survey', {
-          method: 'post',
-          body: JSON.stringify(form),
-          headers: {
-            'Content-Type': 'application/json'
+const Strategies = ({ language }) => {
+  const getTotalBenefits = selectedStrategies => {
+    return strategies.reduce((memo, strategy) => {
+      if (selectedStrategies[strategy.key]) {
+        for (const category of settings.benefitCategories) {
+          if (!memo[category.key] === undefined) {
+            memo[category.key] = 0
           }
-        })
-          .then(response => {
-            if (response.ok) {
-              return response.json()
-            }
-      
-            throw new Error('Unable to save response')
-          })
-          .then(this.handleResponse)
-          .catch(this.handleError)
-      } else {
-        this.handleResponse({
-          id: Date.now()
-        })
+
+          memo[category.key] += strategy.benefits[category.key]
+        }
       }
+
+      return memo
+    }, {})
+  }
+
+  const [selectedStrategies, setSelectedStrategies] = useState({})
+  const [modalSettings, setModalSettings] = useState({
+    show: false,
+    buttons: ''
+  })
+  const [totalCost, setTotalCost] = useState(0)
+  const [totalBenefits, setTotalBenefits] = useState(getTotalBenefits({}))
+  const [budgetIsValid, setBudgetIsValid] = useState(true)
+  const [submitting, setSubmitting] = useState(false)
+
+  const toggleSelected = strategyKey => {
+    selectedStrategies[strategyKey] = !selectedStrategies[strategyKey]
+    const updatedTotalCost = getTotalCost(selectedStrategies)
+    const updatedTotalBenefits = getTotalBenefits(selectedStrategies)
+    const updatedBudgetIsValid = validateBudget(updatedTotalCost)
+
+    setSelectedStrategies(selectedStrategies)
+    setTotalCost(updatedTotalCost)
+    setTotalBenefits(updatedTotalBenefits)
+    setBudgetIsValid(updatedBudgetIsValid)
+
+    if (!updatedBudgetIsValid) {
+      setModalSettings({
+        show: true,
+        title: settings.text[language].modalExceededTitle,
+        content:  settings.text[language].modalExceededContent,
+        buttons: getModalButtons(['close'])
+      })
     }
   }
 
-  getTotalCost(selectedStrategies) {
+  const reset = event => {
+    event.preventDefault()
+
+    setSelectedStrategies({})
+    setTotalCost(0)
+    setTotalBenefits(getTotalBenefits({}))
+    setBudgetIsValid(true)
+  }
+
+  const handleResponse = response => {
+    if (settings.postSurveyURL) {
+      setSubmitting(false)
+      setModalSettings({
+        ...modalSettings,
+        buttons: []
+      })
+
+      window.location.assign(`${settings.postSurveyURL[language]}?c=${response.id}`)
+    } else {
+      const modalButtons = (
+        <div dangerouslySetInnerHTML={{ __html: settings.text[language].modalPostSubmitButtons }} />
+      )
+
+      setSubmitting(false)
+      setModalSettings({
+        show: true,
+        title: settings.text[language].modalPostSubmitTitle,
+        content: settings.text[language].modalPostSubmitContent,
+        buttons: modalButtons
+      })
+    }
+  }
+
+  const handleError = error => {
+    setSubmitting(false)
+
+    console.error(error)
+    alert(error)
+  }
+
+  const closeModal = () => {
+    setModalSettings({ show: false })
+  }
+
+  const submit = event => {
+    event.preventDefault()
+
+    if (totalCost === 0) {
+      setModalSettings({
+        show: true,
+        title: settings.text[language].modalNoneTitle,
+        content: settings.text[language].modalNoneContent,
+        buttons: getModalButtons(['close'])
+      })
+    } else if (totalCost < settings.maxCost) {
+      setModalSettings({
+        show: true,
+        title: settings.text[language].modalLeftoverTitle,
+        content: settings.text[language].modalLeftoverContent,
+        buttons: getModalButtons(['goback', 'continue'])
+      })
+    } else if (totalCost > settings.maxCost) {
+      setModalSettings({
+        show: true,
+        title: settings.text[language].modalExceededTitle,
+        content: settings.text[language].modalExceededContent,
+        buttons: getModalButtons(['close'])
+      })
+    } else if (totalCost === settings.maxCost) {
+      showSubmitModal()
+    }
+  }
+
+  const showSubmitModal = () => {
+    setModalSettings({
+      show: true,
+      title: settings.text[language].modalSubmitTitle,
+      content: settings.text[language].modalSubmitContent,
+      buttons: getModalButtons(['goback', 'submit'])
+    })
+  }
+
+  const postData = () => {
+    setSubmitting(true)
+
+    const form = { language: language, ...selectedStrategies }
+
+    if (settings.saveResponses !== false) {
+      fetch('/api/save-survey', {
+        method: 'post',
+        body: JSON.stringify(form),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => {
+          if (response.ok) {
+            return response.json()
+          }
+    
+          throw new Error('Unable to save response')
+        })
+        .then(handleResponse)
+        .catch(handleError)
+    } else {
+      handleResponse({
+        id: Date.now()
+      })
+    }
+  }
+
+  const getTotalCost = selectedStrategies => {
     return strategies.reduce((cost, strategy) => {
       if (selectedStrategies[strategy.key]) {
         cost += strategy.cost
@@ -173,33 +177,17 @@ export default class Strategies extends React.Component {
     }, 0)
   }
 
-  getTotalBenefits(selectedStrategies) {
-    return strategies.reduce((benefits, strategy) => {
-      settings.benefitCategories.forEach(benefitCategory => {
-        if (!Object.prototype.hasOwnProperty.call(benefits, benefitCategory.key)) {
-          benefits[benefitCategory.key] = 0
-        }
-      })
-      if (selectedStrategies[strategy.key]) {
-        settings.benefitCategories.forEach(benefitCategory => {
-          benefits[benefitCategory.key] += strategy.benefits[benefitCategory.key]
-        })
-      }
-
-      return benefits
-    }, {})
-  }
-
-  validateBudget(totalCost) {
+  const validateBudget = totalCost => {
     return totalCost <= settings.maxCost
   }
 
-  getCategoryTitle(strategy, language) {
-    if (strategy.text[language].category === this.state.categoryTitle) {
+  let previousCategoryTitle
+  const getCategoryTitle = (strategy, language) => {
+    if (strategy.text[language].category === previousCategoryTitle) {
       return ''
     }
 
-    this.state.categoryTitle = strategy.text[language].category
+    previousCategoryTitle = strategy.text[language].category
 
     return (
       <div className="row">
@@ -223,26 +211,26 @@ export default class Strategies extends React.Component {
     )
   }
 
-  getModalButtons(buttonKeys) {
+  const getModalButtons = buttonKeys => {
     const modalButtons = {
       close: (
-        <button className="btn btn-secondary" type="button" onClick={ this.closeModal } key="close">
-          { settings.text[this.props.language].modalCloseButton }
+        <button className="btn btn-secondary" type="button" onClick={ closeModal } key="close">
+          { settings.text[language].modalCloseButton }
         </button>
       ),
       goback: (
-        <button className="btn btn-secondary" type="button" onClick={ this.closeModal } key="goback">
-          { settings.text[this.props.language].modalGoBackButton }
+        <button className="btn btn-secondary" type="button" onClick={ closeModal } key="goback">
+          { settings.text[language].modalGoBackButton }
         </button>
       ),
       continue: (
-        <button className="btn btn-primary" key="continue" onClick={ this.showSubmitModal }>
-          { settings.text[this.props.language].modalContinueButton }
+        <button className="btn btn-primary" key="continue" onClick={ showSubmitModal }>
+          { settings.text[language].modalContinueButton }
         </button>
       ),
       submit: (
-        <button className="btn btn-primary" key="submit" onClick={ this.postData }>
-          { settings.text[this.props.language].modalSubmitButton }
+        <button className="btn btn-primary" key="submit" onClick={ postData }>
+          { settings.text[language].modalSubmitButton }
         </button>
       )
     }
@@ -250,60 +238,58 @@ export default class Strategies extends React.Component {
     return buttonKeys.map(key => modalButtons[key])
   }
 
-  render() {
-    const { language } = this.props
-
-    return (
-      <div role="main">
-        <Sticky stickyStyle={{ zIndex: '2' }}>
-          <Dashboard
-            language={language}
-            totalCost={this.state.totalCost}
-            totalBenefits={this.state.totalBenefits}
-            budgetIsValid={this.state.budgetIsValid}
-          />
-        </Sticky>
-        <form onSubmit={this.submit}>
-          {strategies.map(strategy => (
-            <div key={strategy.key}>
-              {this.getCategoryTitle(strategy, language)}
-              <Strategy
-                strategy={strategy}
-                language={language}
-                selected={Boolean(this.state.selectedStrategies[strategy.key])}
-                toggleSelected={this.toggleSelected}
-              />
-            </div>
-          ))}
-
-          <div className="row bottom-buttons">
-            <div className="col-md-12">
-              <button
-                className="btn-bottom btn-light"
-                onClick={this.reset}
-              >{ settings.text[language].resetTitle }</button>
-              <input
-                className="btn-bottom btn-dark"
-                type="submit"
-                value={`${settings.text[language].submitTitle}`}
-                disabled={this.state.submitting}
-              />
-            </div>
+  return (
+    <div role="main">
+      <Sticky stickyStyle={{ zIndex: '2' }}>
+        <Dashboard
+          language={language}
+          totalCost={totalCost}
+          totalBenefits={totalBenefits}
+          budgetIsValid={budgetIsValid}
+        />
+      </Sticky>
+      <form onSubmit={submit}>
+        {strategies.map(strategy => (
+          <div key={strategy.key}>
+            {getCategoryTitle(strategy, language)}
+            <Strategy
+              strategy={strategy}
+              language={language}
+              selected={Boolean(selectedStrategies[strategy.key])}
+              toggleSelected={toggleSelected}
+            />
           </div>
-        </form>
+        ))}
 
-        <Modal show={this.state.showModal} onHide={this.closeModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>{ this.state.modalTitle }</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p dangerouslySetInnerHTML={{ __html: this.state.modalContent }} />
-          </Modal.Body>
-          <Modal.Footer>
-            { this.state.modalButtons }
-          </Modal.Footer>
-        </Modal>
-      </div>
-    )
-  }
+        <div className="row bottom-buttons">
+          <div className="col-md-12">
+            <button
+              className="btn-bottom btn-light"
+              onClick={reset}
+            >{ settings.text[language].resetTitle }</button>
+            <input
+              className="btn-bottom btn-dark"
+              type="submit"
+              value={`${settings.text[language].submitTitle}`}
+              disabled={submitting}
+            />
+          </div>
+        </div>
+      </form>
+
+      <Modal show={modalSettings.show} onHide={closeModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>{ modalSettings.title }</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p dangerouslySetInnerHTML={{ __html: modalSettings.content }} />
+        </Modal.Body>
+        <Modal.Footer>
+          { modalSettings.buttons }
+        </Modal.Footer>
+      </Modal>
+    </div>
+  )
 }
+
+export default Strategies
