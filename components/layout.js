@@ -107,6 +107,30 @@ const Layout = ({ children, language = 'en' }) => (
         color: ${colors.btnDarkDisabled};
       }
 
+      .btn-primary {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+
+      .btn-primary:hover {
+        color: #fff;
+        background-color: #0069d9;
+        border-color: #0062cc;
+      }
+
+      .btn-secondary {
+        color: #fff;
+        background-color: #6c757d;
+        border-color: #6c757d;
+      }
+
+      .btn-secondary:hover {
+        color: #fff;
+        background-color: #5a6268;
+        border-color: #545b62;
+      }
+
       .bg-dark {
         background-color: ${colors.cardDark};
       }

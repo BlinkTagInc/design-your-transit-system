@@ -264,12 +264,15 @@ const Strategies = ({ language }) => {
         isOpen={modalSettings.show}
         onRequestClose={closeModal}
         contentLabel={modalSettings.title}
+        className="modal-content"
+        overlayClassName="modal-overlay"
       >
-        <h3>{ modalSettings.title }</h3>
-        <button onClick={closeModal}>close</button>
-        <p dangerouslySetInnerHTML={{ __html: modalSettings.content }} />
+        <h3 className="py-4 px-3 border-b border-gray-500 text-2xl font-normal">{ modalSettings.title }</h3>
+        <div className="pt-4 pb-5 px-3" dangerouslySetInnerHTML={{ __html: modalSettings.content }} />
 
-        { modalSettings.buttons }
+        <div className="modal-footer py-4 px-3 border-t border-gray-500 flex justify-end">
+          { modalSettings.buttons }
+        </div>
       </Modal>
 
       <style jsx>{`
@@ -283,6 +286,32 @@ const Strategies = ({ language }) => {
           cursor: pointer;
           border: none;
           border-radius: 0;
+        }
+      `}</style>
+
+      <style jsx global>{`
+        .modal-content {
+          position: relative;
+          max-width: 500px;
+          margin: 1.75rem auto;
+          background-color: #fff; 
+          border: 1px solid rgba(0,0,0,.2);
+          border-radius: .3rem;
+          outline: 0;
+        }
+
+        .modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0,0,0,0.5);
+          z-index: 10;
+        }
+
+        .modal-footer .btn {
+          margin-left: 10px;
         }
       `}</style>
     </div>
