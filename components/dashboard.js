@@ -15,18 +15,14 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
   const getBenefitMeterHeights = () => {
     const maxBenefits = strategies.reduce((memo, strategy) => {
       for (const category of settings.benefitCategories) {
-        if (memo[category.key] === undefined) {
-          memo[category.key] = 0
-        }
-
-        memo[category.key] += strategy.benefits[category.key]
+        memo[category.key] = (memo[category.key] || 0) + strategy.benefits[category.key]
       }
 
       return memo
     }, {})
 
     return settings.benefitCategories.reduce((memo, category) => {
-      memo[category.key] = totalBenefits[category.key] / maxBenefits[category.key] * meterHeight
+      memo[category.key] = (totalBenefits[category.key] || 0) / maxBenefits[category.key] * meterHeight
       return memo
     }, {})
   }

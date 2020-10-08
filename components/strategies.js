@@ -14,11 +14,7 @@ const Strategies = ({ language }) => {
     return strategies.reduce((memo, strategy) => {
       if (selectedStrategies[strategy.key]) {
         for (const category of settings.benefitCategories) {
-          if (!memo[category.key] === undefined) {
-            memo[category.key] = 0
-          }
-
-          memo[category.key] += strategy.benefits[category.key]
+          memo[category.key] = (memo[category.key] || 0) + strategy.benefits[category.key]
         }
       }
 
