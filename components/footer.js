@@ -1,7 +1,7 @@
 import settings from '../data/settings'
 import { colors } from './theme'
 
-const Footer =({ language = 'en' }) => (
+const Footer = ({ language = 'en' }) => (
   <>
     <footer className="flex flex-col md:flex-row justify-between p-3 md:p-5">
       <div
@@ -28,4 +28,4 @@ const Footer =({ language = 'en' }) => (
   </>
 )
 
-export default Footer;
+export default Footer

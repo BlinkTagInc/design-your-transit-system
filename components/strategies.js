@@ -6,7 +6,6 @@ import settings from '../data/settings'
 import Sticky from 'react-sticky-el'
 import strategies from '../data/strategies'
 import Strategy from './strategy'
-import { breakpoints } from './theme'
 
 Modal.setAppElement('body')
 
@@ -52,7 +51,7 @@ const Strategies = ({ language }) => {
       setModalSettings({
         show: true,
         title: settings.text[language].modalExceededTitle,
-        content:  settings.text[language].modalExceededContent,
+        content: settings.text[language].modalExceededContent,
         buttons: getModalButtons(['close'])
       })
     }
@@ -140,32 +139,35 @@ const Strategies = ({ language }) => {
     })
   }
 
-  const postData = () => {
+  const postData = async () => {
     setSubmitting(true)
 
-    const form = { language: language, ...selectedStrategies }
+    const form = { language, ...selectedStrategies }
 
-    if (settings.saveResponses !== false) {
-      fetch('/api/save-survey', {
-        method: 'post',
-        body: JSON.stringify(form),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(response => {
-          if (response.ok) {
-            return response.json()
-          }
-    
-          throw new Error('Unable to save response')
-        })
-        .then(handleResponse)
-        .catch(handleError)
-    } else {
+    if (settings.saveResponses === false) {
       handleResponse({
         id: Date.now()
       })
+    } else {
+      try {
+        const response = await fetch('/api/save-survey', {
+          method: 'post',
+          body: JSON.stringify(form),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+
+        if (!response.ok) {
+          throw new Error('Unable to save response')
+        }
+
+        const responseJson = await response.json()
+
+        handleResponse(responseJson)
+      } catch (error) {
+        handleError(error)
+      }
     }
   }
 

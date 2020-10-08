@@ -4,4 +4,4 @@ const Es = () => (
   <Layout language="es"></Layout>
 )
 
-export default Es;
+export default Es

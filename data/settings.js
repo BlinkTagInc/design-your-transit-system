@@ -1,6 +1,6 @@
 // Everything in here is publicly accessible
 
-export default {
+const settings = {
   benefitCategories: [
     {
       key: 'ridership',
@@ -117,3 +117,5 @@ export default {
     }
   }
 }
+
+export default settings

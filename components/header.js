@@ -76,4 +76,4 @@ const Header = ({ language = 'en' }) => (
   </div>
 )
 
-export default Header;
+export default Header

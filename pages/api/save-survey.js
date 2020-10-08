@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Survey = require('../../models/survey')
 const strategies = require('../../data/strategies')
 
-export default async (request, response) => {
+const saveSurvey = async (request, response) => {
   if (request.method === 'POST') {
     try {
       await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
@@ -31,11 +31,13 @@ export default async (request, response) => {
       console.log(result)
 
       response.status(200).json({ status: 'success', id })
-    } catch(error) {
-      console.error(error);
+    } catch (error) {
+      console.error(error)
       response.status(500).json({ error: 'Unable to save response' })
     }
   } else {
     response.status(404).end()
   }
 }
+
+export default saveSurvey

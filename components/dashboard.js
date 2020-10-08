@@ -5,7 +5,7 @@ import strategies from '../data/strategies'
 import { colors } from './theme'
 
 const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
-  const meterRef = useRef(null);
+  const meterRef = useRef(null)
   const [meterHeight, setMeterHeight] = useState(0)
 
   const getCostMeterHeight = () => {
@@ -21,6 +21,7 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
 
         memo[category.key] += strategy.benefits[category.key]
       }
+
       return memo
     }, {})
 
@@ -37,11 +38,11 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
   }
 
   useEffect(() => {
-    setMeterHeight(meterRef.current.offsetHeight);
+    setMeterHeight(meterRef.current.offsetHeight)
   }, [meterRef])
 
-  const costMeterHeight = getCostMeterHeight();
-  const benefitMeterHeights = getBenefitMeterHeights();
+  const costMeterHeight = getCostMeterHeight()
+  const benefitMeterHeights = getBenefitMeterHeights()
 
   return (
     <div className="dashboard">

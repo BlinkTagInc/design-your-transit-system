@@ -21,7 +21,7 @@ function check(name, pass) {
   return valid
 }
 
-export default async (request, response) => {
+const exportResponses = async (request, response) => {
   // Check for auth
   const credentials = auth(request)
 
@@ -48,3 +48,5 @@ export default async (request, response) => {
   response.setHeader('content-disposition', 'attachment; filename=responses.csv')
   response.end(csv)
 }
+
+export default exportResponses

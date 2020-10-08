@@ -1,6 +1,6 @@
 // Everything in here is publicly accessible
 
-export default [
+const strategies = [
   {
     key: 'weekdayService',
     text: {
@@ -213,3 +213,5 @@ export default [
     cost: 2
   }
 ]
+
+export default strategies

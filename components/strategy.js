@@ -15,7 +15,7 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
   }
 
   return (
-    <div className={classNames('md:flex', 'justify-between', 'strategy', 'mb-1', { selected: selected })}>
+    <div className={classNames('md:flex', 'justify-between', 'strategy', 'mb-1', { selected })}>
       <label className="strategy-info flex-shrink flex pt-2 md:py-2">
         <input
           className="self-center mx-4 flex-shrink-0"
