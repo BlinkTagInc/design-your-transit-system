@@ -222,7 +222,7 @@ const Strategies = ({ language }) => {
   }
 
   return (
-    <div role="main">
+    <div>
       <Sticky stickyStyle={{ zIndex: '2' }}>
         <Dashboard
           language={language}

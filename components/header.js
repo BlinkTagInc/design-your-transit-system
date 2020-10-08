@@ -3,7 +3,7 @@ import settings from '../data/settings'
 import { colors, breakpoints } from './theme'
 
 const Header = ({ language = 'en' }) => (
-  <div role="header">
+  <div>
     <div className="flex items-center mx-3 my-2 md:m-0">
       <img className="logo my-0 md:my-2 mr-4" src="/images/logo.png" srcSet="/images/logo.png 1x, /images/logo@2x.png 2x" alt={ settings.text[language].logoAlt } />
       <h1 className="title" dangerouslySetInnerHTML={{ __html: settings.text[language].headerTitle }} />
