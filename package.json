@@ -16,13 +16,13 @@
     "color": "^3.1.2",
     "json2csv": "^5.0.3",
     "mongoose": "^5.10.8",
-    "next": "latest",
+    "next": "^9.5.4",
     "postcss-import": "^12.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-modal": "^3.11.2",
     "react-sticky-el": "^2.0.5",
-    "tailwindcss": "^1.8.11",
+    "tailwindcss": "^1.8.12",
     "tsscmp": "^1.0.6"
   },
   "devDependencies": {
