@@ -3,7 +3,7 @@ import color from 'color'
 const background = '#ffd674'
 const offWhite = '#F5F5F5'
 const yellow = '#FAB100'
-const orange = '#f37e20'
+const orange = '#E6843B'
 const green = '#699639'
 const red = '#BF1E00'
 const black = '#1F2D39'
@@ -29,7 +29,7 @@ export const colors = {
   footerTextHover: color(white).darken(0.1),
   cardDark: `${red}!important`,
   dashboard: orange,
-  dashboardText: white,
+  dashboardText: black,
   dashboardMeterBackground: white,
   dashboardMeter: yellow,
   dashboardMeterCost: green,
