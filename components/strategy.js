@@ -104,10 +104,10 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
 
         .strategy-benefits .benefit-title,
         .strategy-benefits .cost-title {
-          font-size: 10px;
+          font-size: 11px;
           text-align: center;
           height: 28px;
-          vertical-align: bottom;
+          line-height: 1;
         }
 
         .benefit-bars-container {

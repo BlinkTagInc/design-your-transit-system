@@ -140,8 +140,9 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
         }
 
         .dashboard .dashboard-meters .dashboard-meter-title {
-          font-size: 10px;
+          font-size: 11px;
           text-align: center;
+          line-height: 1;
         }
 
         @media (min-width: 345px) {
