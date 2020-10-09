@@ -80,6 +80,11 @@ const Layout = ({ children, language = 'en' }) => (
         transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
       }
 
+      .btn.disabled, .btn:disabled {
+        opacity: .65;
+        cursor: auto;
+      }
+
       .btn-block {
         display: block;
       }

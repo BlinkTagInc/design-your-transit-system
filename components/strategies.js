@@ -246,6 +246,7 @@ const Strategies = ({ language }) => {
           <button
             className="btn-bottom btn-light"
             onClick={reset}
+            disabled={submitting}
           >{ settings.text[language].resetTitle }</button>
           <input
             className="btn-bottom btn-dark"
