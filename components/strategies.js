@@ -25,7 +25,7 @@ const Strategies = ({ language }) => {
   const [selectedStrategies, setSelectedStrategies] = useState({})
   const [modalSettings, setModalSettings] = useState({
     show: false,
-    buttons: ''
+    buttons: null
   })
   const [totalCost, setTotalCost] = useState(0)
   const [totalBenefits, setTotalBenefits] = useState(getTotalBenefits({}))
@@ -48,7 +48,7 @@ const Strategies = ({ language }) => {
         show: true,
         title: settings.text[language].modalExceededTitle,
         content: settings.text[language].modalExceededContent,
-        buttons: getModalButtons(['close'])
+        buttons: ['close']
       })
     }
   }
@@ -68,7 +68,7 @@ const Strategies = ({ language }) => {
     if (settings.postSurveyURL) {
       setModalSettings({
         ...modalSettings,
-        buttons: []
+        buttons: null
       })
 
       window.location.assign(`${settings.postSurveyURL[language]}?c=${response.id}`)
@@ -77,9 +77,7 @@ const Strategies = ({ language }) => {
         show: true,
         title: settings.text[language].modalPostSubmitTitle,
         content: settings.text[language].modalPostSubmitContent,
-        buttons: (
-          <div dangerouslySetInnerHTML={{ __html: settings.text[language].modalPostSubmitButtons }} />
-        )
+        buttons: null
       })
     }
   }
@@ -103,21 +101,21 @@ const Strategies = ({ language }) => {
         show: true,
         title: settings.text[language].modalNoneTitle,
         content: settings.text[language].modalNoneContent,
-        buttons: getModalButtons(['close'])
+        buttons: ['close']
       })
     } else if (totalCost < settings.maxCost) {
       setModalSettings({
         show: true,
         title: settings.text[language].modalLeftoverTitle,
         content: settings.text[language].modalLeftoverContent,
-        buttons: getModalButtons(['goback', 'continue'])
+        buttons: ['goback', 'continue']
       })
     } else if (totalCost > settings.maxCost) {
       setModalSettings({
         show: true,
         title: settings.text[language].modalExceededTitle,
         content: settings.text[language].modalExceededContent,
-        buttons: getModalButtons(['close'])
+        buttons: ['close']
       })
     } else if (totalCost === settings.maxCost) {
       showSubmitModal()
@@ -129,7 +127,7 @@ const Strategies = ({ language }) => {
       show: true,
       title: settings.text[language].modalSubmitTitle,
       content: settings.text[language].modalSubmitContent,
-      buttons: getModalButtons(['goback', 'submit'])
+      buttons: ['goback', 'submit']
     })
   }
 
@@ -193,24 +191,28 @@ const Strategies = ({ language }) => {
   }
 
   const getModalButtons = buttonKeys => {
+    if (!buttonKeys || !buttonKeys.length) {
+      return null
+    }
+
     const modalButtons = {
       close: (
-        <button className="btn btn-secondary" type="button" onClick={ closeModal } key="close">
+        <button className="btn btn-secondary" key="close" onClick={ closeModal } disabled={submitting}>
           { settings.text[language].modalCloseButton }
         </button>
       ),
       goback: (
-        <button className="btn btn-secondary" type="button" onClick={ closeModal } key="goback">
+        <button className="btn btn-secondary" key="goback" onClick={ closeModal } disabled={submitting}>
           { settings.text[language].modalGoBackButton }
         </button>
       ),
       continue: (
-        <button className="btn btn-primary" key="continue" onClick={ showSubmitModal }>
+        <button className="btn btn-primary" key="continue" onClick={ showSubmitModal } disabled={submitting}  >
           { settings.text[language].modalContinueButton }
         </button>
       ),
       submit: (
-        <button className="btn btn-primary" key="submit" onClick={ postData }>
+        <button className="btn btn-primary" key="submit" onClick={ postData } disabled={submitting}>
           { settings.text[language].modalSubmitButton }
         </button>
       )
@@ -267,9 +269,9 @@ const Strategies = ({ language }) => {
         <h3 className="py-4 px-3 border-b border-gray-500 text-2xl font-normal">{ modalSettings.title }</h3>
         <div className="pt-4 pb-5 px-3" dangerouslySetInnerHTML={{ __html: modalSettings.content }} />
 
-        <div className="modal-footer py-4 px-3 border-t border-gray-500 flex justify-end">
-          { modalSettings.buttons }
-        </div>
+        {modalSettings.buttons && <div className="modal-footer py-4 px-3 border-t border-gray-500 flex justify-end">
+          { getModalButtons(modalSettings.buttons) }
+        </div>}
       </Modal>
 
       <style jsx>{`
