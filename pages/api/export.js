@@ -1,12 +1,12 @@
-const mongoose = require('mongoose')
-const auth = require('basic-auth')
-const compare = require('tsscmp')
-const json2csv = require('json2csv').parse
+import mongoose from 'mongoose'
+import auth from 'basic-auth'
+import compare from 'tsscmp'
+import { parse } from 'json2csv'
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
-const Survey = require('../../models/survey')
-const strategies = require('../../data/strategies')
+import Survey from '../../models/survey'
+import strategies from '../../data/strategies'
 
 function check(name, pass) {
   let valid = true
@@ -41,7 +41,7 @@ const exportResponses = async (request, response) => {
     'language'
   ].concat(strategies.map(strategy => strategy.key))
 
-  const csv = json2csv(surveys, { fields: fieldNames })
+  const csv = parse(surveys, { fields: fieldNames })
 
   response.statusCode = 200
   response.setHeader('Content-Type', 'text/csv')

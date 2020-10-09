@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const strategies = require('../data/strategies')
+import mongoose from 'mongoose'
+import strategies from '../data/strategies' 
 
 const strategyModels = strategies.reduce((memo, strategy) => {
   memo[strategy.key] = Boolean

@@ -1,11 +1,14 @@
-const mongoose = require('mongoose')
-const Survey = require('../../models/survey')
-const strategies = require('../../data/strategies')
+import mongoose from 'mongoose'
+import Survey from '../../models/survey'
+import strategies from '../../data/strategies'
 
 const saveSurvey = async (request, response) => {
   if (request.method === 'POST') {
     try {
-      await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+      await mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      })
 
       const date = new Date()
       const ip = request.headers['x-forwarded-for']
