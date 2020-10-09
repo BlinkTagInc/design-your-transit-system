@@ -63,8 +63,9 @@ const Strategies = ({ language }) => {
   }
 
   const handleResponse = response => {
+    setSubmitting(false)
+
     if (settings.postSurveyURL) {
-      setSubmitting(false)
       setModalSettings({
         ...modalSettings,
         buttons: []
@@ -72,16 +73,13 @@ const Strategies = ({ language }) => {
 
       window.location.assign(`${settings.postSurveyURL[language]}?c=${response.id}`)
     } else {
-      const modalButtons = (
-        <div dangerouslySetInnerHTML={{ __html: settings.text[language].modalPostSubmitButtons }} />
-      )
-
-      setSubmitting(false)
       setModalSettings({
         show: true,
         title: settings.text[language].modalPostSubmitTitle,
         content: settings.text[language].modalPostSubmitContent,
-        buttons: modalButtons
+        buttons: (
+          <div dangerouslySetInnerHTML={{ __html: settings.text[language].modalPostSubmitButtons }} />
+        )
       })
     }
   }

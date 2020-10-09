@@ -42,7 +42,7 @@ const settings = {
       }
     }
   ],
-  saveResponses: false,
+  saveResponses: true,
   costStyle: 'dollar',
   maxCost: 15,
   maxBenefitLevel: 4,
