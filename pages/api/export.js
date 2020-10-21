@@ -38,8 +38,9 @@ const exportResponses = async (request, response) => {
     'timestamp',
     'ip',
     'userAgent',
-    'language'
-  ].concat(strategies.map(strategy => strategy.key))
+    'language',
+    ...strategies.map(strategy => strategy.key)
+  ]
 
   const csv = parse(surveys, { fields: fieldNames })
 
