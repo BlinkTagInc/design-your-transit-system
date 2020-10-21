@@ -19,19 +19,12 @@ const saveSurvey = async (request, response) => {
         timestamp: date.toISOString(),
         ip,
         userAgent: request.headers['user-agent'],
-        language: request.body.language
+        language: request.body.language,
+        ...Object.fromEntries(strategies.map(strategy => [strategy.key, Boolean(request.body[strategy.key])]))
       }
-
-      strategies.forEach(strategy => {
-        survey[strategy.key] = Boolean(request.body[strategy.key])
-      })
-
-      console.log(request.body)
 
       const result = new Survey(survey)
       await result.save()
-
-      console.log(result)
 
       response.status(200).json({ status: 'success', id })
     } catch (error) {
