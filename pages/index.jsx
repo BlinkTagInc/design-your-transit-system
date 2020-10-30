@@ -1,7 +1,7 @@
 import Layout from '../components/layout'
 
-const En = () => (
-  <Layout language="en"></Layout>
-)
+const Index = () => {
+  return <Layout />
+}
 
-export default En
+export default Index

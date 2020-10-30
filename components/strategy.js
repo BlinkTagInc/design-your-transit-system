@@ -1,9 +1,13 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import settings from '../data/settings'
-import { colors, breakpoints } from './theme'
+import { colors, breakpoints } from '../data/theme'
 
-const Strategy = ({ language, strategy, selected, toggleSelected }) => {
+const Strategy = ({ strategy, selected, toggleSelected }) => {
+  const router = useRouter()
+  const { locale } = router
+
   const getCostSign = () => {
     if (settings.costStyle === 'numeric' || strategy.cost === 0) {
       return `$${strategy.cost}`
@@ -21,34 +25,34 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
           className="self-center mx-4 flex-shrink-0"
           type="checkbox"
           name={strategy.key}
-          title={strategy.text[language].title}
+          title={strategy.text[locale].title}
           checked={selected}
           onChange={() => toggleSelected(strategy.key)}
         />
         <div className="flex-shrink-0 mr-4">
           <img
-            src={`/images/icons/${language}/${strategy.key}.png`}
+            src={`/images/icons/${locale}/${strategy.key}.png`}
             alt=""
             className="strategy-image"
             hidden={Boolean(selected)}
           />
           <img
-            src={`/images/icons/${language}/${strategy.key}_inverse.png`}
+            src={`/images/icons/${locale}/${strategy.key}_inverse.png`}
             alt=""
             className="strategy-image"
             hidden={Boolean(!selected)}
           />
         </div>
         <div className="mr-4">
-          <h4 className="strategy-title">{ strategy.text[language].title }</h4>
-          <div className="strategy-description">{ strategy.text[language].description }</div>
+          <h4 className="strategy-title">{ strategy.text[locale].title }</h4>
+          <div className="strategy-description">{ strategy.text[locale].description }</div>
         </div>
       </label>
       <div className="flex-shrink-0">
         <div className="strategy-benefits flex justify-center md:justify-end md:mr-3">
           {settings.benefitCategories.map(benefitCategory => (
             <div className="benefit" key={benefitCategory.key}>
-              <div className="benefit-title">{ benefitCategory.text[language].title }</div>
+              <div className="benefit-title">{ benefitCategory.text[locale].title }</div>
               <div className="benefit-bars-container">
                 <div className="benefit-bars">
                   {[...new Array(strategy.benefits[benefitCategory.key])].map((empty, idx) => (
@@ -60,7 +64,7 @@ const Strategy = ({ language, strategy, selected, toggleSelected }) => {
           ))}
 
           <div className="cost">
-            <div className="cost-title">{ settings.text[language].costTitle }</div>
+            <div className="cost-title">{ settings.text[locale].costTitle }</div>
             <div className="cost-signs">{ getCostSign() }</div>
           </div>
         </div>

@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import settings from '../data/settings'
 import strategies from '../data/strategies'
-import { colors } from './theme'
+import { colors } from '../data/theme'
 
-const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
+const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
+  const router = useRouter()
+  const { locale } = router
   const meterRef = useRef(null)
   const [meterHeight, setMeterHeight] = useState(0)
 
@@ -45,8 +48,8 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
       <div className="flex justify-center md:justify-end">
         <div className="md:mr-3 pt-2">
           <div className="dashboard-titles flex justify-between">
-            <div className="dashboard-title dashboard-title-benefit">{ settings.text[language].dashboardTitleBenefits }</div>
-            <div className="dashboard-title dashboard-title-cost">{ settings.text[language].dashboardTitleCosts }</div>
+            <div className="dashboard-title dashboard-title-benefit">{ settings.text[locale].dashboardTitleBenefits }</div>
+            <div className="dashboard-title dashboard-title-cost">{ settings.text[locale].dashboardTitleCosts }</div>
           </div>
           <div className="dashboard-meters">
             {settings.benefitCategories.map(benefitCategory => (
@@ -56,7 +59,7 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
                     className="dashboard-meter-bar"
                     style={{ height: `${benefitMeterHeights[benefitCategory.key]}px` }}></div>
                 </div>
-                <div className="dashboard-meter-title">{ benefitCategory.text[language].title }</div>
+                <div className="dashboard-meter-title">{ benefitCategory.text[locale].title }</div>
               </div>
             ))}
 
@@ -70,7 +73,7 @@ const Dashboard = ({ language, totalCost, totalBenefits, budgetIsValid }) => {
                   style={{ height: `${costMeterHeight}px` }}></div>
                 <div className="dashboard-meter-value">{ totalCost > 0 ? `$${totalCost}` : '' }</div>
               </div>
-              <div className="dashboard-meter-title">{ settings.text[language].totalCostTitle }</div>
+              <div className="dashboard-meter-title">{ settings.text[locale].totalCostTitle }</div>
             </div>
           </div>
         </div>

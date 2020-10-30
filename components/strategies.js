@@ -1,5 +1,6 @@
 /* global window, fetch */
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import Dashboard from './dashboard'
 import Modal from 'react-modal'
 import settings from '../data/settings'
@@ -9,7 +10,10 @@ import Strategy from './strategy'
 
 Modal.setAppElement('body')
 
-const Strategies = ({ language }) => {
+const Strategies = () => {
+  const router = useRouter()
+  const { locale } = router
+
   const getTotalBenefits = selectedStrategies => {
     return strategies.reduce((memo, strategy) => {
       if (selectedStrategies[strategy.key]) {
@@ -46,8 +50,8 @@ const Strategies = ({ language }) => {
     if (!updatedBudgetIsValid) {
       setModalSettings({
         show: true,
-        title: settings.text[language].modalExceededTitle,
-        content: settings.text[language].modalExceededContent,
+        title: settings.text[locale].modalExceededTitle,
+        content: settings.text[locale].modalExceededContent,
         buttons: ['close']
       })
     }
@@ -71,12 +75,12 @@ const Strategies = ({ language }) => {
         buttons: null
       })
 
-      window.location.assign(`${settings.postSurveyURL[language]}?c=${response.id}`)
+      window.location.assign(`${settings.postSurveyURL[locale]}?c=${response.id}`)
     } else {
       setModalSettings({
         show: true,
-        title: settings.text[language].modalPostSubmitTitle,
-        content: settings.text[language].modalPostSubmitContent,
+        title: settings.text[locale].modalPostSubmitTitle,
+        content: settings.text[locale].modalPostSubmitContent,
         buttons: null
       })
     }
@@ -99,22 +103,22 @@ const Strategies = ({ language }) => {
     if (totalCost === 0) {
       setModalSettings({
         show: true,
-        title: settings.text[language].modalNoneTitle,
-        content: settings.text[language].modalNoneContent,
+        title: settings.text[locale].modalNoneTitle,
+        content: settings.text[locale].modalNoneContent,
         buttons: ['close']
       })
     } else if (totalCost < settings.maxCost) {
       setModalSettings({
         show: true,
-        title: settings.text[language].modalLeftoverTitle,
-        content: settings.text[language].modalLeftoverContent,
+        title: settings.text[locale].modalLeftoverTitle,
+        content: settings.text[locale].modalLeftoverContent,
         buttons: ['goback', 'continue']
       })
     } else if (totalCost > settings.maxCost) {
       setModalSettings({
         show: true,
-        title: settings.text[language].modalExceededTitle,
-        content: settings.text[language].modalExceededContent,
+        title: settings.text[locale].modalExceededTitle,
+        content: settings.text[locale].modalExceededContent,
         buttons: ['close']
       })
     } else if (totalCost === settings.maxCost) {
@@ -125,8 +129,8 @@ const Strategies = ({ language }) => {
   const showSubmitModal = () => {
     setModalSettings({
       show: true,
-      title: settings.text[language].modalSubmitTitle,
-      content: settings.text[language].modalSubmitContent,
+      title: settings.text[locale].modalSubmitTitle,
+      content: settings.text[locale].modalSubmitContent,
       buttons: ['goback', 'submit']
     })
   }
@@ -134,7 +138,7 @@ const Strategies = ({ language }) => {
   const postData = async () => {
     setSubmitting(true)
 
-    const form = { language, ...selectedStrategies }
+    const form = { language: locale, ...selectedStrategies }
 
     if (settings.saveResponses === false) {
       handleResponse({
@@ -178,15 +182,15 @@ const Strategies = ({ language }) => {
   }
 
   let previousCategoryTitle
-  const getCategoryTitle = (strategy, language) => {
-    if (strategy.text[language].category === previousCategoryTitle) {
+  const getCategoryTitle = (strategy, locale) => {
+    if (strategy.text[locale].category === previousCategoryTitle) {
       return ''
     }
 
-    previousCategoryTitle = strategy.text[language].category
+    previousCategoryTitle = strategy.text[locale].category
 
     return (
-      <h3 className="text-xl mt-6 md:mt-3 mb-2 mx-3">{ strategy.text[language].category }</h3>
+      <h3 className="text-xl mt-6 md:mt-3 mb-2 mx-3">{ strategy.text[locale].category }</h3>
     )
   }
 
@@ -198,22 +202,22 @@ const Strategies = ({ language }) => {
     const modalButtons = {
       close: (
         <button className="btn btn-secondary" key="close" onClick={ closeModal } disabled={submitting}>
-          { settings.text[language].modalCloseButton }
+          { settings.text[locale].modalCloseButton }
         </button>
       ),
       goback: (
         <button className="btn btn-secondary" key="goback" onClick={ closeModal } disabled={submitting}>
-          { settings.text[language].modalGoBackButton }
+          { settings.text[locale].modalGoBackButton }
         </button>
       ),
       continue: (
         <button className="btn btn-primary" key="continue" onClick={ showSubmitModal } disabled={submitting}  >
-          { settings.text[language].modalContinueButton }
+          { settings.text[locale].modalContinueButton }
         </button>
       ),
       submit: (
         <button className="btn btn-primary" key="submit" onClick={ postData } disabled={submitting}>
-          { settings.text[language].modalSubmitButton }
+          { settings.text[locale].modalSubmitButton }
         </button>
       )
     }
@@ -225,7 +229,7 @@ const Strategies = ({ language }) => {
     <div>
       <Sticky stickyStyle={{ zIndex: '2' }}>
         <Dashboard
-          language={language}
+          locale={locale}
           totalCost={totalCost}
           totalBenefits={totalBenefits}
           budgetIsValid={budgetIsValid}
@@ -234,10 +238,10 @@ const Strategies = ({ language }) => {
       <form onSubmit={submit}>
         {strategies.map(strategy => (
           <div key={strategy.key}>
-            {getCategoryTitle(strategy, language)}
+            {getCategoryTitle(strategy, locale)}
             <Strategy
               strategy={strategy}
-              language={language}
+              locale={locale}
               selected={Boolean(selectedStrategies[strategy.key])}
               toggleSelected={toggleSelected}
             />
@@ -249,11 +253,11 @@ const Strategies = ({ language }) => {
             className="btn-bottom btn-light"
             onClick={reset}
             disabled={submitting}
-          >{ settings.text[language].resetTitle }</button>
+          >{ settings.text[locale].resetTitle }</button>
           <input
             className="btn-bottom btn-dark"
             type="submit"
-            value={`${settings.text[language].submitTitle}`}
+            value={`${settings.text[locale].submitTitle}`}
             disabled={submitting}
           />
         </div>
