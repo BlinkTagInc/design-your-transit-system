@@ -33,14 +33,16 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
           <img
             src={`/images/icons/${locale}/${strategy.key}.png`}
             alt=""
-            className="strategy-image"
             hidden={Boolean(selected)}
+            width="75"
+            height="75"
           />
           <img
             src={`/images/icons/${locale}/${strategy.key}_inverse.png`}
             alt=""
-            className="strategy-image"
             hidden={Boolean(!selected)}
+            width="75"
+            height="75"
           />
         </div>
         <div className="mr-4">
@@ -81,11 +83,6 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
 
         .strategy-info {
           cursor: pointer;
-        }
-
-        .strategy-image {
-          width: 75px;
-          height: 75px;
         }
 
         .strategy-description {

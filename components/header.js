@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import Image from 'next/image'
 import settings from '../data/settings'
 import { colors, breakpoints } from '../data/theme'
 
@@ -13,7 +14,9 @@ const Header = () => {
   return (
     <div>
       <div className="flex items-center mx-3 my-2 md:m-0">
-        <img className="logo my-0 md:my-2 mr-4" src="/images/logo.png" srcSet="/images/logo.png 1x, /images/logo@2x.png 2x" alt={ settings.text[locale].logoAlt } />
+        <div className="logo my-0 md:my-2 mr-4">
+          <Image src="/images/logo.png" width="90" height="90" alt={ settings.text[locale].logoAlt } />
+        </div>
         <h1 className="title" dangerouslySetInnerHTML={{ __html: settings.text[locale].headerTitle }} />
       </div>
 
