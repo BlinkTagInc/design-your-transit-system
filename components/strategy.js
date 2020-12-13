@@ -33,14 +33,14 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
           <img
             src={`/images/icons/${locale}/${strategy.key}.png`}
             alt=""
-            hidden={Boolean(selected)}
+            className={selected ? 'hidden' : ''}
             width="75"
             height="75"
           />
           <img
             src={`/images/icons/${locale}/${strategy.key}_inverse.png`}
             alt=""
-            hidden={Boolean(!selected)}
+            className={selected ? '' : 'hidden'}
             width="75"
             height="75"
           />
