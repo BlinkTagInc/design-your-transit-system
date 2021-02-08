@@ -144,6 +144,10 @@ const Layout = ({ children }) => {
         .bg-dark {
           background-color: ${colors.cardDark};
         }
+
+        .list-disc {
+          list-style-type: disc;
+        }
       `}</style>
 
       <style jsx>{`
