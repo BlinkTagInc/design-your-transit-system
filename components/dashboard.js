@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import settings from '../data/settings'
@@ -8,8 +8,7 @@ import { colors } from '../data/theme'
 const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
   const router = useRouter()
   const { locale } = router
-  const meterRef = useRef(null)
-  const [meterHeight, setMeterHeight] = useState(0)
+  const meterHeight = 50
 
   const getCostMeterHeight = () => {
     return Math.min(1, totalCost / settings.maxCost) * meterHeight
@@ -35,10 +34,6 @@ const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
       return 'half-full'
     }
   }
-
-  useEffect(() => {
-    setMeterHeight(meterRef.current.offsetHeight)
-  }, [meterRef])
 
   const costMeterHeight = getCostMeterHeight()
   const benefitMeterHeights = getBenefitMeterHeights()
@@ -66,7 +61,6 @@ const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
             <div className="dashboard-container">
               <div
                 className={classNames('dashboard-meter cost', { 'over-budget': !budgetIsValid }, getMeterHeightClass())}
-                ref={meterRef}
               >
                 <div
                   className="dashboard-meter-bar"
