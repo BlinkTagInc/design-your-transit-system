@@ -20,7 +20,7 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
 
   return (
     <div className={classNames('md:flex', 'justify-between', 'strategy', 'mb-1', { selected })}>
-      <label className="strategy-info flex-shrink flex pt-2 md:py-2">
+      <label className="strategy-info flex-shrink flex-grow flex pt-2 md:py-2">
         <input
           className="self-center mx-4 flex-shrink-0"
           type="checkbox"
@@ -45,7 +45,7 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
             height="75"
           />
         </div>
-        <div className="mr-4">
+        <div className="mr-4 flex-grow">
           <h4 className="strategy-title">{ strategy.text[locale].title }</h4>
           <div className="strategy-description">{ strategy.text[locale].description }</div>
         </div>
