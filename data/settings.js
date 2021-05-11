@@ -73,7 +73,7 @@ const settings = {
       modalSubmitTitle: 'Last Chance',
       modalSubmitContent: 'Answers cannot be changed after you submit them.  Are you sure you are ready to submit?',
       modalPostSubmitTitle: 'Get Started Today',
-      modalPostSubmitContent: '<div class="mb-4">BlinkTag has run this survey system with over 40 transit agencies, from Ohio to the San Francisco Bay. <a href="mailto:info@blinktag.com">Get in touch</a> to create a similar survey in your community.</div><a href="https://blinktag.com/projects/design-your-transit-system" class="btn btn-secondary">Read More</a> <a href="https://blinktag.com/contact" class="btn btn-primary">Contact</a>',
+      modalPostSubmitContent: '<div class="mb-2">BlinkTag has run this survey system with over 40 transit agencies, from Ohio to the San Francisco Bay. <a href="mailto:info@blinktag.com">Get in touch</a> to create a similar survey in your community.</div><a href="https://blinktag.com/projects/design-your-transit-system" class="btn btn-secondary">Read More</a> <a href="https://blinktag.com/contact" class="btn btn-primary">Contact</a>',
       modalCloseButton: 'Close',
       modalGoBackButton: 'Go Back',
       modalContinueButton: 'Continue',
