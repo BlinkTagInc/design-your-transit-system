@@ -3,10 +3,10 @@ import auth from 'basic-auth'
 import compare from 'tsscmp'
 import { parse } from 'json2csv'
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+import Survey from '../../models/survey.js'
+import strategies from '../../data/strategies.js'
 
-import Survey from '../../models/survey'
-import strategies from '../../data/strategies'
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 function check(name, pass) {
   let valid = true

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
-import Survey from '../../models/survey'
-import strategies from '../../data/strategies'
+import Survey from '../../models/survey.js'
+import strategies from '../../data/strategies.js'
 
 const saveSurvey = async (request, response) => {
   if (request.method === 'POST') {

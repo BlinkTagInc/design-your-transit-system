@@ -195,7 +195,7 @@ const Strategies = () => {
   }
 
   const getModalButtons = buttonKeys => {
-    if (!buttonKeys || !buttonKeys.length) {
+    if (!buttonKeys || buttonKeys.length === 0) {
       return null
     }
 
@@ -211,7 +211,7 @@ const Strategies = () => {
         </button>
       ),
       continue: (
-        <button className="btn btn-primary" key="continue" onClick={ showSubmitModal } disabled={submitting}  >
+        <button className="btn btn-primary" key="continue" onClick={ showSubmitModal } disabled={submitting} >
           { settings.text[locale].modalContinueButton }
         </button>
       ),
