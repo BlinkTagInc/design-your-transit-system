@@ -1,9 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
-import settings from '../data/settings'
-import strategies from '../data/strategies'
-import { colors } from '../data/theme'
+import settings from '../data/settings.js'
+import strategies from '../data/strategies.js'
+import { colors } from '../data/theme.js'
 
 const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
   const router = useRouter()

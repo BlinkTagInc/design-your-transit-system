@@ -1,12 +1,12 @@
 /* global window, fetch */
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-import Dashboard from './dashboard'
 import Modal from 'react-modal'
-import settings from '../data/settings'
 import Sticky from 'react-sticky-el'
-import strategies from '../data/strategies'
-import Strategy from './strategy'
+import settings from '../data/settings.js'
+import strategies from '../data/strategies.js'
+import Dashboard from './dashboard.js'
+import Strategy from './strategy.js'
 
 Modal.setAppElement('body')
 

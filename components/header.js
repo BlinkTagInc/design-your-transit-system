@@ -2,8 +2,8 @@ import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
-import settings from '../data/settings'
-import { colors, breakpoints } from '../data/theme'
+import settings from '../data/settings.js'
+import { colors, breakpoints } from '../data/theme.js'
 
 const Header = () => {
   const router = useRouter()

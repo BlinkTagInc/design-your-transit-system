@@ -1,8 +1,8 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
-import settings from '../data/settings'
-import { colors, breakpoints } from '../data/theme'
+import settings from '../data/settings.js'
+import { colors, breakpoints } from '../data/theme.js'
 
 const Strategy = ({ strategy, selected, toggleSelected }) => {
   const router = useRouter()

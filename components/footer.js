@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 
-import settings from '../data/settings'
-import { colors } from '../data/theme'
+import settings from '../data/settings.js'
+import { colors } from '../data/theme.js'
 
 const Footer = () => {
   const router = useRouter()

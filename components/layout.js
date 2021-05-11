@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import settings from '../data/settings'
-import Strategies from './strategies'
-import Header from './header'
-import Footer from './footer'
-import { colors } from '../data/theme'
+import settings from '../data/settings.js'
+import { colors } from '../data/theme.js'
+import Strategies from './strategies.js'
+import Header from './header.js'
+import Footer from './footer.js'
 
 const Layout = ({ children }) => {
   const router = useRouter()
