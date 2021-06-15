@@ -61,5 +61,9 @@ The username and password are defined in the `.env` file in the root of the proj
 ## Current Use
 A version of this survey system has been used by over 30 transportation agencies, including Long Beach Transit, Boulder Transit, BART, Santa Monica Big Blue Bus, Lincoln Transit, Chapel Hill Transit, Foothill Transit, Ohio DOT, Salt Lake City and Fort Worth Transportation Authority and The Kauaʻi Bus.
 
+## Lints
+
+    npx next lint
+
 ## License
 This project is licensed under GNU General Public License v3.0.
