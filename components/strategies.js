@@ -1,4 +1,4 @@
-/* global window, fetch */
+/* global window, fetch, alert */
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import Modal from 'react-modal'
@@ -14,22 +14,20 @@ const Strategies = () => {
   const router = useRouter()
   const { locale } = router
 
-  const getTotalBenefits = selectedStrategies => {
-    return strategies.reduce((memo, strategy) => {
-      if (selectedStrategies[strategy.key]) {
-        for (const category of settings.benefitCategories) {
-          memo[category.key] = (memo[category.key] || 0) + strategy.benefits[category.key]
-        }
+  const getTotalBenefits = selectedStrategies => strategies.reduce((memo, strategy) => {
+    if (selectedStrategies[strategy.key]) {
+      for (const category of settings.benefitCategories) {
+        memo[category.key] = (memo[category.key] || 0) + strategy.benefits[category.key]
       }
+    }
 
-      return memo
-    }, {})
-  }
+    return memo
+  }, {})
 
   const [selectedStrategies, setSelectedStrategies] = useState({})
   const [modalSettings, setModalSettings] = useState({
     show: false,
-    buttons: null
+    buttons: null,
   })
   const [totalCost, setTotalCost] = useState(0)
   const [totalBenefits, setTotalBenefits] = useState(getTotalBenefits({}))
@@ -52,7 +50,7 @@ const Strategies = () => {
         show: true,
         title: settings.text[locale].modalExceededTitle,
         content: settings.text[locale].modalExceededContent,
-        buttons: ['close']
+        buttons: ['close'],
       })
     }
   }
@@ -72,7 +70,7 @@ const Strategies = () => {
     if (settings.postSurveyURL) {
       setModalSettings({
         ...modalSettings,
-        buttons: null
+        buttons: null,
       })
 
       window.location.assign(`${settings.postSurveyURL[locale]}?c=${response.id}`)
@@ -81,7 +79,7 @@ const Strategies = () => {
         show: true,
         title: settings.text[locale].modalPostSubmitTitle,
         content: settings.text[locale].modalPostSubmitContent,
-        buttons: null
+        buttons: null,
       })
     }
   }
@@ -90,6 +88,7 @@ const Strategies = () => {
     setSubmitting(false)
 
     console.error(error)
+    /* eslint-disable-next-line no-alert */
     alert(error)
   }
 
@@ -105,21 +104,21 @@ const Strategies = () => {
         show: true,
         title: settings.text[locale].modalNoneTitle,
         content: settings.text[locale].modalNoneContent,
-        buttons: ['close']
+        buttons: ['close'],
       })
     } else if (totalCost < settings.maxCost) {
       setModalSettings({
         show: true,
         title: settings.text[locale].modalLeftoverTitle,
         content: settings.text[locale].modalLeftoverContent,
-        buttons: ['goback', 'continue']
+        buttons: ['goback', 'continue'],
       })
     } else if (totalCost > settings.maxCost) {
       setModalSettings({
         show: true,
         title: settings.text[locale].modalExceededTitle,
         content: settings.text[locale].modalExceededContent,
-        buttons: ['close']
+        buttons: ['close'],
       })
     } else if (totalCost === settings.maxCost) {
       showSubmitModal()
@@ -131,7 +130,7 @@ const Strategies = () => {
       show: true,
       title: settings.text[locale].modalSubmitTitle,
       content: settings.text[locale].modalSubmitContent,
-      buttons: ['goback', 'submit']
+      buttons: ['goback', 'submit'],
     })
   }
 
@@ -142,7 +141,7 @@ const Strategies = () => {
 
     if (settings.saveResponses === false) {
       handleResponse({
-        id: Date.now()
+        id: Date.now(),
       })
     } else {
       try {
@@ -150,8 +149,8 @@ const Strategies = () => {
           method: 'post',
           body: JSON.stringify(form),
           headers: {
-            'Content-Type': 'application/json'
-          }
+            'Content-Type': 'application/json',
+          },
         })
 
         if (!response.ok) {
@@ -167,19 +166,15 @@ const Strategies = () => {
     }
   }
 
-  const getTotalCost = selectedStrategies => {
-    return strategies.reduce((cost, strategy) => {
-      if (selectedStrategies[strategy.key]) {
-        cost += strategy.cost
-      }
+  const getTotalCost = selectedStrategies => strategies.reduce((cost, strategy) => {
+    if (selectedStrategies[strategy.key]) {
+      cost += strategy.cost
+    }
 
-      return cost
-    }, 0)
-  }
+    return cost
+  }, 0)
 
-  const validateBudget = totalCost => {
-    return totalCost <= settings.maxCost
-  }
+  const validateBudget = totalCost => totalCost <= settings.maxCost
 
   let previousCategoryTitle
   const getCategoryTitle = (strategy, locale) => {
@@ -219,7 +214,7 @@ const Strategies = () => {
         <button className="btn btn-primary" key="submit" onClick={ postData } disabled={submitting}>
           { settings.text[locale].modalSubmitButton }
         </button>
-      )
+      ),
     }
 
     return buttonKeys.map(key => modalButtons[key])

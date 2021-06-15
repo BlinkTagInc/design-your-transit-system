@@ -7,7 +7,7 @@ const saveSurvey = async (request, response) => {
     try {
       await mongoose.connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
       })
 
       const date = new Date()
@@ -20,7 +20,7 @@ const saveSurvey = async (request, response) => {
         ip,
         userAgent: request.headers['user-agent'],
         language: request.body.language,
-        ...Object.fromEntries(strategies.map(strategy => [strategy.key, Boolean(request.body[strategy.key])]))
+        ...Object.fromEntries(strategies.map(strategy => [strategy.key, Boolean(request.body[strategy.key])])),
       }
 
       const result = new Survey(survey)

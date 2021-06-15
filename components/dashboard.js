@@ -10,9 +10,7 @@ const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
   const { locale } = router
   const meterHeight = 50
 
-  const getCostMeterHeight = () => {
-    return Math.min(1, totalCost / settings.maxCost) * meterHeight
-  }
+  const getCostMeterHeight = () => Math.min(1, totalCost / settings.maxCost) * meterHeight
 
   const getBenefitMeterHeights = () => {
     const maxBenefits = strategies.reduce((memo, strategy) => {

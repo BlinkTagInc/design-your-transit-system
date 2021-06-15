@@ -28,7 +28,8 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
     "eslint": "^7.28.0",
-    "eslint-config-next": "^11.0.0"
+    "eslint-config-next": "^11.0.0",
+    "eslint-config-xo": "^0.37.0"
   },
   "engines": {
     "node": "14.x"

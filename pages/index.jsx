@@ -1,7 +1,5 @@
 import Layout from '../components/layout.js'
 
-const Index = () => {
-  return <Layout />
-}
+const Index = () => <Layout />
 
 export default Index

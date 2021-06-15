@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
+import Image from 'next/image'
 import settings from '../data/settings.js'
 import { colors, breakpoints } from '../data/theme.js'
 
@@ -30,14 +31,14 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
           onChange={() => toggleSelected(strategy.key)}
         />
         <div className="flex-shrink-0 mr-4">
-          <img
+          <Image
             src={`/images/icons/${locale}/${strategy.key}.png`}
             alt=""
             className={selected ? 'hidden' : ''}
             width="75"
             height="75"
           />
-          <img
+          <Image
             src={`/images/icons/${locale}/${strategy.key}_inverse.png`}
             alt=""
             className={selected ? '' : 'hidden'}

@@ -1,3 +1,29 @@
 {
-  "extends": "next"
+  "extends": [
+    "xo",
+    "next"
+  ],
+  "rules": {
+    "camelcase": [
+      "error",
+      {
+        "properties": "never"
+      }
+    ],
+    "indent": ["error", 2],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^[A-Z]"
+      }
+    ],
+    "semi": [
+      "error",
+      "never"
+    ]
+  }
 }
