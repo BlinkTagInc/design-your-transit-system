@@ -31,20 +31,22 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
           onChange={() => toggleSelected(strategy.key)}
         />
         <div className="flex-shrink-0 mr-4">
-          <Image
-            src={`/images/icons/${locale}/${strategy.key}.png`}
-            alt=""
-            className={selected ? 'hidden' : ''}
-            width="75"
-            height="75"
-          />
-          <Image
-            src={`/images/icons/${locale}/${strategy.key}_inverse.png`}
-            alt=""
-            className={selected ? '' : 'hidden'}
-            width="75"
-            height="75"
-          />
+          <div className={selected ? 'hidden' : ''}>
+            <Image
+              src={`/images/icons/${locale}/${strategy.key}.png`}
+              alt=""
+              width="75"
+              height="75"
+            />
+          </div>
+          <div className={selected ? '' : 'hidden'}>
+            <Image
+              src={`/images/icons/${locale}/${strategy.key}_inverse.png`}
+              alt=""
+              width="75"
+              height="75"
+            />
+          </div>
         </div>
         <div className="mr-4 flex-grow">
           <h4 className="strategy-title">{ strategy.text[locale].title }</h4>
