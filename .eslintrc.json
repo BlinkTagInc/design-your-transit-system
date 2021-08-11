@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "xo",
-    "next"
-  ],
+  "extends": "next/core-web-vitals",
   "rules": {
     "camelcase": [
       "error",
