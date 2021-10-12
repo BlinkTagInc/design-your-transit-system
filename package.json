@@ -10,24 +10,24 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "autoprefixer": "^10.3.3",
+    "autoprefixer": "^10.3.7",
     "basic-auth": "^2.0.1",
     "classnames": "^2.3.1",
     "color": "^4.0.1",
     "json2csv": "^5.0.6",
-    "mongoose": "^6.0.3",
+    "mongoose": "^6.0.10",
     "next": "^11.1.2",
-    "postcss": "^8.3.6",
+    "postcss": "^8.3.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-modal": "^3.14.3",
     "react-sticky-el": "^2.0.9",
-    "tailwindcss": "^2.2.9",
+    "tailwindcss": "^2.2.16",
     "tsscmp": "^1.0.6"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
-    "eslint": "7.32.0",
+    "eslint": "8.0.0",
     "eslint-config-next": "11.1.2"
   },
   "engines": {
