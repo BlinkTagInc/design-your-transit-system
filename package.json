@@ -10,25 +10,25 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.4.2",
     "basic-auth": "^2.0.1",
     "classnames": "^2.3.1",
-    "color": "^4.1.0",
+    "color": "^4.2.0",
     "json2csv": "^5.0.6",
-    "mongoose": "^6.1.0",
-    "next": "^12.0.7",
-    "postcss": "^8.4.4",
+    "mongoose": "^6.1.7",
+    "next": "^12.0.8",
+    "postcss": "^8.4.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-modal": "^3.14.4",
     "react-sticky-el": "^2.0.9",
-    "tailwindcss": "^2.2.19",
+    "tailwindcss": "^3.0.15",
     "tsscmp": "^1.0.6"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.1.3",
-    "eslint": "8.4.1",
-    "eslint-config-next": "12.0.7"
+    "eslint": "8.7.0",
+    "eslint-config-next": "12.0.8"
   },
   "engines": {
     "node": "16.x"
