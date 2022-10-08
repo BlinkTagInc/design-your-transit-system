@@ -20,7 +20,11 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
   }
 
   return (
-    <div className={classNames('md:flex', 'justify-between', 'strategy', 'mb-1', { selected })}>
+    <div
+      className={classNames('md:flex', 'justify-between', 'strategy', 'mb-1', {
+        selected,
+      })}
+    >
       <label className="strategy-info flex-shrink flex-grow flex pt-2 md:py-2">
         <input
           className="self-center mx-4 flex-shrink-0"
@@ -49,28 +53,34 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
           </div>
         </div>
         <div className="mr-4 flex-grow">
-          <h4 className="strategy-title">{ strategy.text[locale].title }</h4>
-          <div className="strategy-description">{ strategy.text[locale].description }</div>
+          <h4 className="strategy-title">{strategy.text[locale].title}</h4>
+          <div className="strategy-description">
+            {strategy.text[locale].description}
+          </div>
         </div>
       </label>
       <div className="flex-shrink-0">
         <div className="strategy-benefits flex justify-center md:justify-end md:mr-3">
-          {settings.benefitCategories.map(benefitCategory => (
+          {settings.benefitCategories.map((benefitCategory) => (
             <div className="benefit" key={benefitCategory.key}>
-              <div className="benefit-title">{ benefitCategory.text[locale].title }</div>
+              <div className="benefit-title">
+                {benefitCategory.text[locale].title}
+              </div>
               <div className="benefit-bars-container">
                 <div className="benefit-bars">
-                  {[...new Array(strategy.benefits[benefitCategory.key])].map((empty, idx) => (
-                    <div className="bar" key={idx} />
-                  ))}
+                  {[...new Array(strategy.benefits[benefitCategory.key])].map(
+                    (empty, idx) => (
+                      <div className="bar" key={idx} />
+                    )
+                  )}
                 </div>
               </div>
             </div>
           ))}
 
           <div className="cost">
-            <div className="cost-title">{ settings.text[locale].costTitle }</div>
-            <div className="cost-signs">{ getCostSign() }</div>
+            <div className="cost-title">{settings.text[locale].costTitle}</div>
+            <div className="cost-signs">{getCostSign()}</div>
           </div>
         </div>
       </div>
@@ -146,7 +156,7 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
         .strategy.selected .strategy-benefits {
           color: ${colors.strategySelectedText};
         }
-        
+
         .strategy.selected .strategy-benefits .cost-signs {
           color: ${colors.strategySelectedText};
         }

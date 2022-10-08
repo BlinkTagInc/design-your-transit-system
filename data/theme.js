@@ -41,10 +41,10 @@ export const colors = {
   strategySelected: red,
   strategySelectedText: white,
   strategyBar: yellow,
-  strategyCostSigns: green
+  strategyCostSigns: green,
 }
 
 export const breakpoints = {
   medium: '768px',
-  large: '992px'
+  large: '992px',
 }

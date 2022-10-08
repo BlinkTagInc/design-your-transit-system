@@ -10,19 +10,23 @@ const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
   const { locale } = router
   const meterHeight = 50
 
-  const getCostMeterHeight = () => Math.min(1, totalCost / settings.maxCost) * meterHeight
+  const getCostMeterHeight = () =>
+    Math.min(1, totalCost / settings.maxCost) * meterHeight
 
   const getBenefitMeterHeights = () => {
     const maxBenefits = strategies.reduce((memo, strategy) => {
       for (const category of settings.benefitCategories) {
-        memo[category.key] = (memo[category.key] || 0) + strategy.benefits[category.key]
+        memo[category.key] =
+          (memo[category.key] || 0) + strategy.benefits[category.key]
       }
 
       return memo
     }, {})
 
     return settings.benefitCategories.reduce((memo, category) => {
-      memo[category.key] = (totalBenefits[category.key] || 0) / maxBenefits[category.key] * meterHeight
+      memo[category.key] =
+        ((totalBenefits[category.key] || 0) / maxBenefits[category.key]) *
+        meterHeight
       return memo
     }, {})
   }
@@ -41,31 +45,53 @@ const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
       <div className="flex justify-center md:justify-end">
         <div className="md:mr-3 pt-2">
           <div className="dashboard-titles flex justify-between">
-            <div className="dashboard-title dashboard-title-benefit">{ settings.text[locale].dashboardTitleBenefits }</div>
-            <div className="dashboard-title dashboard-title-cost">{ settings.text[locale].dashboardTitleCosts }</div>
+            <div className="dashboard-title dashboard-title-benefit">
+              {settings.text[locale].dashboardTitleBenefits}
+            </div>
+            <div className="dashboard-title dashboard-title-cost">
+              {settings.text[locale].dashboardTitleCosts}
+            </div>
           </div>
           <div className="dashboard-meters">
-            {settings.benefitCategories.map(benefitCategory => (
-              <div className="dashboard-container" id={benefitCategory.key} key={benefitCategory.key}>
+            {settings.benefitCategories.map((benefitCategory) => (
+              <div
+                className="dashboard-container"
+                id={benefitCategory.key}
+                key={benefitCategory.key}
+              >
                 <div className="dashboard-meter">
                   <div
                     className="dashboard-meter-bar"
-                    style={{ height: `${benefitMeterHeights[benefitCategory.key]}px` }}></div>
+                    style={{
+                      height: `${benefitMeterHeights[benefitCategory.key]}px`,
+                    }}
+                  ></div>
                 </div>
-                <div className="dashboard-meter-title">{ benefitCategory.text[locale].title }</div>
+                <div className="dashboard-meter-title">
+                  {benefitCategory.text[locale].title}
+                </div>
               </div>
             ))}
 
             <div className="dashboard-container">
               <div
-                className={classNames('dashboard-meter cost', { 'over-budget': !budgetIsValid }, getMeterHeightClass())}
+                className={classNames(
+                  'dashboard-meter cost',
+                  { 'over-budget': !budgetIsValid },
+                  getMeterHeightClass()
+                )}
               >
                 <div
                   className="dashboard-meter-bar"
-                  style={{ height: `${costMeterHeight}px` }}></div>
-                <div className="dashboard-meter-value">{ totalCost > 0 ? `$${totalCost}` : '' }</div>
+                  style={{ height: `${costMeterHeight}px` }}
+                ></div>
+                <div className="dashboard-meter-value">
+                  {totalCost > 0 ? `$${totalCost}` : ''}
+                </div>
               </div>
-              <div className="dashboard-meter-title">{ settings.text[locale].totalCostTitle }</div>
+              <div className="dashboard-meter-title">
+                {settings.text[locale].totalCostTitle}
+              </div>
             </div>
           </div>
         </div>
@@ -104,11 +130,17 @@ const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
           overflow: hidden;
         }
 
-        .dashboard .dashboard-meters  .dashboard-meter.cost .dashboard-meter-bar {
+        .dashboard
+          .dashboard-meters
+          .dashboard-meter.cost
+          .dashboard-meter-bar {
           background: ${colors.dashboardMeterCost};
         }
 
-        .dashboard .dashboard-meters .dashboard-meter.over-budget .dashboard-meter-bar {
+        .dashboard
+          .dashboard-meters
+          .dashboard-meter.over-budget
+          .dashboard-meter-bar {
           background: ${colors.dashboardMeterOverCost};
         }
 
@@ -129,7 +161,10 @@ const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
           font-weight: bold;
         }
 
-        .dashboard .dashboard-meters .dashboard-meter.half-full .dashboard-meter-value {
+        .dashboard
+          .dashboard-meters
+          .dashboard-meter.half-full
+          .dashboard-meter-value {
           color: ${colors.dashboardMeterTextLight};
           text-shadow: 0px 0px 2px ${colors.dashboardMeterTextLightShadow};
         }

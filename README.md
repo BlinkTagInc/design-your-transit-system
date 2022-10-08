@@ -1,9 +1,7 @@
 # Design Your Transit System
 
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-
-
 ## Description
+
 This is a web-based survey system for collecting user preferences about improvements. It can be used to survey about any set of options, but has been tailored to be used for surveying about transportation investments and improvements.
 
 Users are given a "budget" and asked to spend it on a set of investments and improvements. The budget provided isn't enough to cover all of the options, so users have to make choices. Users are shown the costs and benefits they have accrued as they add and remove options. In this way, the survey serves two purposes: collecting data on user preferences while at the same time educating users about the costs and benefits of investments and improvements in transit systems.
@@ -59,6 +57,7 @@ While running the app, visit:
 The username and password are defined in the `.env` file in the root of the project.
 
 ## Current Use
+
 A version of this survey system has been used by over 30 transportation agencies, including Long Beach Transit, Boulder Transit, BART, Santa Monica Big Blue Bus, Lincoln Transit, Chapel Hill Transit, Foothill Transit, Ohio DOT, Salt Lake City and Fort Worth Transportation Authority and The Kauaʻi Bus.
 
 ## Lints
@@ -66,4 +65,5 @@ A version of this survey system has been used by over 30 transportation agencies
     npx next lint
 
 ## License
+
 This project is licensed under GNU General Public License v3.0.

@@ -20,7 +20,12 @@ const saveSurvey = async (request, response) => {
         ip,
         userAgent: request.headers['user-agent'],
         language: request.body.language,
-        ...Object.fromEntries(strategies.map(strategy => [strategy.key, Boolean(request.body[strategy.key])])),
+        ...Object.fromEntries(
+          strategies.map((strategy) => [
+            strategy.key,
+            Boolean(request.body[strategy.key]),
+          ])
+        ),
       }
 
       const result = new Survey(survey)

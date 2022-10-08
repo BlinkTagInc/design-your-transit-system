@@ -12,7 +12,7 @@ const surveySchema = new mongoose.Schema({
   ip: String,
   userAgent: String,
   language: String,
-  ...strategyModels
+  ...strategyModels,
 })
 
 export default mongoose.models.survey || mongoose.model('survey', surveySchema)

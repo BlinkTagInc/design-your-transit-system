@@ -14,15 +14,17 @@ const Strategies = () => {
   const router = useRouter()
   const { locale } = router
 
-  const getTotalBenefits = selectedStrategies => strategies.reduce((memo, strategy) => {
-    if (selectedStrategies[strategy.key]) {
-      for (const category of settings.benefitCategories) {
-        memo[category.key] = (memo[category.key] || 0) + strategy.benefits[category.key]
+  const getTotalBenefits = (selectedStrategies) =>
+    strategies.reduce((memo, strategy) => {
+      if (selectedStrategies[strategy.key]) {
+        for (const category of settings.benefitCategories) {
+          memo[category.key] =
+            (memo[category.key] || 0) + strategy.benefits[category.key]
+        }
       }
-    }
 
-    return memo
-  }, {})
+      return memo
+    }, {})
 
   const [selectedStrategies, setSelectedStrategies] = useState({})
   const [modalSettings, setModalSettings] = useState({
@@ -34,7 +36,7 @@ const Strategies = () => {
   const [budgetIsValid, setBudgetIsValid] = useState(true)
   const [submitting, setSubmitting] = useState(false)
 
-  const toggleSelected = strategyKey => {
+  const toggleSelected = (strategyKey) => {
     selectedStrategies[strategyKey] = !selectedStrategies[strategyKey]
     const updatedTotalCost = getTotalCost(selectedStrategies)
     const updatedTotalBenefits = getTotalBenefits(selectedStrategies)
@@ -55,7 +57,7 @@ const Strategies = () => {
     }
   }
 
-  const reset = event => {
+  const reset = (event) => {
     event.preventDefault()
 
     setSelectedStrategies({})
@@ -64,7 +66,7 @@ const Strategies = () => {
     setBudgetIsValid(true)
   }
 
-  const handleResponse = response => {
+  const handleResponse = (response) => {
     setSubmitting(false)
 
     if (settings.postSurveyURL) {
@@ -73,7 +75,9 @@ const Strategies = () => {
         buttons: null,
       })
 
-      window.location.assign(`${settings.postSurveyURL[locale]}?c=${response.id}`)
+      window.location.assign(
+        `${settings.postSurveyURL[locale]}?c=${response.id}`
+      )
     } else {
       setModalSettings({
         show: true,
@@ -84,7 +88,7 @@ const Strategies = () => {
     }
   }
 
-  const handleError = error => {
+  const handleError = (error) => {
     setSubmitting(false)
 
     console.error(error)
@@ -96,7 +100,7 @@ const Strategies = () => {
     setModalSettings({ show: false })
   }
 
-  const submit = event => {
+  const submit = (event) => {
     event.preventDefault()
 
     if (totalCost === 0) {
@@ -166,15 +170,16 @@ const Strategies = () => {
     }
   }
 
-  const getTotalCost = selectedStrategies => strategies.reduce((cost, strategy) => {
-    if (selectedStrategies[strategy.key]) {
-      cost += strategy.cost
-    }
+  const getTotalCost = (selectedStrategies) =>
+    strategies.reduce((cost, strategy) => {
+      if (selectedStrategies[strategy.key]) {
+        cost += strategy.cost
+      }
 
-    return cost
-  }, 0)
+      return cost
+    }, 0)
 
-  const validateBudget = totalCost => totalCost <= settings.maxCost
+  const validateBudget = (totalCost) => totalCost <= settings.maxCost
 
   let previousCategoryTitle
   const getCategoryTitle = (strategy, locale) => {
@@ -185,39 +190,61 @@ const Strategies = () => {
     previousCategoryTitle = strategy.text[locale].category
 
     return (
-      <h3 className="text-xl mt-6 md:mt-3 mb-2 mx-3">{ strategy.text[locale].category }</h3>
+      <h3 className="text-xl mt-6 md:mt-3 mb-2 mx-3">
+        {strategy.text[locale].category}
+      </h3>
     )
   }
 
-  const getModalButtons = buttonKeys => {
+  const getModalButtons = (buttonKeys) => {
     if (!buttonKeys || buttonKeys.length === 0) {
       return null
     }
 
     const modalButtons = {
       close: (
-        <button className="btn btn-secondary" key="close" onClick={ closeModal } disabled={submitting}>
-          { settings.text[locale].modalCloseButton }
+        <button
+          className="btn btn-secondary"
+          key="close"
+          onClick={closeModal}
+          disabled={submitting}
+        >
+          {settings.text[locale].modalCloseButton}
         </button>
       ),
       goback: (
-        <button className="btn btn-secondary" key="goback" onClick={ closeModal } disabled={submitting}>
-          { settings.text[locale].modalGoBackButton }
+        <button
+          className="btn btn-secondary"
+          key="goback"
+          onClick={closeModal}
+          disabled={submitting}
+        >
+          {settings.text[locale].modalGoBackButton}
         </button>
       ),
       continue: (
-        <button className="btn btn-primary" key="continue" onClick={ showSubmitModal } disabled={submitting} >
-          { settings.text[locale].modalContinueButton }
+        <button
+          className="btn btn-primary"
+          key="continue"
+          onClick={showSubmitModal}
+          disabled={submitting}
+        >
+          {settings.text[locale].modalContinueButton}
         </button>
       ),
       submit: (
-        <button className="btn btn-primary" key="submit" onClick={ postData } disabled={submitting}>
-          { settings.text[locale].modalSubmitButton }
+        <button
+          className="btn btn-primary"
+          key="submit"
+          onClick={postData}
+          disabled={submitting}
+        >
+          {settings.text[locale].modalSubmitButton}
         </button>
       ),
     }
 
-    return buttonKeys.map(key => modalButtons[key])
+    return buttonKeys.map((key) => modalButtons[key])
   }
 
   return (
@@ -231,7 +258,7 @@ const Strategies = () => {
         />
       </Sticky>
       <form onSubmit={submit}>
-        {strategies.map(strategy => (
+        {strategies.map((strategy) => (
           <div key={strategy.key}>
             {getCategoryTitle(strategy, locale)}
             <Strategy
@@ -248,7 +275,9 @@ const Strategies = () => {
             className="btn-bottom btn-light"
             onClick={reset}
             disabled={submitting}
-          >{ settings.text[locale].resetTitle }</button>
+          >
+            {settings.text[locale].resetTitle}
+          </button>
           <input
             className="btn-bottom btn-dark"
             type="submit"
@@ -265,12 +294,19 @@ const Strategies = () => {
         className="modal-content"
         overlayClassName="modal-overlay"
       >
-        <h3 className="py-4 px-3 border-b border-gray-500 text-2xl font-normal">{ modalSettings.title }</h3>
-        <div className="pt-4 pb-5 px-3" dangerouslySetInnerHTML={{ __html: modalSettings.content }} />
+        <h3 className="py-4 px-3 border-b border-gray-500 text-2xl font-normal">
+          {modalSettings.title}
+        </h3>
+        <div
+          className="pt-4 pb-5 px-3"
+          dangerouslySetInnerHTML={{ __html: modalSettings.content }}
+        />
 
-        {modalSettings.buttons && <div className="modal-footer py-4 px-3 border-t border-gray-500 flex justify-end">
-          { getModalButtons(modalSettings.buttons) }
-        </div>}
+        {modalSettings.buttons && (
+          <div className="modal-footer py-4 px-3 border-t border-gray-500 flex justify-end">
+            {getModalButtons(modalSettings.buttons)}
+          </div>
+        )}
       </Modal>
 
       <style jsx>{`
@@ -292,9 +328,9 @@ const Strategies = () => {
           position: relative;
           max-width: 500px;
           margin: 1.75rem auto;
-          background-color: #fff; 
-          border: 1px solid rgba(0,0,0,.2);
-          border-radius: .3rem;
+          background-color: #fff;
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 0.3rem;
           outline: 0;
         }
 
@@ -304,7 +340,7 @@ const Strategies = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: rgba(0,0,0,0.5);
+          background: rgba(0, 0, 0, 0.5);
           z-index: 10;
         }
 
