@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <div>
       <div className="flex items-center mx-3 my-2 md:m-0">
-        <div className="logo my-0 md:my-2 mr-4">
+        <div className="logo my-0 md:my-2 mr-4 shrink-0">
           <Image
             src="/images/logo.png"
             width="90"
