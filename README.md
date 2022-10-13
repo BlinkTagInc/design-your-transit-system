@@ -10,7 +10,7 @@ The results of the survey can be exported by an admin as a CSV file for use in c
 
 The system supports multiple languages, see the `data/settings.js` and `data/strategies.js` for an example of how to set up more than one language.
 
-An example can be seen at http://design-your-transit-system.blinktag.com/
+An example can be seen at https://design-your-transit-system.blinktag.com/
 
 ## Local setup
 
@@ -52,7 +52,7 @@ The `ADMIN_USERNAME` and `ADMIN_PASSWORD` are used for bulk .csv export of surve
 
 While running the app, visit:
 
-    http://localhost:3000/export
+    http://localhost:3000/api/export
 
 The username and password are defined in the `.env` file in the root of the project.
 
