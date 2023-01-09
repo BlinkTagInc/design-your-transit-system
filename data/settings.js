@@ -68,7 +68,7 @@ const settings = {
       resetTitle: 'Reset',
       submitTitle: 'Submit',
       footerCopyright:
-        '&copy; 2021 <a href="https://blinktag.com">BlinkTag Inc</a>',
+        '&copy; 2023 <a href="https://blinktag.com">BlinkTag Inc</a>',
       footerAbout:
         'This was created by BlinkTag Inc as an example "Design Your Transit System" survey for <a href="http://playapillar.com">Black Rock Transit</a>.',
       modalExceededTitle: 'Budget Exhausted',
@@ -110,7 +110,7 @@ const settings = {
       resetTitle: 'Reiniciar',
       submitTitle: 'Enviar',
       footerCopyright:
-        '&copy; 2021 <a href="https://blinktag.com">BlinkTag Inc<a>',
+        '&copy; 2023 <a href="https://blinktag.com">BlinkTag Inc<a>',
       footerAbout:
         'Esto fue creado por Blink Tag Inc como un ejemplo de "Diseño de su sistema de tránsito" encuesta de <a href="http://playapillar.com">Black Rock Transit</a>.',
       modalExceededTitle: 'Presupuesto agotado',

@@ -66,10 +66,12 @@ const Header = () => {
             </dl>
           </div>
 
-          <Link href="/" locale={oppositeLocale}>
-            <a className="btn btn-light btn-block mx-3 md:mx-0 mb-8 md:mb-0">
-              {settings.text[locale].translationContent}
-            </a>
+          <Link
+            href="/"
+            locale={oppositeLocale}
+            className="btn btn-light btn-block mx-3 md:mx-0 mb-8 md:mb-0"
+          >
+            {settings.text[locale].translationContent}
           </Link>
         </div>
       </div>

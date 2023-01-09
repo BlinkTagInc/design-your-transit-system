@@ -28,13 +28,12 @@ On OS X, if you have [brew](https://brew.sh/) installed:
 
 ### Create a .env file
 
-Create a file in the project root called `.env`. Setup values for `MONGODB_URI`, `ADMIN_USERNAME`, and `ADMIN_PASSWORD`.
+Create a file in the project root called `.env`. Setup values for `MONGODB_URI` and `BASIC_AUTH_CREDENTIALS`.
 
     MONGODB_URI=mongodb://127.0.0.1:27017/yoursurveydatabase
-    ADMIN_USERNAME=username
-    ADMIN_PASSWORD=securepassword
+    BASIC_AUTH_CREDENTIALS=username:password
 
-The `ADMIN_USERNAME` and `ADMIN_PASSWORD` are used for bulk .csv export of survey responses.
+The `BASIC_AUTH_CREDENTIALS` are used for bulk .csv export of survey responses.
 
 ### Start mongodb
 
