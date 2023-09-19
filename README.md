@@ -19,12 +19,11 @@ An example can be seen at https://design-your-transit-system.blinktag.com/
 On OS X, if you have [brew](https://brew.sh/) installed:
 
     brew install node
-    brew install yarn
     brew install mongodb
 
 ### Install dependencies
 
-    yarn
+    npm install
 
 ### Create a .env file
 
@@ -41,7 +40,7 @@ The `BASIC_AUTH_CREDENTIALS` are used for bulk .csv export of survey responses.
 
 ### In a new tab, run the app
 
-    yarn dev
+    npm run dev
 
 ### Open your browser and visit:
 
