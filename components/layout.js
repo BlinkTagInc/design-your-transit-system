@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { Lato } from 'next/font/google'
 
 import settings from '../data/settings.js'
 import { colors } from '../data/theme.js'
@@ -7,12 +8,18 @@ import Strategies from './strategies.js'
 import Header from './header.js'
 import Footer from './footer.js'
 
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+})
+
 const Layout = ({ children }) => {
   const router = useRouter()
   const { locale } = router
 
   return (
-    <div>
+    <div className={lato.className}>
       <Head>
         <title>{settings.text[locale].siteTitle}</title>
         <meta charSet="utf-8" />
@@ -103,8 +110,10 @@ const Layout = ({ children }) => {
           font-size: 1rem;
           line-height: 1.5;
           border-radius: 0.25rem;
-          transition: color 0.15s ease-in-out,
-            background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+          transition:
+            color 0.15s ease-in-out,
+            background-color 0.15s ease-in-out,
+            border-color 0.15s ease-in-out,
             box-shadow 0.15s ease-in-out;
         }
 
