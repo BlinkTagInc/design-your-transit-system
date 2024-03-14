@@ -270,7 +270,13 @@ const Strategies = () => {
           </div>
         ))}
 
-        <div className="my-5 mx-4 md:mx-0">
+        <div className="my-5 mx-4 md:mx-0 flex flex-row-reverse">
+          <input
+            className="btn-bottom btn-dark"
+            type="submit"
+            value={`${settings.text[locale].submitTitle}`}
+            disabled={submitting}
+          />
           <button
             className="btn-bottom btn-light"
             onClick={reset}
@@ -278,12 +284,6 @@ const Strategies = () => {
           >
             {settings.text[locale].resetTitle}
           </button>
-          <input
-            className="btn-bottom btn-dark"
-            type="submit"
-            value={`${settings.text[locale].submitTitle}`}
-            disabled={submitting}
-          />
         </div>
       </form>
 

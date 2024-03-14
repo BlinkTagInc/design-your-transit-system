@@ -87,7 +87,6 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
       <style jsx>{`
         .strategy {
           background: ${colors.strategy};
-          cursor: pointer;
         }
 
         .strategy.selected {
@@ -147,6 +146,7 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
           font-weight: bold;
           color: ${colors.strategyCostSigns};
           font-size: 20px;
+          word-break: break-word;
         }
 
         .strategy.selected .strategy-info {

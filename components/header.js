@@ -42,7 +42,7 @@ const Header = () => {
             }}
           />
           <div className="bg-dark rounded-md text-white py-5 px-5 md:px-8 mx-3 md:mx-0 mb-5">
-            <h3 className="mb-2">{settings.text[locale].howItWorksTitle}</h3>
+            <h2 className="mb-2">{settings.text[locale].howItWorksTitle}</h2>
             <div
               className="pl-8"
               dangerouslySetInnerHTML={{
