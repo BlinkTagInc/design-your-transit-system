@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import classNames from 'classnames'
+import clsx from 'clsx'
 import settings from '../data/settings.js'
 import strategies from '../data/strategies.js'
 import { colors } from '../data/theme.js'
@@ -75,7 +75,7 @@ const Dashboard = ({ totalCost, totalBenefits, budgetIsValid }) => {
 
             <div className="dashboard-container">
               <div
-                className={classNames(
+                className={clsx(
                   'dashboard-meter cost',
                   { 'over-budget': !budgetIsValid },
                   getMeterHeightClass()

@@ -1,7 +1,8 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import classNames from 'classnames'
 import Image from 'next/image'
+import clsx from 'clsx'
+import slugify from 'slugify'
 import settings from '../data/settings.js'
 import { colors, breakpoints } from '../data/theme.js'
 
@@ -21,7 +22,7 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
 
   return (
     <div
-      className={classNames('md:flex', 'justify-between', 'strategy', 'mb-1', {
+      className={clsx('md:flex', 'justify-between', 'strategy', 'mb-1', {
         selected,
       })}
     >
@@ -62,7 +63,7 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
       <div className="flex-shrink-0">
         <div className="strategy-benefits flex justify-center md:justify-end md:mr-3">
           {settings.benefitCategories.map((benefitCategory) => (
-            <div className="benefit" key={benefitCategory.key}>
+            <div className={clsx('benefit', slugify(benefitCategory.key,  { lower: true }))} key={benefitCategory.key}>
               <div className="benefit-title">
                 {benefitCategory.text[locale].title}
               </div>
