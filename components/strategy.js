@@ -26,16 +26,16 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
         selected,
       })}
     >
-      <label className="strategy-info flex-shrink flex-grow flex pt-2 md:py-2">
+      <label className="strategy-info shrink grow flex pt-2 md:py-2">
         <input
-          className="self-center mx-4 flex-shrink-0"
+          className="self-center mx-4 shrink-0"
           type="checkbox"
           name={strategy.key}
           title={strategy.text[locale].title}
           checked={selected}
           onChange={() => toggleSelected(strategy.key)}
         />
-        <div className="flex-shrink-0 mr-4">
+        <div className="shrink-0 mr-4">
           <div className={selected ? 'hidden' : ''}>
             <Image
               src={`/images/icons/${locale}/${strategy.key}.png`}
@@ -53,17 +53,23 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
             />
           </div>
         </div>
-        <div className="mr-4 flex-grow">
+        <div className="mr-4 grow">
           <h4 className="strategy-title">{strategy.text[locale].title}</h4>
           <div className="strategy-description">
             {strategy.text[locale].description}
           </div>
         </div>
       </label>
-      <div className="flex-shrink-0">
+      <div className="shrink-0">
         <div className="strategy-benefits flex justify-center md:justify-end md:mr-3">
           {settings.benefitCategories.map((benefitCategory) => (
-            <div className={clsx('benefit', slugify(benefitCategory.key,  { lower: true }))} key={benefitCategory.key}>
+            <div
+              className={clsx(
+                'benefit',
+                slugify(benefitCategory.key, { lower: true }),
+              )}
+              key={benefitCategory.key}
+            >
               <div className="benefit-title">
                 {benefitCategory.text[locale].title}
               </div>
@@ -72,7 +78,7 @@ const Strategy = ({ strategy, selected, toggleSelected }) => {
                   {[...new Array(strategy.benefits[benefitCategory.key])].map(
                     (empty, idx) => (
                       <div className="bar" key={idx} />
-                    )
+                    ),
                   )}
                 </div>
               </div>
