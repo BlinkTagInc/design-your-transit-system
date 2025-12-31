@@ -4,10 +4,7 @@ import { parse } from 'json2csv'
 import Survey from '../../models/survey.js'
 import strategies from '../../data/strategies.js'
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGODB_URI)
 
 const exportResponses = async (request, response) => {
   const surveys = await Survey.find()
@@ -27,7 +24,7 @@ const exportResponses = async (request, response) => {
   response.setHeader('Content-Type', 'text/csv')
   response.setHeader(
     'content-disposition',
-    'attachment; filename=responses.csv'
+    'attachment; filename=responses.csv',
   )
   response.end(csv)
 }

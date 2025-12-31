@@ -5,10 +5,7 @@ import strategies from '../../data/strategies.js'
 const saveSurvey = async (request, response) => {
   if (request.method === 'POST') {
     try {
-      await mongoose.connect(process.env.MONGODB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      })
+      await mongoose.connect(process.env.MONGODB_URI)
 
       const date = new Date()
       const ip = request.headers['x-forwarded-for']
@@ -24,7 +21,7 @@ const saveSurvey = async (request, response) => {
           strategies.map((strategy) => [
             strategy.key,
             Boolean(request.body[strategy.key]),
-          ])
+          ]),
         ),
       }
 
