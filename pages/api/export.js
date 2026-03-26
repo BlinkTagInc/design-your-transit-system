@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { parse } from 'json2csv'
+import { stringify } from 'csv-stringify/sync'
 
 import Survey from '../../models/survey.js'
 import strategies from '../../data/strategies.js'
@@ -18,7 +18,17 @@ const exportResponses = async (request, response) => {
     ...strategies.map((strategy) => strategy.key),
   ]
 
-  const csv = parse(surveys, { fields: fieldNames })
+  const csvRows = surveys.map((survey) =>
+    fieldNames.reduce((row, fieldName) => {
+      row[fieldName] = survey[fieldName]
+      return row
+    }, {}),
+  )
+
+  const csv = stringify(csvRows, {
+    columns: fieldNames,
+    header: true,
+  })
 
   response.statusCode = 200
   response.setHeader('Content-Type', 'text/csv')
